@@ -19,6 +19,7 @@ const EXAM_FILES = [
 
 const STORAGE_KEY = "study_sprint_state_v1";
 const RANDOM_LIMIT = 50;
+const RANDOM_BANK_FILE = "data/banco_unificado.json";
 
 const ui = {
   screenStart: document.getElementById("screen-start"),
@@ -225,14 +226,35 @@ async function loadSpecificExamQuestions(examId) {
 // Objetivo general: construir un examen aleatorio global usando todos los bancos.
 // Flujo específico: carga todos los JSON en paralelo -> aplana -> mezcla -> recorta a límite.
 async function loadRandomExamQuestions() {
-  // Fetch concurrente de todos los bancos.
-  const allSets = await Promise.all(EXAM_FILES.map((exam) => fetchJson(exam.archivo)));
-  // Une todas las preguntas en un solo array.
-  const joined = allSets.flat();
-  // Baraja para aleatoriedad.
-  const shuffled = shuffle(joined);
-  // Limita a RANDOM_LIMIT sin exceder total disponible.
-  return shuffled.slice(0, Math.min(RANDOM_LIMIT, shuffled.length));
+  // Carga el banco consolidado y toma 50 preguntas aleatorias desde su array global.
+  return getRandomQuestionsFromUnifiedFile(RANDOM_BANK_FILE, RANDOM_LIMIT);
+}
+
+// getRandomQuestionsFromUnifiedFile:
+// Objetivo general: obtener preguntas aleatorias a partir del archivo consolidado de bancos.
+// Flujo específico: fetch del banco unificado -> extrae preguntas -> mezcla -> devuelve hasta el limite.
+async function getRandomQuestionsFromUnifiedFile(unifiedPath, limit = 50) {
+  const unifiedData = await fetchUnifiedJson(unifiedPath);
+  const globalQuestions = Array.isArray(unifiedData.preguntas) ? unifiedData.preguntas : [];
+  const shuffledQuestions = shuffle([...globalQuestions]);
+  return shuffledQuestions.slice(0, Math.min(limit, shuffledQuestions.length));
+}
+
+// getRandomQuestionsFromJsonFiles:
+// Objetivo general: combinar varios JSON de preguntas, mezclarlos y devolver un subconjunto aleatorio.
+// Flujo específico: carga asincrona en paralelo -> fusion de arrays -> Fisher-Yates -> corte por limite.
+async function getRandomQuestionsFromJsonFiles(jsonPaths, limit = 50) {
+  // Carga todos los bancos de preguntas en paralelo para evitar esperas secuenciales.
+  const allQuestionSets = await Promise.all(jsonPaths.map((path) => fetchJson(path)));
+
+  // Combina todas las preguntas en un unico array global.
+  const globalQuestions = allQuestionSets.flat();
+
+  // Mezcla completamente el array global con Fisher-Yates.
+  const shuffledQuestions = shuffle([...globalQuestions]);
+
+  // Si hay menos preguntas que el limite, devuelve todas; si no, devuelve exactamente las primeras `limit`.
+  return shuffledQuestions.slice(0, Math.min(limit, shuffledQuestions.length));
 }
 
 // fetchJson:
@@ -256,6 +278,25 @@ async function fetchJson(path) {
   }
 
   // Devuelve colección válida.
+  return data;
+}
+
+// fetchUnifiedJson:
+// Objetivo general: recuperar y validar el archivo JSON consolidado de preguntas.
+// Flujo específico: fetch -> valida status -> parsea -> valida objeto.
+async function fetchUnifiedJson(path) {
+  const response = await fetch(path);
+
+  if (!response.ok) {
+    throw new Error(`Error al cargar ${path}`);
+  }
+
+  const data = await response.json();
+
+  if (typeof data !== "object" || data === null) {
+    throw new Error(`Formato inválido en ${path}`);
+  }
+
   return data;
 }
 

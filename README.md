@@ -1,5 +1,7 @@
 # Study Sprint ISO - SPA de Test de Estudio
 
+## Pruebame:
+https://web-test-iso.vercel.app/
 ## 1. Descripcion del proyecto
 
 Study Sprint ISO es una aplicacion web tipo SPA (Single Page Application) orientada a practicar preguntas tipo test.
@@ -117,7 +119,33 @@ Algoritmo:
 4. Mezclar con Fisher-Yates.
 5. Si modo aleatorio, aplicar slice hasta RANDOM_LIMIT (50).
 
-### 5.3 Mezcla aleatoria (Fisher-Yates)
+### 5.3 Generación del examen aleatorio
+
+Funciones clave: loadRandomExamQuestions, getRandomQuestionsFromUnifiedFile, fetchUnifiedJson.
+
+Constantes:
+
+- RANDOM_BANK_FILE = "data/banco_unificado.json"
+- RANDOM_LIMIT = 50
+
+Algoritmo:
+
+1. Cargar archivo consolidado banco_unificado.json (contiene todas las preguntas de los 14 bancos originales).
+2. Validar respuesta HTTP correcta.
+3. Extraer el array global unifiedData.preguntas (361 preguntas totales).
+4. Crear copia del array para evitar mutaciones.
+5. Aplicar algoritmo Fisher-Yates para mezcla aleatoria completa.
+6. Seleccionar exactamente las primeras 50 preguntas del array mezclado mediante slice(0, 50).
+7. Devolver ese subset de 50 preguntas como examen aleatorio.
+
+Ventajas de este enfoque:
+
+- Una única carga HTTP en lugar de 14 cargas paralelas.
+- Consolidación garantiza que todas las preguntas disponibles participan en la aleatorización.
+- Fisher-Yates proporciona una verdadera distribución aleatoria uniforme.
+- El límite de 50 preguntas evita exámenes demasiado largos.
+
+### 5.4 Mezcla aleatoria (Fisher-Yates)
 
 Funcion: shuffle.
 
@@ -133,7 +161,7 @@ Complejidad aproximada:
 - Tiempo: O(n)
 - Memoria: O(1) adicional (mezcla en sitio)
 
-### 5.4 Flujo de respuesta por pregunta
+### 5.5 Flujo de respuesta por pregunta
 
 Funciones clave: answerQuestion, isAnswerCorrect, getCorrectOption, paintAnswerState.
 
@@ -150,7 +178,7 @@ Algoritmo general al responder:
 7. Persistir estado en localStorage.
 8. Repintar interfaz con feedback visual.
 
-### 5.5 Como se decide si una respuesta es correcta o no
+### 5.6 Como se decide si una respuesta es correcta o no
 
 La app admite dos formatos de correcta:
 
@@ -174,7 +202,7 @@ Feedback visual:
 - Si el usuario falla, se marca tambien su opcion con estilo de error.
 - Se muestra mensaje textual: Respuesta correcta o Respuesta incorrecta.
 
-### 5.6 Mostrar comentario por pregunta
+### 5.7 Mostrar comentario por pregunta
 
 Funciones clave: getQuestionComment y paintAnswerState.
 
@@ -191,7 +219,7 @@ Algoritmo:
 
 Esto garantiza que el comentario mostrado siempre corresponde exactamente a la pregunta respondida en ese momento.
 
-### 5.7 Navegacion de examen y finalizacion
+### 5.8 Navegacion de examen y finalizacion
 
 Funcion: goToNextQuestion.
 
@@ -204,7 +232,7 @@ Algoritmo:
    - Incrementar currentIndex.
    - Renderizar siguiente pregunta.
 
-### 5.8 Calculo de nota
+### 5.9 Calculo de nota
 
 Funcion: calculateGrade.
 
@@ -216,7 +244,7 @@ Regla adicional:
 
 - Si el resultado es negativo, se muestra 0.
 
-### 5.9 Persistencia y recuperacion
+### 5.10 Persistencia y recuperacion
 
 Funciones clave: persistState, restoreState, saveAndExitExam, resumeSavedExam.
 
