@@ -1,0 +1,212 @@
+[
+  {
+    "enunciado": "Uno de los problemas de la multiprogramación con particiones de tamaño fijo explicada en clase es que:",
+    "opcionA": "El número de particiones limita el número de procesos que pueden estar en ejecución.",
+    "opcionB": "Se ha de conocer de antemano la partición que va a ocupar cada proceso para que el compilador pueda generar las direcciones de memoria correctas.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "De entre las políticas vistas en clase para la asignación de huecos en un esquema de administración con particiones variables:",
+    "opcionA": "La «Peor en ajustarse» suele aprovechar mejor la memoria que la «Mejor en ajustarse».",
+    "opcionB": "La «Mejor en ajustarse» es una variante de la «Primera en ajustarse», salvo que la búsqueda del hueco no se inicia siempre desde el principio sino desde el punto en el que se quedó la búsqueda anterior.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "La técnica de «Compactación»:",
+    "opcionA": "Se utiliza en el esquema de administración de memoria con particiones variables para conseguir agrupar la memoria libre fragmentada, a costa de un consumo apreciable de CPU.",
+    "opcionB": "Se utiliza tanto en el esquema de administración de memoria con particiones fijas como variables, y tiene la ventaja de conseguir agrupar la memoria libre sin un consumo de CPU apreciable.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a los esquemas de administración de la memoria libre con particiones variables, cuando un proceso termina, la tarea de fusionar el hueco que deja con los adyacentes...",
+    "opcionA": "si se usa un mapa de bits se realiza de forma implícita.",
+    "opcionB": "si se usa una lista de procesos+huecos con los nodos ordenados por dirección, simplemente se añade el tamaño del nuevo hueco al nodo inmediatamente anterior.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Tenemos un proceso P con registro base B y registro límite L. Si P genera una dirección lógica D:",
+    "opcionA": "D será válida si es menor que (B + L).",
+    "opcionB": "D será inválida si es mayor que L.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "A la hora de resolver el problema de la protección entre procesos que surge en los esquemas de administración de memoria con particiones:",
+    "opcionA": "El sistema operativo supervisa cada acceso a memoria y abortará el proceso si la dirección no está dentro del rango permitido.",
+    "opcionB": "El hardware debe proveer necesariamente algún mecanismo, por ejemplo, registros especiales, y realizar el chequeo de las direcciones generadas.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En el esquema de memoria virtual con paginación visto en clase:",
+    "opcionA": "El programador debe indicar qué rangos de memoria del mapa de memoria del proceso deben tener asociadas páginas físicas.",
+    "opcionB": "El sistema operativo es el que decide qué partes de cada proceso se encuentran en memoria en cada momento.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En relación a la información que aparece en la entrada i de una tabla de páginas directa de un único nivel:",
+    "opcionA": "Cuando se produce una escritura en algún lugar de la página virtual i se activan sus bits referenciado y modificado.",
+    "opcionB": "Cuando se produce una escritura en algún lugar de la página virtual i se activa el bit modificado, pero no el bit referenciado.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "De entre las siguientes dos situaciones, indica cuál podría darse al traducir una dirección virtual a dirección física:",
+    "opcionA": "Acierto de TLB y Fallo de Protección.",
+    "opcionB": "Acierto de TLB, Fallo de Página y Fallo de Protección.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Con respecto al TLB, es cierto que:",
+    "opcionA": "Trata de reducir el tamaño de la tabla de páginas.",
+    "opcionB": "Trata de reducir el número de accesos a la tabla de páginas.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Supón una tabla de páginas de 2 niveles (N1 entradas tamaño S1, U1 usadas; N2 entradas tamaño S2, U2 usadas totales). El tamaño total es:",
+    "opcionA": "N1 × S1 + U1 × N2 × S2",
+    "opcionB": "N1 × U1 × S1 + N2 × U2 × S2",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un tamaño de página fijo, el número total de entradas (libres y ocupadas) en una tabla de páginas invertida...",
+    "opcionA": "es directamente proporcional al número de procesos que se estén ejecutando.",
+    "opcionB": "es directamente proporcional a la cantidad de memoria física que tengamos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Dado un sistema que implementa TLB y una tabla de páginas invertida, un acceso a memoria que no produce un fallo de página...:",
+    "opcionA": "supondrá siempre un acceso al TLB.",
+    "opcionB": "supondrá siempre un acceso a la tabla de dispersión seguido de un acceso a la tabla de traducción.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un sistema con TLB y tabla multinivel de N niveles, si se produce un acierto de TLB, el número total de accesos a memoria para completar la operación es:",
+    "opcionA": "N, si se produce fallo de TLB pero se acierta en la tabla de páginas.",
+    "opcionB": "1, si se produce acierto de TLB.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "La paginación permite la protección de memoria entre procesos siempre que:",
+    "opcionA": "Dichos procesos no compartan marcos de ninguna manera o únicamente compartan marcos de solo lectura.",
+    "opcionB": "Desde un punto de vista lógico, cada proceso posea su propia tabla de páginas, aunque tengan páginas que compartan marcos.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un sistema de memoria virtual:",
+    "opcionA": "El mapa de memoria de un proceso se compone de regiones, que son rangos de direcciones virtuales contiguas dedicadas a un mismo propósito.",
+    "opcionB": "El mapa de memoria está compuesto de la lista de zonas del espacio de direcciones físicas que están siendo usadas.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En un esquema de memoria virtual con paginación, si el proceso P realiza un fork() para crear a H:",
+    "opcionA": "La tabla de páginas de H se construye copiando la de P, haciendo que cada página apunte a una copia del marco físico obligatoriamente.",
+    "opcionB": "La tabla de páginas de H se construye copiando la de P, pero pueden compartirse los marcos físicos gracias al mecanismo de copia en escritura (COW).",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un esquema de memoria virtual con paginación como el implementado en UNIX:",
+    "opcionA": "El sistema operativo forma parte del mapa de memoria de un proceso, facilitando la transferencia de datos en las llamadas al sistema.",
+    "opcionB": "El sistema operativo no forma parte del mapa de memoria de un proceso para evitar violaciones de memoria.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Proceso con 3 marcos asignación estática. Accesos: RP2, WP3, RP1, [tic reloj], RP2. Si ahora ocurre RP4, ¿qué página se reemplaza?",
+    "opcionA": "La página P2 si se utiliza un algoritmo FIFO y la página P3 si se utiliza NRU.",
+    "opcionB": "La página P2 si se utiliza el algoritmo FIFO de segunda oportunidad y la página P1 si se usa NRU.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "¿En qué tipo de tabla de páginas se puede encontrar en sus entradas un campo con el PID del proceso?",
+    "opcionA": "Tabla de páginas invertida",
+    "opcionB": "Tabla de páginas clásica multinivel",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Gracias a la labor del demonio de paginación del sistema operativo:",
+    "opcionA": "Una página podría escribirse en disco aunque no se haya producido ningún fallo de página.",
+    "opcionB": "Un fallo de página podría ocasionar varias lecturas de páginas de disco (la demandada y las siguientes).",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a las políticas de reemplazo de páginas:",
+    "opcionA": "El algoritmo de maduración no puede saber cuál de dos páginas con el mismo número de maduración tiene la referencia más antigua.",
+    "opcionB": "La implementación de LRU con una matriz de bits es fácilmente aplicable porque al usar un bit por página ocupa muy poca memoria.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a la segmentación pura estudiada en clase es cierto que:",
+    "opcionA": "Existe una tabla de segmentos con una entrada por proceso con base y límite.",
+    "opcionB": "Existe una tabla de segmentos por proceso. Cada entrada contiene un campo base y un campo límite para proteger cada segmento.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En segmentación paginada con 3 procesos (S segmentos, N páginas totales por proceso, bloque B), el tamaño total de memoria virtual es:",
+    "opcionA": "(S1 × N1 + S2 × N2 + S3 × N3) × B bytes.",
+    "opcionB": "(N1 × B + N2 × B + N3 × B) bytes.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Uno de los objetivos del software de E/S es la conversión de las transferencias asíncronas en síncronas. Esto significa que:",
+    "opcionA": "El SO debe devolver inmediatamente el control al proceso, siendo tarea del usuario esperar a que los datos estén disponibles.",
+    "opcionB": "El SO debe bloquear al proceso que solicita la E/S hasta que el dispositivo proporcione los datos, momento en el que se desbloquea.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Entre las funciones del software independiente de dispositivo está el:",
+    "opcionA": "Desbloquear al proceso que está bloqueado esperando la E/S cuando esta llega.",
+    "opcionB": "Gestionar el tamaño de bloque que se utiliza en la E/S.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Para solicitar una operación de E/S a un manejador de dispositivo, el sistema operativo debe usar:",
+    "opcionA": "Una de las funciones definidas por el sistema operativo en la interfaz uniforme de manejadores.",
+    "opcionB": "Directamente una de las funciones implementadas en el manejador utilizando su nombre interno.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Cuando termina una operación de E/S, el manejador de interrupciones:",
+    "opcionA": "Termina el procesamiento, desbloquea al manejador de dispositivo para que lance la siguiente y reinicia las interrupciones.",
+    "opcionB": "Desbloquea al manejador de dispositivo que lanzó la operación y reinicia las interrupciones.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un sistema multiprogramado, un sistema de spooling es adecuado para manejar la E/S de:",
+    "opcionA": "aquellos dispositivos a los que se accede en exclusiva, con el fin de evitar su monopolización.",
+    "opcionB": "aquellos dispositivos que requieren interacción directa del usuario para garantizar respuesta rápida.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Una diferencia fundamental entre los dispositivos de bloques y de caracteres es:",
+    "opcionA": "El tamaño mínimo de transferencia de datos usado por el sistema operativo para acceder a ellos.",
+    "opcionB": "La velocidad del dispositivo, ya que los de bloques siempre son más rápidos.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "¿Qué componente del tiempo de acceso depende de la velocidad de giro del disco?:",
+    "opcionA": "Tiempo de búsqueda.",
+    "opcionB": "Tiempo de latencia.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Para una operación de lectura de disco (sin caché), podría darse que:",
+    "opcionA": "El tiempo de latencia fuera 0.",
+    "opcionB": "El tiempo de transmisión fuera 0.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a los planificadores de disco vistos en clase:",
+    "opcionA": "El algoritmo SSF es óptimo en lo que al tiempo de búsqueda se refiere.",
+    "opcionB": "Los algoritmos SCAN y C-SCAN garantizan que el tiempo de espera para cualquier petición estará siempre acotado.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Contabilizar el tiempo de CPU asignando la marca de reloj al proceso en ejecución en ese instante:",
+    "opcionA": "tiene el problema de que podría no contabilizar a un proceso que se ejecute muy poco tiempo entre marcas.",
+    "opcionB": "permite llevar un control preciso del tiempo de CPU consumido a pesar de usar un único reloj hardware.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Son funciones del manejador de reloj:",
+    "opcionA": "Controlar la hora del día, controlar el tiempo de ejecución según el quantum y gestionar cronómetros guardianes.",
+    "opcionB": "Seleccionar un nuevo proceso cuando el actual agote su quantum, contabilizar el uso de CPU y gestionar alarmas.",
+    "correcta": "a"
+  }
+]

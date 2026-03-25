@@ -1,0 +1,302 @@
+[
+  {
+    "enunciado": "El sistema operativo toma el control de la CPU:",
+    "opcionA": "Cuando se produce una llamada al sistema, una excepción o una interrupción.",
+    "opcionB": "Cuando se produce una llamada al sistema o una interrupción, pero no en caso de excepción, dado que en esta situación el hardware aborta directamente el programa.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "La característica del hardware en la que se apoya directamente el sistema operativo para impedir que un proceso se quede con la CPU por tiempo indefinido es:",
+    "opcionA": "La disponibilidad de dos modos de funcionamiento (modo núcleo y modo usuario) en la CPU.",
+    "opcionB": "Las interrupciones periódicas generadas por alguno de los relojes hardware con que debe contar el sistema.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "El mecanismo de los buffers que permite el solapamiento de la E/S de un programa con el cómputo del mismo programa requiere de la utilización de:",
+    "opcionA": "Un dispositivo de acceso aleatorio, como un disco, para ir depositando en una zona concreta del mismo los datos que se van calculando.",
+    "opcionB": "Una zona concreta de memoria desde donde ir obteniendo los datos que se van necesitando.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Dados dos sistemas A y B, cuya única diferencia es que el sistema operativo de A implementa multiprogramación y el de B multitarea, entonces el tiempo que necesitamos para completar la ejecución de un lote de 10 trabajos:",
+    "opcionA": "Va a ser mayor o igual en A que en B.",
+    "opcionB": "Va a ser mayor o igual en B que en A.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Con respecto a la ejecución del intérprete de órdenes bash empleado en las prácticas:",
+    "opcionA": "Se realiza en modo usuario del procesador puesto que para el núcleo del sistema operativo su ejecución no difiere de la de cualquier otra aplicación de usuario.",
+    "opcionB": "Se realiza en modo núcleo del procesador puesto que forma parte del núcleo del sistema operativo.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En un sistema operativo basado en micronúcleo (organización cliente-servidor), es cierto que:",
+    "opcionA": "Tanto los procesos de tipo cliente como los de tipo servidor se ejecutan con el procesador en modo usuario.",
+    "opcionB": "Tanto el micronúcleo como los procesos de tipo servidor se ejecutan con el procesador en modo núcleo.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En un sistema operativo UNIX, la ejecución de la llamada al sistema fork() por parte de un proceso:",
+    "opcionA": "Crea un proceso hijo que es idéntico al proceso que ejecuta la llamada al sistema, salvo que se le pase como argumento un binario, en cuyo caso lo usará para establecer el código y los datos del hijo en el momento de la creación.",
+    "opcionB": "Crea siempre un proceso hijo que es idéntico al proceso que ejecuta la llamada al sistema, si bien el PID del padre y del hijo son diferentes.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un sistema operativo UNIX, cuando un proceso P realiza una llamada al sistema y hasta que comienza a ejecutarse el código correspondiente del sistema operativo se producen:",
+    "opcionA": "Un cambio de modo y un cambio de contexto.",
+    "opcionB": "Un cambio de proceso, un cambio de modo y un cambio de contexto.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Un ejemplo de determinación voluntaria de un proceso como consecuencia de un error sería:",
+    "opcionA": "Que el proceso compruebe que el número de argumentos pasados no es el requerido y no pueda continuar con la ejecución.",
+    "opcionB": "Que el proceso trate de realizar un acceso a memoria a una dirección para la cual no tenga permiso.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a los estados en los que puede estar un proceso, es cierto que:",
+    "opcionA": "Un proceso P podría pasar directamente del estado «Bloqueado Suspendido» al estado «Saliente».",
+    "opcionB": "Un proceso P podría pasar directamente del estado «Bloqueado» a «En ejecución» cuando la cola de procesos listos estuviese vacía.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Un proceso que se encuentra en estado «Bloqueado Suspendido», cambiará de estado...:",
+    "opcionA": "Únicamente cuando el planificador a medio plazo (PMP) así lo decida.",
+    "opcionB": "Cuando el planificador a medio plazo (PMP) así lo decida o cuando ocurra el evento de E/S que estaba esperando.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En cuanto a los estados en los que puede estar un proceso, es cierto que:",
+    "opcionA": "Para que un proceso en estado «Bloqueado Suspendido» pueda hacer uso de la CPU, tiene que pasar antes por otros dos estados diferentes.",
+    "opcionB": "Para que un proceso en estado «Listo Suspendido» pueda hacer uso de la CPU, tiene que pasar antes por otros dos estados diferentes.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a la tabla de procesos:",
+    "opcionA": "Tiene una entrada por cada uno de los procesos en estado «Listo», pero no para los procesos en estado «Listo Suspendido» o «Bloqueado Suspendido».",
+    "opcionB": "Tiene una entrada por cada uno de los procesos con independencia del estado en el que se encuentren.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En cuanto al bloque de control de un proceso, es cierto que:",
+    "opcionA": "Almacena los valores de los registros de la CPU tal y como estaban la última vez que al proceso se le quitó la CPU.",
+    "opcionB": "Almacena los datos de la pila del proceso tal y como estaban la última vez que al proceso se le quitó la CPU.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En UNIX, dados dos procesos, P y Q, si suponemos que ambos realizan una llamada al sistema en el mismo instante de tiempo:",
+    "opcionA": "Primero se completará la llamada al sistema de uno de ellos y después la del otro, pero al haber una única copia del SO en memoria, nunca se podrá simultanear la ejecución de las dos llamadas al sistema.",
+    "opcionB": "Ambas llamadas al sistema podrían ejecutarse simultáneamente (o concurrentemente).",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Dado un proceso P con dos hilos H1 y H2, podemos decir que:",
+    "opcionA": "H1 y H2 van a ser exactamente iguales, por lo que ejecutan las mismas instrucciones con los mismos datos.",
+    "opcionB": "H1 y H2 comparten los datos del proceso pero pueden ejecutar instrucciones diferentes.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Dado un proceso, P, con dos hilos, H1 y H2, la CPU podrá pasar de ejecutar H1 a H2 (o viceversa) sin la intervención del sistema operativo:",
+    "opcionA": "Cuando los hilos estén implementados a nivel usuario.",
+    "opcionB": "Cuando los hilos estén implementados en el núcleo del sistema operativo.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un proceso P con 4 hilos ejecutándose sobre una CPU con 4 núcleos de procesamiento (cores), los 4 hilos podrán ejecutarse simultáneamente (uno en cada núcleo):",
+    "opcionA": "Solamente si se implementa soporte para los hilos a nivel de núcleo en el sistema operativo.",
+    "opcionB": "Siempre, independientemente de cómo estén implementados los hilos.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Para un planificador de procesos cuya meta fundamental es la de maximizar la eficiencia en el uso de la CPU:",
+    "opcionA": "Es más conveniente usar un algoritmo de planificación apropiativo.",
+    "opcionB": "Es más conveniente usar un algoritmo de planificación no apropiativo.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En relación con la planificación de procesos, el tiempo de espera de un proceso es:",
+    "opcionA": "El tiempo que hay que esperar desde que empieza el proceso hasta que se obtienen sus resultados.",
+    "opcionB": "El tiempo que pasa el proceso en la cola de procesos listos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En relación a la planificación de procesos, la planificación SJF (Shortest Job First):",
+    "opcionA": "Es apropiativa, puesto que debe asegurar que el proceso en ejecución es en todo momento el de ráfaga de CPU más corta de entre todos los de la cola de listos.",
+    "opcionB": "Es no apropiativa, pues al proceso que está usando la CPU nunca se le puede quitar su uso por muy larga que sea su ráfaga actual.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "La planificación Round Robin:",
+    "opcionA": "Es no apropiativa, pues hasta que el proceso que está en ejecución no consuma su quantum, el sistema operativo no se puede apropiar de la CPU.",
+    "opcionB": "Es apropiativa, pues el proceso que está en ejecución puede ser desalojado de la CPU sin haberse bloqueado ni haber finalizado.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "De entre los algoritmos de planificación de la CPU vistos en clase, la situación de inanición (starvation) por la que un proceso podría no llegar a usar nunca la CPU, podría darse con:",
+    "opcionA": "SRTF y SJF.",
+    "opcionB": "FCFS y planificación con prioridades estáticas.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un algoritmo de planificación Round Robin con un valor de quantum de q unidades de tiempo (u.t.) y un sistema en el que hay en todo momento N procesos en la cola de listos, el tiempo que transcurre desde que un proceso agota su quantum hasta que la vuelve a tomar es siempre:",
+    "opcionA": "Exactamente igual a q × (N-1) u.t.",
+    "opcionB": "Menor o igual a q × (N-1) u.t.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Tenemos una planificación de procesos SJF con estimación de tiempo de ráfaga de CPU. Hay 2 procesos en la cola de listos: P1 y P2. En la última ráfaga, las estimaciones fueron E1 y E2, y los tiempos reales T1 y T2. Entonces:",
+    "opcionA": "Si E1=E2 y T1 < T2, entonces la nueva estimación para P1 será menor que para P2 (E'1 < E'2).",
+    "opcionB": "Si E1 > E2 y T1 = T2 pasarán a ejecutarse P1.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dados dos procesos P1 y P2, si en el instante «t» P2 comienza la ejecución del segundo de los tics de una ráfaga de CPU de duración 5 y se desbloquea P1 cuya siguiente ráfaga tiene una duración de 2 tics, en el instante «t+1» se ejecutará:",
+    "opcionA": "P2 si el planificador es SRTF «oráculo».",
+    "opcionB": "P1 si el planificador es Round Robin con q=2 tics.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Considera dos procesos P1 y P2 en estado «Bloqueado» y el esquema Round Robin: si en el instante «t» la CPU está ocupada y ambos se desbloquean (P1 ráfaga 2 tics, P2 ráfaga 5 tics), en el instante «t+1», suponiendo que la CPU queda libre:",
+    "opcionA": "P1 o P2 dependiendo del orden en el que se inserten en la cola de listos en el instante «t».",
+    "opcionB": "P1 siempre, por tener una duración menor de ráfaga de CPU.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Supón un esquema «apropiativo con prioridades dinámicas» (mayor número, mayor prioridad) donde la prioridad aumenta en 2 cada tic en cola. Si en «t» P1 (prioridad 4, ráfaga 5) se ejecuta y P2 (prioridad 1, ráfaga 4) entra en cola, P2 usará la CPU:",
+    "opcionA": "En el instante «t+2».",
+    "opcionB": "En el instante «t+3».",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Considera planificación apropiativa con 2 colas (cola 0 mayor prioridad, cola 1 menor). Ambas Round Robin con q=2. Si llegan P0 a cola 0 y P1 a cola 1 con ráfagas de 4 tics, ¿qué ocurrirá en los próximos 4 tics?:",
+    "opcionA": "Se ejecutará P0 durante 4 tics y, entonces, se cederá la CPU a P1.",
+    "opcionB": "Se ejecutará P0 durante 2 tics y, entonces, se cederá la CPU a P1 durante otros 2 tics.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Considera planificación apropiativa con 2 colas. Cola 0 (q=2), Cola 1 (q=4). Si P0 agota quantum en cola 0 pasa a cola 1. Si P1 llega a cola 1 y dos tics después llega P0 a cola 0 (ambos ráfaga 4), la ejecución será:",
+    "opcionA": "Dos tics de P1, dos tics de P0, dos tics de P1 y dos tics de P0.",
+    "opcionB": "Dos tics de P1, cuatro tics de P0 y dos tics de P1.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Una invención de la información es:",
+    "opcionA": "Una amenaza a la integridad de la información.",
+    "opcionB": "Una amenaza a la confidencialidad de la información.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El concepto de dominio de protección se asocia a:",
+    "opcionA": "Los procesos y define los objetos a los que puede acceder cada uno de ellos y con qué permisos.",
+    "opcionB": "Los objetos y define los procesos que pueden acceder a cada uno de ellos y con qué permisos.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a las listas de control de acceso (ACL):",
+    "opcionA": "Cada una está asociada con un dominio de protección y establece los objetos accesibles.",
+    "opcionB": "Cada una está asociada con un objeto, y establece los dominios de protección desde los que se puede acceder.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En UNIX, cada vez que un proceso quiere leer o escribir un fichero que ya tiene abierto:",
+    "opcionA": "Se chequea la ACL del fichero para ver si el proceso dispone de los permisos necesarios.",
+    "opcionB": "Se comprueba la lista de posibilidades del proceso para ver si puede realizar la operación.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En UNIX, durante la realización del proceso de login por parte de un usuario:",
+    "opcionA": "Se accede únicamente al fichero /etc/passwd para la validación de la contraseña.",
+    "opcionB": "Además de a /etc/shadow, es necesario también acceder al fichero /etc/passwd.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En UNIX, si se ejecuta el programa passwd (pertenece a root, SETUID activado), el proceso resultante:",
+    "opcionA": "Ejecutará el programa passwd con el procesador en modo usuario.",
+    "opcionB": "Ejecutará el programa passwd con el procesador en modo núcleo.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Un fichero especial de caracteres:",
+    "opcionA": "Está asociado con un dispositivo de entrada/salida.",
+    "opcionB": "Es un fichero regular de tipo texto.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "La creación de la entrada de directorio para un nuevo fichero regular, se realiza:",
+    "opcionA": "A través de la llamada al sistema Create usada para crear el fichero.",
+    "opcionB": "Mediante la llamada al sistema Writedir aplicada al directorio.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un fichero regular con tamaño T > B (bloque lógico), el número de bloques lógicos utilizados:",
+    "opcionA": "Será mayor para la estrategia de lista ligada con índice que para la basada en nodos-i.",
+    "opcionB": "Será igual para las estrategias de asignación contigua y lista ligada con índice.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En cuanto a la fragmentación interna:",
+    "opcionA": "Puede aparecer en la estrategia de asignación contigua pero no en la basada en nodos-i.",
+    "opcionB": "Puede aparecer tanto en la estrategia basada en nodos-i como en las basadas en lista ligada.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En una implementación de ficheros mediante lista ligada sin índice, el valor del byte Z del bloque X (X != 0) de un fichero cuyo primer bloque está en D puede obtenerse:",
+    "opcionA": "Leyendo X+1 bloques del disco.",
+    "opcionB": "Leyendo D+X bloques del disco.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un sistema UNIX (nodos-i de 13 punteros, entradas 256 bytes, bloque 1 KiB), un directorio con 50 entradas (sin . y ..) ocupa:",
+    "opcionA": "13 bloques lógicos de la zona de datos.",
+    "opcionB": "14 bloques lógicos de la zona de datos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Comparando MS-DOS (SF1) y UNIX (SF2) con bloque B, para listar ficheros de un directorio D (1 bloque) teniendo el índice/nodo-i en memoria, el número de accesos a disco:",
+    "opcionA": "Será igual en SF1 y SF2.",
+    "opcionB": "Será mayor en SF2 que en SF1.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Para leer el byte X del fichero /home/alumno/ExamenISO/ejercicio1.sh (suponiendo raíz y su bloque en memoria, directorios de 1 bloque y cada nodo-i en bloque diferente) hay que leer:",
+    "opcionA": "9 bloques de disco como mínimo.",
+    "opcionB": "11 bloques de disco como máximo.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En UNIX, si creamos el fichero F1 y seguidamente un enlace simbólico ESF1:",
+    "opcionA": "El valor del contador de enlaces tanto para ESF1 como para F1 será 1.",
+    "opcionB": "El valor del contador de enlaces tanto para ESF1 como para F1 será 2.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un sistema de ficheros con bloque B, direcciones D y N bloques de datos, los bloques requeridos para el registro de bloques libres son:",
+    "opcionA": "N / (8*B) (techo) si se usa mapa de bits.",
+    "opcionB": "N*D / (8*B) (techo) si se usa lista ligada de bloques.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a la caché de disco, es cierto que:",
+    "opcionA": "Es una colección de bloques que pertenecen al disco, pero se mantienen temporalmente en la memoria principal.",
+    "opcionB": "Es una colección de bloques que pertenecen a la memoria principal, pero se mantienen temporalmente en disco.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El algoritmo de reemplazo usado en una caché de disco:",
+    "opcionA": "Siempre da prioridad al reemplazo de los bloques de metadatos modificados.",
+    "opcionB": "Entre dos bloques con datos de ficheros, reemplazará siempre antes al que más tiempo hace que no se usa.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Dado un disco con N sectores de S bytes, aumentar el tamaño de bloque de B a 4*B provoca que:",
+    "opcionA": "El tamaño en bytes de los nodos-i aumente.",
+    "opcionB": "El número de bits del mapa de bits para bloques de datos disminuya.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un sistema UNIX con I nodos-i de tamaño S y bloque B, si se emplean N bloques indirectos, el tamaño total de la tabla de nodos-i es:",
+    "opcionA": "(I*S / B) (techo) bloques lógicos.",
+    "opcionB": "(I*S / B) (techo) + N bloques lógicos.",
+    "correcta": "a"
+  }
+]

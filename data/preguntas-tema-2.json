@@ -1,0 +1,107 @@
+[
+  {
+    "enunciado": "Una desventaja de los hilos implementados por el núcleo de un sistema operativo es que los hilos que pertenecen a un mismo proceso no pueden ejecutarse en diferentes CPUs.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Al ser gestionados por el núcleo, este puede planificar diferentes hilos de un mismo proceso en distintos procesadores, lo cual es una de sus grandes ventajas frente a los hilos de usuario."
+  },
+  {
+    "enunciado": "En relación con los estados de un proceso, un proceso pasa directamente de estado «bloqueado» a estado «en ejecución» cuando el evento externo que está esperando ya ha finalizado.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Cuando el evento ocurre, el proceso pasa al estado «listo». Solo pasará a «en ejecución» cuando el planificador lo decida."
+  },
+  {
+    "enunciado": "Con respecto a los estados de los procesos (Nuevo, Ejecución, Listo, Bloqueado y Saliente), se puede pasar del estado Bloqueado al estado Saliente directamente.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Un proceso en estado Bloqueado puede terminar de forma involuntaria (por ejemplo, ser finalizado por el SO o recibir una señal de terminación), pasando directamente a Saliente."
+  },
+  {
+    "enunciado": "Un proceso limitado por entrada/salida (E/S) suele tener ráfagas de CPU de corta duración.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Estos procesos realizan muchas ráfagas de CPU pero muy breves, ya que rápidamente solicitan una operación de E/S y pasan a estado bloqueado."
+  },
+  {
+    "enunciado": "La comunicación entre hilos de un proceso de usuario se hace siempre sin intervención del núcleo del sistema operativo, utilizando directamente el espacio de direcciones del proceso.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Los hilos comparten el mismo espacio de direcciones, por lo que pueden comunicarse leyendo y escribiendo en la misma memoria sin necesidad de llamadas al sistema."
+  },
+  {
+    "enunciado": "En Unix, cada vez que ocurre un cambio de contexto sucede también un cambio de proceso.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Un cambio de contexto puede ser simplemente el paso de modo usuario a modo núcleo dentro del mismo proceso (durante una llamada al sistema)."
+  },
+  {
+    "enunciado": "El PCB (Process Control Block) de un proceso de usuario contiene todo aquello que está relacionado con dicho proceso: su código, sus datos, su pila...",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El PCB es una estructura de control que contiene metadatos y punteros; el código, los datos y la pila residen en el espacio de direcciones de memoria del proceso, no dentro del PCB."
+  },
+  {
+    "enunciado": "En la planificación de procesos de múltiples niveles con realimentación, cada nivel puede indicar una prioridad y se aplica un algoritmo de planificación que puede ser distinto en cada nivel.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Este sistema permite gran flexibilidad, definiendo algoritmos distintos (como RR o FIFO) para cada cola de prioridad."
+  },
+  {
+    "enunciado": "En Unix, cuando un proceso de usuario realiza una llamada al sistema, se produce un cambio de proceso en CPU: el proceso de usuario pasa a bloqueado mientras el SO toma el control.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "No hay cambio de proceso; el mismo proceso cambia su modo de ejecución a modo núcleo para ejecutar el código del sistema operativo."
+  },
+  {
+    "enunciado": "En una implementación de hilos a nivel de usuario, si el hilo de un proceso realiza una llamada al sistema bloqueante, se bloquearán solamente el hilo que hizo la llamada y sus dependientes.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Como el núcleo solo ve un proceso único (no conoce los hilos de usuario), si uno se bloquea en una llamada al sistema, el núcleo bloquea a todo el proceso."
+  },
+  {
+    "enunciado": "Uno de los problemas de la planificación FIFO es que reduce la eficacia en el uso de la CPU al incrementar el tiempo de retorno de los procesos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "FIFO es eficiente en cuanto al uso de CPU porque minimiza la sobrecarga de cambios de contexto al ser no apropiativo, aunque penalice los tiempos de espera y retorno."
+  },
+  {
+    "enunciado": "La única diferencia entre SJF y SRTF es que el primero es no apropiativo, mientras que el segundo es apropiativo.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "SRTF (Shortest Remaining Time First) es efectivamente la variante apropiativa del SJF (Shortest Job First)."
+  },
+  {
+    "enunciado": "En Unix, la llamada al sistema exec crea un nuevo proceso que es una copia idéntica del proceso que hace la llamada.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "La función exec sustituye la imagen del proceso actual por un nuevo programa; la creación de una copia idéntica se realiza mediante la llamada fork."
+  },
+  {
+    "enunciado": "En un sistema con planificación Round-Robin, si el proceso A está «listo» y el proceso B está «bloqueado», el proceso A siempre pasará a «en ejecución» antes que el B.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "B no puede ser ejecutado hasta que pase a la cola de listos. Como A ya está allí, será atendido antes de que B tenga siquiera oportunidad de competir."
+  },
+  {
+    "enunciado": "En la planificación round robin con quantum «q» y «n» procesos, el tiempo que un proceso permanece bloqueado como máximo es (n-1) * q.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El tiempo de bloqueo depende de la duración del evento externo (E/S), no del algoritmo de planificación de la CPU."
+  }
+]

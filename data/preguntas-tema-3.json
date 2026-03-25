@@ -1,0 +1,72 @@
+[
+  {
+    "enunciado": "Se puede atentar contra la confidencialidad de los datos de un sistema de información mediante la intercepción de estos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "La intercepción consiste en el acceso a los datos por una parte no autorizada, lo que constituye una amenaza directa a la confidencialidad."
+  },
+  {
+    "enunciado": "De cara a la revocación (o cancelación) de un permiso, resulta más sencillo hacerlo con las listas de control de acceso (ACLs) que con las listas de posibilidades.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Con las ACLs basta con modificar la lista asociada al objeto. Con las listas de posibilidades (capabilities), la información está distribuida por los distintos dominios del sistema, lo que complica su localización y eliminación."
+  },
+  {
+    "enunciado": "Desde un punto de vista teórico, es cierto que un objeto puede pertenecer a varios dominios pero siempre con los mismos derechos de acceso.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Un objeto puede estar presente en múltiples dominios, pero los derechos de acceso (lectura, escritura, ejecución) pueden variar de un dominio a otro."
+  },
+  {
+    "enunciado": "Las listas de posibilidades asocian a cada objeto una lista de los dominios que pueden acceder al objeto, junto con una indicación de las operaciones permitidas.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "La definición dada corresponde a las ACLs. Las listas de posibilidades almacenan la matriz de protección por filas: para cada dominio se determinan los objetos a los que tiene acceso."
+  },
+  {
+    "enunciado": "En relación a la seguridad en Unix, se implementan ACLs restringidas, ya que se especifica en cada fichero qué permisos tienen determinados grupos de usuarios.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Unix utiliza un esquema de ACL restringida que define permisos para tres categorías: usuario propietario, grupo propietario y otros (resto de usuarios)."
+  },
+  {
+    "enunciado": "Con respecto a la protección en un sistema de información, un dominio de protección representa un conjunto de procesos con un conjunto de permisos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Un dominio de protección es un conjunto de parejas (objeto, derechos de acceso). Los procesos se ejecutan 'dentro' de un dominio, pero el dominio en sí no es un conjunto de procesos."
+  },
+  {
+    "enunciado": "En Unix, el cambio del usuario propietario de un fichero puede realizarse por parte del usuario propietario del mismo usando la orden «chown».",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Por motivos de seguridad y cuotas de disco, en la mayoría de sistemas Unix solo el superusuario (root) tiene permiso para cambiar el propietario de un archivo."
+  },
+  {
+    "enunciado": "En Unix, si el propietario elimina el permiso de escritura para 'otros', inmediatamente ningún proceso de otros usuarios podrá escribir en él.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Si un proceso ya tenía el fichero abierto para escritura antes del cambio, podrá seguir escribiendo a través de su descriptor de fichero (que actúa como una 'posibilidad'), ya que el chequeo de permisos se realizó al abrirlo."
+  },
+  {
+    "enunciado": "En Unix, si un fichero ejecutable tiene activo el bit SETUID, al ejecutarse se ejecuta siempre con los privilegios del usuario propietario del fichero.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "El bit SETUID permite que un proceso adquiera temporalmente los privilegios del dueño del archivo ejecutable (EUID), independientemente de quién lo lance."
+  },
+  {
+    "enunciado": "Los privilegios de un usuario en un sistema dependen tanto de su identificador como de su contraseña.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Los privilegios dependen exclusivamente del identificador (UID). La contraseña es un mecanismo de autenticación para verificar que el usuario es quien dice ser, pero no define sus permisos una vez dentro."
+  }
+]

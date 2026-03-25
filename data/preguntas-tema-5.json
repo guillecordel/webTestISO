@@ -1,0 +1,142 @@
+[
+  {
+    "enunciado": "En relación a las políticas de asignación de huecos en esquemas de administración de memoria con particiones variables, la política «Peor en ajustarse» suele resultar en mayor desaprovechamiento de la memoria que la de «Mejor en ajustarse».",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "La política «Peor en ajustarse» suele producir huecos sobrantes más grandes que pueden ser utilizados más fácilmente por otros procesos, a diferencia de «Mejor en ajustarse», que deja huecos minúsculos (fragmentación externa) casi inutilizables."
+  },
+  {
+    "enunciado": "Dado un sistema de memoria virtual que no emplea TLB y que utiliza tablas de páginas de N niveles, en caso de un acierto de página se requiere exactamente 1 acceso a memoria para lograr realizar la traducción.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Sin TLB, el hardware debe recorrer cada uno de los niveles de la tabla en memoria. Por tanto, se requieren N accesos a memoria para completar la traducción."
+  },
+  {
+    "enunciado": "El mapa de memoria de un proceso asigna rangos de direcciones físicas contiguas y cada rango almacena el mismo tipo de contenido (código, datos, pila,...).",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El mapa de memoria define la estructura de la memoria VIRTUAL del proceso. Estas direcciones virtuales no tienen por qué corresponderse con direcciones físicas contiguas."
+  },
+  {
+    "enunciado": "En un sistema de paginación con una tabla de páginas invertida, si la dirección virtual es de 30 bits, la física de 20 bits y la página de 1 KiB, la tabla tendrá 2^10 entradas.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "La tabla invertida tiene una entrada por cada marco de página física. Con direcciones físicas de 20 bits (1 MiB total) y páginas de 1 KiB (2^10 bytes), hay 2^20 / 2^10 = 2^10 marcos."
+  },
+  {
+    "enunciado": "En un sistema de memoria virtual que emplea un TLB, para un acceso a memoria es posible observar un fallo de TLB para una página que SÍ tiene asignado un marco de memoria.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "El TLB es una caché pequeña. Es común que una página esté en memoria principal (acierto de página) pero que su traducción no esté en ese momento en el TLB (fallo de TLB)."
+  },
+  {
+    "enunciado": "La técnica de administración de memoria libre basada en «listas ligadas» requiere operaciones de fusión de huecos, mientras que en la de «mapas de bits» ocurren de forma implícita.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "En el mapa de bits, al poner bits a 0, los ceros adyacentes forman automáticamente un hueco mayor. En listas ligadas, el SO debe comprobar los nodos vecinos y unirlos explícitamente."
+  },
+  {
+    "enunciado": "La técnica de dividir la tabla de páginas en varios niveles se utiliza para reducir el número de accesos a memoria en cada traducción.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Al contrario, los niveles aumentan el número de accesos a memoria. Su único objetivo es reducir el espacio total de memoria que ocupa la tabla de páginas al no tener que cargar partes vacías."
+  },
+  {
+    "enunciado": "La técnica de compactación de memoria normalmente no se utiliza porque desperdicia mucha CPU.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Compactar requiere mover procesos enteros en memoria física, lo cual es una operación de copia muy costosa que detiene el trabajo útil del sistema."
+  },
+  {
+    "enunciado": "La técnica de administración de la memoria libre basada en «mapas de bits» permite localizar un bloque libre de gran tamaño más rápidamente que la basada en «listas ligadas».",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Buscar una secuencia larga de ceros en un mapa de bits es lento (O(n)). En una lista ligada, especialmente si está ordenada por tamaño, la búsqueda es mucho más eficiente."
+  },
+  {
+    "enunciado": "Si las páginas son de 4 KiB, y la página 53 está en el marco 15, la dirección virtual 221180 se traduce a la física 65532 (en decimal).",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "221180 / 4096 = página 53 con resto 4092. El marco 15 empieza en 15 * 4096 = 61440. Sumando el desplazamiento: 61440 + 4092 = 65532."
+  },
+  {
+    "enunciado": "Si el SO pagina el código desde el ejecutable, con 32 MiB de RAM y 64 MiB de swap, el tamaño máximo teórico de un proceso es superior a 96 MiB.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "El código no consume swap (se lee del ejecutable). Los 64 MiB de swap son solo para datos 'sucios' (pila, heap). Sumando el código mapeado, el tamaño total puede superar los 96 MiB."
+  },
+  {
+    "enunciado": "En memoria virtual, si el mapa de memoria no cubre todo el espacio virtual, un acceso puede producir un acierto, un fallo de página o una excepción por dirección no válida.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Si la dirección está en el mapa: acierto o fallo de página. Si la dirección no está definida en ninguna región del mapa: el SO genera una excepción (segmentation fault)."
+  },
+  {
+    "enunciado": "En una memoria virtual paginada que emplea una tabla de páginas no invertida la tabla de páginas es única y se comparte entre todos los procesos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "En esquemas no invertidos (jerárquicos), cada proceso tiene su propia tabla de páginas. Solo la tabla invertida es única para todo el sistema."
+  },
+  {
+    "enunciado": "Si la MMU no encuentra la página en el TLB, se produce un fallo de TLB que el SO resuelve trayendo la página de disco.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Un fallo de TLB no implica ir a disco. Primero se mira la tabla de páginas en RAM. Solo si allí tampoco está (bit de presencia 0) se produce un fallo de página y se va a disco."
+  },
+  {
+    "enunciado": "El algoritmo de reemplazo de páginas «de segunda oportunidad» es una modificación del FIFO que evita desalojar páginas modificadas.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Segunda oportunidad se basa en el bit de Referencia (R), no en el de modificado. Evita desalojar páginas que han sido usadas recientemente."
+  },
+  {
+    "enunciado": "El bit de referencia (R) es necesario tanto para el algoritmo de maduración (aging) como para el del reloj.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Ambos algoritmos dependen de conocer si la página se ha accedido. El Reloj lo usa directamente y Aging lo usa para actualizar los contadores periódicamente."
+  },
+  {
+    "enunciado": "En particiones fijas, el número y tamaño de las particiones no varían mientras el sistema está en marcha y son los mismos tras cada reinicio.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Son fijas mientras el SO opera, pero el administrador o el SO pueden reconfigurar el esquema de particionado al reiniciar el sistema."
+  },
+  {
+    "enunciado": "En memoria virtual con direcciones de 32 bits, física de 20 bits y páginas de 4 KiB, el espacio de direcciones virtuales de un proceso es de 1 MiB.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El tamaño del espacio virtual depende de los bits de dirección virtual: 2^32 = 4 GiB. Los 20 bits de física definen la RAM (1 MiB), no el espacio virtual."
+  },
+  {
+    "enunciado": "En la traducción, cuando se produce fallo de TLB y acierto de página, interviene únicamente el hardware de la unidad de administración de memoria (MMU).",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "En la mayoría de arquitecturas modernas, la MMU recorre las tablas de páginas por hardware. Si la página está en RAM, la MMU actualiza el TLB sin avisar al SO."
+  },
+  {
+    "enunciado": "Puede surgir fragmentación interna en particiones fijas pero nunca en particiones variables.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Aunque es típica de las fijas, en particiones variables también existe fragmentación interna debido al uso de 'unidades de asignación' (cuantos de memoria); el proceso raramente ocupa el último byte exacto de la última unidad."
+  }
+]

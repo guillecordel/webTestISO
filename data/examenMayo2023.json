@@ -1,0 +1,242 @@
+[
+  {
+    "enunciado": "Un sistema operativo necesita obligatoriamente el apoyo del hardware para:",
+    "opcionA": "Impedir que un proceso se apodere de la CPU.",
+    "opcionB": "Ser multiusuario cuando el propio sistema operativo es ya multitarea.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Decimos que un sistema operativo se puede ver como una máquina extendida o virtual porque ...",
+    "opcionA": "Oculta los detalles del hardware real y presenta una nueva interfaz de la máquina que se usa a través de llamadas al sistema.",
+    "opcionB": "Además de permitir el acceso directo a bajo nivel al hardware de la máquina por parte de los procesos cuando se encuentran en modo usuario, ofrece abstracciones adicionales que el hardware en sí mismo no posee.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a la multitarea es cierto que:",
+    "opcionA": "Su objetivo es solapar los tiempos de espera de los procesos de un usuario con el uso de la CPU de otros procesos pertenecientes al mismo usuario.",
+    "opcionB": "Trata de dar la ilusión al usuario de que su programa es el único que se está ejecutando, cuando en realidad la CPU puede estar procesando varios programas de distintos usuarios.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En la creación de procesos en Unix:",
+    "opcionA": "Tras la llamada a fork(), los procesos padre e hijo tienen diferente PID. La llamada a exec() construye la nueva imagen del proceso a partir del ejecutable, sin alterar su PID.",
+    "opcionB": "Tras la llamada a fork(), tanto el proceso padre como el hijo tienen el mismo PID. La llamada a exec() es la que le asigna un nuevo PID al proceso que la ejecuta, al tiempo que construye su nueva imagen a partir del ejecutable.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Con respecto a los estados de los procesos:",
+    "opcionA": "Se puede pasar directamente de Bloqueado a Saliente.",
+    "opcionB": "No se puede pasar directamente de Ejecución a Listo Suspendido.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En cuanto a los hilos:",
+    "opcionA": "No existe protección entre hilos de distintos procesos ya que la protección sólo se aplica a nivel de proceso, no a nivel de hilo.",
+    "opcionB": "Los hilos de un mismo proceso se pueden comunicar entre sí sin intervención del sistema operativo.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En relación con la implementación de los hilos en modo núcleo:",
+    "opcionA": "Los cambios de contexto entre hilos de un mismo proceso son mucho más rápidos que en una implementación en modo usuario, gracias a la tabla de hilos gestionada por el núcleo.",
+    "opcionB": "Permite aprovechar el hecho de que haya múltiples CPUs en el sistema, de forma que varios hilos del mismo proceso se podrían ejecutar a la vez.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Siempre que se cambia de modo usuario a modo núcleo ...",
+    "opcionA": "Es porque se ha producido una interrupción, excepción o llamada al sistema.",
+    "opcionB": "Se hace dentro de un cambio de proceso, ya que un cambio de modo solamente no tiene sentido.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Cuando un proceso bloqueado se desbloquea, continúa su ejecución:",
+    "opcionA": "Inmediatamente, para no perjudicar su interactividad con el usuario.",
+    "opcionB": "Cuando lo decida el algoritmo de planificación utilizado.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "La planificación Round Robin (RR):",
+    "opcionA": "Puede hacer que un proceso que agota su quantum tenga que esperar hasta (n + 1) · q unidades de tiempo (n=nº de procesos, q=quantum) para volver a ejecutarse en la CPU.",
+    "opcionB": "Es equitativa entre todos los procesos",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Supongamos un proceso por lotes con las siguientes ráfagas: CPU(4) E/S(3) CPU(3). Si el proceso llega y realiza su primer tic de ejecución en el instante 11, y realiza el último tic de ejecución y acaba en el 22, entonces:",
+    "opcionA": "Su tiempo de retorno es 13 y su tiempo de espera 2.",
+    "opcionB": "Su tiempo de retorno es 12 y su tiempo de espera 2.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Tenemos un SO que utiliza el algoritmo de planificación de procesos SRTF con oráculo. Situación u.t. 5: P0 ejecuta ráfaga de 6 u.t. (empezó en u.t. 3). Cola listos: P1 (6 u.t.), P2 (3 u.t.), P3 (5 u.t.).",
+    "opcionA": "El proceso P0 acabará de ejecutarse justo antes de comenzar la u.t. 12.",
+    "opcionB": "El proceso P0 acabará de ejecutarse justo antes de comenzar la u.t. 17.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Comparando las listas de control de acceso (ACL) y las listas de capacidades:",
+    "opcionA": "La capacidad puede ser copiada, ya que se comporta como una especie de ticket que te da acceso al recurso, mientras que las ACL no ofrecen esa posibilidad.",
+    "opcionB": "Las ACL permiten un acceso muy rápido a la lista de recursos a la que tiene acceso un usuario dado, mientras que las listas de capacidades permiten un acceso muy rápido a la lista de usuarios que tienen acceso a un recurso determinado.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En Linux:",
+    "opcionA": "La ejecución de un programa con SETUID/SETGID puede implicar un cambio de dominio.",
+    "opcionB": "Los bits SETUID/SETGID modifican el UID y el GID con que se ejecuta el programa, aunque el usuario y el grupo efectivo sigue siendo el mismo.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En UNIX se utiliza una base aleatoria junto a la contraseña proporcionada por el usuario. El motivo es ...",
+    "opcionA": "Histórico, pero actualmente inútil porque esa base se guarda junto con la clave pero sin encriptar, así que cualquiera puede conocerla.",
+    "opcionB": "Evitar que para dos usuarios con la misma contraseña se acabe generando el mismo valor encriptado.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Si un directorio de Unix tiene los permisos usuario1 grupo1 rwxr-xr-x, entonces, sin tener en cuenta al usuario root:",
+    "opcionA": "Sólo el usuario1 podrá escribir en los ficheros del directorio.",
+    "opcionB": "Sólo el usuario1 podrá eliminar ficheros del directorio.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "¿Cuál de estas alternativas para la implementación de ficheros daría lugar a fragmentación externa?",
+    "opcionA": "Asignación mediante lista ligada.",
+    "opcionB": "Asignación adyacente.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Si en una implementación de ficheros mediante nodos-i y bloques indirectos, los bloques lógicos son de 1 KiB y las direcciones de bloque ocupan 4 bytes, entonces, a través de cada bloque doblemente indirecto se podrá llegar a:",
+    "opcionA": "65536 bloques de datos.",
+    "opcionB": "1024 bloques de datos.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En un sistema de ficheros Unix, el número máximo de ficheros que se pueden crear:",
+    "opcionA": "Depende exclusivamente del número de nodos-i de que dispone.",
+    "opcionB": "Depende exclusivamente del número de bloques lógicos que haya en la zona de datos.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El objetivo de una caché de disco como la vista en clase es ...",
+    "opcionA": "Mejorar el rendimiento de las operaciones de lectura de disco. Las escrituras de disco siempre se hacen directamente en el disco para evitar que se pierda la consistencia ante una caída del sistema.",
+    "opcionB": "Mejorar el rendimiento de las operaciones de lectura/escritura de los discos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Suponiendo que el nodo-i del directorio raíz NO está en memoria, cada directorio ocupa un bloque y cada nodo-i buscado está en un bloque diferente, ¿cuántos bloques hay que leer para cargar /home/invitado/fichero.txt?",
+    "opcionA": "7",
+    "opcionB": "6",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Si un disco usa sectores de 512 bytes y el sistema de ficheros usa bloques lógicos de 4096 bytes, un fichero con 510 bytes de datos a partir de su posición 0 ocupará:",
+    "opcionA": "Exactamente un bloque lógico.",
+    "opcionB": "Exactamente un sector.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En Unix, si creamos un fichero F y luego 5 enlaces (2 simbólicos y 3 físicos), ¿qué valor tendrá el campo de número de enlaces en el nodo-i de F?",
+    "opcionA": "4",
+    "opcionB": "6",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Las entradas de un directorio se leen con readdir y no con read porque:",
+    "opcionA": "Los directorios almacenan sus contenidos en ficheros de directorio, que se implementan de forma diferente al resto de ficheros.",
+    "opcionB": "readdir permite aislar a los procesos de los detalles de la implementación de los directorios ante posibles cambios.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "A la hora de resolver el problema de la protección entre procesos en esquemas de administración de memoria con particiones:",
+    "opcionA": "El hardware debe proveer necesariamente algún mecanismo, por ejemplo, registros especiales, y realizar el chequeo de direcciones.",
+    "opcionB": "No se requiere ningún soporte hardware, ya que el sistema operativo va comprobando las direcciones.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Si comparamos la segmentación paginada con la segmentación pura:",
+    "opcionA": "En la segmentación pura podemos tener fragmentación externa, y en la segmentación paginada, no.",
+    "opcionB": "En ambas, para cada segmento, tenemos una base con la dirección de inicio y un límite.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El bit de «Caching Desactivado» que aparece en cada entrada de la tabla de páginas, sirve para:",
+    "opcionA": "Implementar la política de «Escritura Anticipada».",
+    "opcionB": "Evitar que el contenido de ciertas páginas se almacene en la memoria caché del procesador.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "El «algoritmo de frecuencia de fallos de página»:",
+    "opcionA": "Es un algoritmo utilizado para el reparto de marcos entre procesos.",
+    "opcionB": "Es un algoritmo de reemplazo de páginas.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En las técnicas de memoria virtual estudiadas, existe siempre el siguiente número de espacios de direcciones independientes:",
+    "opcionA": "En paginación y en segmentación paginada 1, en segmentación 3 (texto, datos, pila).",
+    "opcionB": "En paginación 1, en segmentación y en segmentación paginada tantos como segmentos existan.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "El mapa de memoria de un proceso es una estructura de datos que:",
+    "opcionA": "Describe cómo está organizado el espacio de direcciones virtuales de un proceso (regiones, características, etc).",
+    "opcionB": "Registra qué zonas de memoria RAM están asignadas a un proceso (número, tamaño y dirección).",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dada una tabla de páginas lineal y una tabla de páginas invertida, es cierto que:",
+    "opcionA": "El tamaño de cada entrada en la tabla de páginas invertida suele ser mayor que en la lineal.",
+    "opcionB": "El número total de entradas en la tabla lineal suele ser menor que en la de traducción de la invertida.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El mecanismo de «copia en escritura»:",
+    "opcionA": "Mejora el rendimiento copiando a un marco físico de reserva una página virtual sucia.",
+    "opcionB": "Facilita que padre e hijo accedan a la misma página hasta que uno la modifique, momento en que se duplica.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Si tenemos particionado estático de memoria:",
+    "opcionA": "Si hay dos particiones menores libres que unidas permitan que el proceso quepa, se podrán juntar.",
+    "opcionB": "No se podrá ejecutar un proceso si no hay ninguna partición disponible con un tamaño mayor o igual que el del proceso.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En una tabla de páginas multinivel con N niveles, para un acceso que falla en TLB pero acierta en tabla, los accesos a memoria principal son:",
+    "opcionA": "N, en todos los casos.",
+    "opcionB": "Desde 1 hasta N, dependiendo del nivel de la tabla donde esté la entrada.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Asignación estática (3 marcos). Accesos: WP1, WP2, RP3. Un nuevo acceso RP4 ocasiona un fallo de página que reemplaza:",
+    "opcionA": "La página P1 si se utiliza FIFO segunda oportunidad y la página P3 si se utiliza NRU.",
+    "opcionB": "La página P1 si se utiliza maduración y la página P3 si se usa LRU.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En el algoritmo de planificación de disco SSF:",
+    "opcionA": "Siempre se consigue un tiempo promedio óptimo en discos duros.",
+    "opcionB": "Una solicitud corre el riesgo de no ser atendida durante mucho tiempo en un disco muy cargado.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Un sistema de spooling es útil en un sistema multiprogramado para la gestión de ...",
+    "opcionA": "Un disco duro.",
+    "opcionB": "Una impresora.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "El manejador del reloj se encarga directamente, entre otras tareas, de:",
+    "opcionA": "Mantener la hora, registrar el uso de la CPU y activar el motor de la unidad de DVD.",
+    "opcionB": "Evitar la monopolización de la CPU, registrar el uso de la CPU y controlar las alarmas.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Tenemos un ordenador que trabaja a M MIPS, cuyo reloj dispone de un oscilador de cuarzo a F MHz y de un registro de carga con el valor C. El número máximo de instrucciones que puede tener el manejador del reloj para poder tratar correctamente todas las marcas de reloj que se produzcan es:",
+    "opcionA": "(M × C) / F",
+    "opcionB": "(F × M) / C",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Dado un disco girando a R RPM, con S sectores por pista (todas las pistas de igual tamaño), el tiempo medio de latencia se calcula como:",
+    "opcionA": "60 / (S × R) seg.",
+    "opcionB": "30 / R seg.",
+    "correcta": "b"
+  }
+]

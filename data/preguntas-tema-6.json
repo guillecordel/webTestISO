@@ -1,0 +1,114 @@
+[
+  {
+    "enunciado": "Dado un ordenador que trabaja a M MIPS, cuyo reloj dispone de un oscilador de cuarzo a F MHz y un registro de carga C, el número máximo de instrucciones que puede tener el manejador del reloj para tratar todos los tics es C*M/F.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Efectivamente, la frecuencia de tics es (F*10^6)/C. El tiempo entre tics es C/(F*10^6). Como la CPU ejecuta M*10^6 instrucciones/seg, el máximo es (C/(F*10^6)) * (M*10^6) = C*M/F."
+  },
+  {
+    "enunciado": "Son funciones del manejador de reloj seleccionar un nuevo proceso y asignarle la CPU cuando agote su quantum, contabilizar el uso de CPU y gestionar alarmas.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Contabilizar el uso de CPU y gestionar alarmas sí son funciones del reloj, pero seleccionar un nuevo proceso (planificación) y asignarle la CPU (distribución/dispatching) son funciones del planificador de procesos."
+  },
+  {
+    "enunciado": "En relación a las operaciones de E/S, estas son habitualmente síncronas, es decir, tras iniciar la operación la CPU se queda bloqueada hasta que llega una interrupción.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El hardware de E/S es habitualmente asíncrono. Es el sistema operativo el que, mediante el bloqueo de procesos, ofrece una interfaz que parece síncrona al usuario."
+  },
+  {
+    "enunciado": "En un reloj de 10 MHz con registro de carga 100.000, el valor que almacenará su contador descendente a los 72 milisegundos de un segundo dado será de 20.000.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El tiempo entre tics es 10ms (100.000 / 10^7). A los 72ms han pasado 7 tics completos y quedan 2ms del actual. Como el contador baja de 100.000 a 0 en 10ms, en 2ms baja 20.000 unidades. El valor actual es 100.000 - 20.000 = 80.000."
+  },
+  {
+    "enunciado": "Dado un disco girando a R RPM, con S sectores por pista, el tiempo medio de latencia se calcula como 60/(R*S).",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El tiempo medio de latencia es lo que tarda el disco en dar media vuelta. Si tarda 60/R segundos en una vuelta completa, la latencia media es 30/R segundos."
+  },
+  {
+    "enunciado": "El manejador de interrupciones, cuando se quiere realizar una operación de E/S, envía las órdenes oportunas mediante señales de interrupción al dispositivo.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Es el manejador de dispositivo (driver) quien envía las órdenes al controlador. El manejador de interrupciones hace lo opuesto: recibe la señal del dispositivo cuando este termina."
+  },
+  {
+    "enunciado": "Para una cierta operación de lectura de disco, suponiendo que los datos no están en caché, podría darse que el tiempo de búsqueda fuera 0.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Si las cabezas del disco ya están posicionadas sobre el cilindro correcto debido a una operación anterior, el tiempo de búsqueda (seek time) es nulo."
+  },
+  {
+    "enunciado": "En un disco con 4 cabezas y 2 zonas (Z0: 2048 sect/pista, Z1: 1536 sect/pista), el sector 35.308.602 está en la posición (zona 1, cilindro 285, cabeza 2, sector 58).",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Calculando el tamaño de la Zona 0 (4 * 4096 * 2048 = 33.554.432 sectores), el sector cae en la Zona 1. Al restar el offset y dividir por geometría de la Zona 1, las coordenadas coinciden."
+  },
+  {
+    "enunciado": "Un dispositivo de bloques y otro de caracteres son equivalentes, salvo que el primero lee bloques y el segundo bytes concretos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "La diferencia fundamental es el acceso: los de bloques permiten acceso aleatorio (ir a cualquier bloque), mientras que los de caracteres son de acceso secuencial (flujo de bytes)."
+  },
+  {
+    "enunciado": "En cuanto a los planificadores de disco vistos en clase, todos evitan que ciertas peticiones queden sin atender nunca (inanición).",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El algoritmo SSF (Shortest Seek First) puede causar inanición si llegan constantemente peticiones cerca de la posición actual de la cabeza, dejando las lejanas esperando indefinidamente."
+  },
+  {
+    "enunciado": "Todos los planificadores de disco salvo FCFS priorizan reducir el tiempo de servicio a costa de sacrificar otras metas como evitar tiempos de espera largos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Algoritmos como SSF o SCAN buscan optimizar el movimiento del brazo y el rendimiento global, lo que puede causar que peticiones individuales esperen mucho más que en un orden FIFO."
+  },
+  {
+    "enunciado": "Si un reloj de F MHz produce T tics por segundo, el registro de carga con el que se inicializa el contador contiene el valor T/(F*10^6).",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "La fórmula correcta para el registro de carga R es R = (F*10^6) / T."
+  },
+  {
+    "enunciado": "El tiempo de latencia de una operación de disco es siempre el tiempo que tarda el disco en dar media vuelta una vez posicionado el brazo.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Media vuelta es la latencia *media*. En una operación concreta, la latencia puede ser desde 0 (el sector está justo bajo la cabeza) hasta una vuelta completa."
+  },
+  {
+    "enunciado": "El objetivo de un sistema de «spooling» es evitar la monopolización de dispositivos de E/S de uso exclusivo, como una impresora, por parte de un proceso.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "El spooling interpone un proceso intermedio y un almacenamiento (disco) para que varios procesos envíen trabajos simultáneamente sin bloquear el dispositivo físico real."
+  },
+  {
+    "enunciado": "El manejador del reloj consulta en cada tic el valor del reloj de tiempo real (RTC) de la placa base y lo almacena.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El RTC solo se consulta al arrancar. Durante la ejecución, el SO simplemente incrementa un contador interno en memoria (tics) en cada interrupción de reloj."
+  },
+  {
+    "enunciado": "Cuando termina una operación de E/S, el manejador de interrupciones termina el procesamiento y desbloquea al manejador de dispositivo para la siguiente operación.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El manejador de interrupciones solo hace el trabajo mínimo para reconocer la interrupción; es el manejador de dispositivo (driver) quien completa el procesamiento de los datos."
+  }
+]

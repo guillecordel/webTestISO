@@ -1,0 +1,182 @@
+[
+  {
+    "enunciado": "A la hora de implementar las llamadas al sistema:",
+    "opcionA": "Suele existir un mecanismo hardware distinto para implementar cada categoría de llamadas al sistema, ya que puede haber grandes diferencias entre unos tipos de llamadas al sistema y otros.",
+    "opcionB": "Todas suelen usar el mismo mecanismo proporcionado por el hardware a través del cual el procesador cambia de modo usuario a modo núcleo de forma controlada.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Las llamadas al sistema:",
+    "opcionA": "son la única forma de pedirle un servicio al núcleo del sistema operativo.",
+    "opcionB": "es imposible hacerlas directamente, de ahí que se hagan a través de una biblioteca del sistema.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El intérprete de órdenes es un programa del sistema que funciona:",
+    "opcionA": "en modo usuario, haciendo uso de las llamadas al sistema que proporciona el sistema operativo.",
+    "opcionB": "dentro del núcleo del sistema operativo ya que necesita hacer operaciones que cualquier proceso de usuario no puede.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "De los mecanismos de protección hardware que ayudan al sistema operativo a proteger el sistema:",
+    "opcionA": "No se puede prescindir de ninguno de los tres.",
+    "opcionB": "Las interrupciones periódicas no son necesarias realmente, ya que no protegen de nada, mientras que el modo dual evita que se ejecuten instrucciones peligrosas y la protección de memoria evita que un proceso pueda salirse de la memoria asignada.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Una ventaja de los sistemas operativos que tienen una estructura cliente-servidor respecto a los monolíticos es que:",
+    "opcionA": "Se pueden ejecutar sobre un mayor número de arquitecturas de ordenadores.",
+    "opcionB": "Son más fáciles de depurar y verificar.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "¿Por qué un sistema operativo se puede ver como una máquina extendida o virtual?",
+    "opcionA": "Porque oculta los detalles del hardware real y presenta una nueva interfaz de la máquina que se usa a través de llamadas al sistema.",
+    "opcionB": "Porque, además de permitir el acceso a bajo nivel al hardware de la máquina por parte de los procesos cuando se encuentran en modo usuario, ofrece abstracciones adicionales que el hardware en sí mismo no posee.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Un proceso suspendido-listo puede pasar a uno de los siguientes estados:",
+    "opcionA": "A listo cuando es reanudado.",
+    "opcionB": "A suspendido-bloqueado cuando empieza a servirse su petición de E/S.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El efecto convoy ...",
+    "opcionA": "puede darse en un sistema que planifica el procesador con el algoritmo SJF.",
+    "opcionB": "aparece en FCFS cuando varios procesos limitados por E/S tienen que estar esperando a que deje la CPU un proceso limitado por CPU.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Siempre que se cambia de modo usuario a modo núcleo ...",
+    "opcionA": "Se hace dentro de un cambio de proceso, ya que un cambio de modo solamente no tiene sentido.",
+    "opcionB": "Es porque se ha producido una interrupción, excepción o llamada al sistema.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En Unix, un proceso que se desbloquea se despierta en ...",
+    "opcionA": "el núcleo del SO, tras la función/instrucción que hizo que se bloqueara en última instancia.",
+    "opcionB": "la instrucción en el código de usuario detrás de la llamada al sistema que provocó que fuera bloqueado.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En el algoritmo de planificación de procesos de múltiples colas con realimentación, la realimentación significa:",
+    "opcionA": "Que un proceso puede pasar de una cola a otra.",
+    "opcionB": "Que un proceso puede pasar de una cola a otra y que además se puede cambiar la posición de un proceso en su cola en cualquier momento.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Indica cuál de los siguientes es un motivo por el que se lanza obligatoriamente el planificador de procesos.",
+    "opcionA": "Se ejecuta una llamada al sistema.",
+    "opcionB": "Finaliza un proceso.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En la creación de procesos en Unix:",
+    "opcionA": "Tras la llamada a fork() tanto el proceso padre como el hijo tienen el mismo PID. La llamada a exec() es la que le asigna un nuevo PID al proceso que la ejecuta, al tiempo que construye su nueva imagen a partir del ejecutable.",
+    "opcionB": "Tras la llamada a fork() los procesos padre e hijo tienen diferente PID. La llamada a exec() construye la nueva imagen del proceso a partir del ejecutable, sin alterar su PID.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Supongamos un proceso por lotes con las siguientes ráfagas: CPU(4) E/S(3) CPU(3). Si el proceso llega en el instante 11 y termina en el 23 entonces:",
+    "opcionA": "Su tiempo de retorno es 13 y su tiempo de espera 2.",
+    "opcionB": "Su tiempo de retorno es 12 y su tiempo de espera 2.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Supongamos que en la cola de procesos listos tenemos tres procesos, P1, P2 y P3, en ese orden, cuya siguiente ráfaga de CPU durará 4, 3 y 5 unidades de tiempo, respectivamente. Si antes de que la CPU quede libre, llega a la cola de listos un proceso P4 cuya siguiente ráfaga de CPU va a durar 2 unidades de tiempo, entonces, dicho proceso tomará la CPU:",
+    "opcionA": "Como mucho, 8 unidades de tiempo después de llegar, si se usa round-robin con un quantum de 2 unidades y la CPU acaba de ser asignada a un proceso.",
+    "opcionB": "Inmediatamente, expulsando al proceso que hay en la CPU, si el algoritmo es SRTF o por prioridad apropiativo (siempre que P4 sea el proceso de mayor prioridad).",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Un rootkit es un programa que permite un acceso continuo y privilegiado a un computador y, además:",
+    "opcionA": "Tiene la capacidad de extenderse a otros computadores conectados a su misma red.",
+    "opcionB": "Es difícilmente detectable, incluso mediante un antivirus.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Una característica de las listas de posibilidades que no tienen las listas de control de acceso es:",
+    "opcionA": "que se permiten operaciones con las posibilidades, como obtener una copia o eliminarlas.",
+    "opcionB": "que es más sencillo recuperar todos los permisos de un objeto particular.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Un dominio de seguridad:",
+    "opcionA": "Es un conjunto de parejas objeto, derechos.",
+    "opcionB": "Especifica los permisos que posee un usuario.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Si tenemos un fichero con los siguientes permisos: usuario1 grupo2 rwsr-sr--:",
+    "opcionA": "si lo ejecuta el usuario1 que pertenece al grupo1, su grupo se convierte en el grupo2 durante la ejecución del proceso.",
+    "opcionB": "no puede ejecutarlo el usuario2 que pertenece al grupo2 porque no tiene permiso de ejecución (x) para el grupo.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En UNIX/Linux:",
+    "opcionA": "Un usuario puede pertenecer a varios dominios a la vez con distintos GID.",
+    "opcionB": "Un usuario puede pertenecer a varios dominios a la vez con distintos UID y GID.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Los privilegios de un usuario en un sistema:",
+    "opcionA": "dependen tanto de su identificador como de su contraseña.",
+    "opcionB": "dependen únicamente de su identificador, ya que la contraseña solamente sirve para autenticarlo.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En la implementación de ficheros y directorios en Unix, los bloques indirectos:",
+    "opcionA": "Los usan tanto los ficheros regulares como los directorios (si es necesario).",
+    "opcionB": "Los usan los ficheros regulares (si es necesario), pero no los directorios.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En la implementación de ficheros mediante lista ligada:",
+    "opcionA": "Se consiguen utilizar todos los bloques del disco.",
+    "opcionB": "Se produce mucha fragmentación externa.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Un fichero ejecutable que contiene código máquina es un fichero binario cuyo formato debe conocer:",
+    "opcionA": "Sólo el compilador-enlazador que genera dicho fichero binario. En los sistemas operativos modernos, el tipo de los ficheros es indiferente.",
+    "opcionB": "Tanto el compilador-enlazador que lo genera como el sistema operativo donde se utiliza.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "El campo enlaces de un nodo-i:",
+    "opcionA": "guarda el número de subdirectorios en el caso del nodo-i del directorio raíz.",
+    "opcionB": "guarda el número de entradas en directorios con ese nodo-i.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "¿En qué implementación de directorios, de las vistas en clase, pueden aparecer huecos libres entre entradas de directorio?",
+    "opcionA": "Tanto en la implementación de directorios de Unix como en la de MS-DOS.",
+    "opcionB": "Sólo en la implementación de directorios de Unix.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Las entradas de un directorio se leen con readdir y no con read porque:",
+    "opcionA": "Los directorios no se implementan como ficheros.",
+    "opcionB": "readdir permite aislar a un proceso de los detalles de la implementación del directorio.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "El número máximo de bloques lógicos que se deben leer de un disco para copiar en memoria el bloque N de un fichero es:",
+    "opcionA": "1 en asignación contigua.",
+    "opcionB": "N − 2 con listas ligadas.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Si queremos escribir un byte en la posición 4500000 de un fichero de 10 MB implementado mediante lista ligada sin índice (bloques 4 kB, direcciones 4 bytes):",
+    "opcionA": "Leer 1100 bloques y escribir 2 bloques.",
+    "opcionB": "Leer 1100 bloques y escribir 1 bloque.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Si queremos añadir un bloque al final de un fichero de 10 MB implementado mediante nodos-i (10 directas, BSI, BDI, BTI), con bloques de 4 kB y direcciones de 4 bytes:",
+    "opcionA": "Leer 2 bloques y escribir 1 bloque.",
+    "opcionB": "Leer 2 bloques y escribir 2 bloques.",
+    "correcta": "b"
+  }
+]

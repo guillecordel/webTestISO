@@ -1,0 +1,182 @@
+[
+  {
+    "enunciado": "De manera general, un sistema operativo lo podemos ver como controlador de recursos:",
+    "opcionA": "pues oculta el funcionamiento del hardware al usuario, mostrándole una interfaz más sencilla y amigable de los recursos del sistema.",
+    "opcionB": "pues proporciona una asignación controlada de los procesadores, memoria, dispositivos de E/S, etc., a los distintos procesos que compiten por ellos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En relación a la protección del sistema operativo, el procesador debe disponer de dos modos de ejecución (modo núcleo y modo usuario):",
+    "opcionA": "Para evitar que el sistema se bloquee porque un programa se haga con el control de la CPU (por ejemplo, porque entre en un bucle infinito).",
+    "opcionB": "Para evitar que un programa pueda ejecutar ciertas instrucciones de la CPU, como, por ejemplo, las de E/S.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Las llamadas al sistema:",
+    "opcionA": "son programas que acompañan al sistema operativo para ofrecer un entorno más cómodo para el desarrollo y ejecución de programas.",
+    "opcionB": "definen la interfaz entre el sistema operativo y un programa en ejecución.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Un mismo proceso puede comprender varios programas:",
+    "opcionA": "y un mismo programa puede dar lugar a varios procesos.",
+    "opcionB": "pero un programa solamente puede dar lugar a un único proceso.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El pseudoparalelismo:",
+    "opcionA": "Consiste en ejecutar varios procesos simultáneamente gracias a tener varias CPUs y/o una CPU con varios núcleos.",
+    "opcionB": "Se da cuando cada núcleo de la CPU es utilizado por varios procesos, pasando la ejecución de uno a otro rápidamente.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Cuando un proceso Pi hace una llamada al sistema fork():",
+    "opcionA": "Se crea un nuevo proceso Pj que es una copia idéntica del Pi, con lo que ambos procesos, Pi y Pj, podrán modificar los datos que tienen compartidos en memoria RAM.",
+    "opcionB": "Se crea un nuevo proceso Pj que continúa su ejecución de manera independiente de Pi.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Cuando un proceso Pi hace una llamada al sistema exec():",
+    "opcionA": "Se crea un nuevo proceso Pj con el código y datos del programa que se indica como argumento a la llamada.",
+    "opcionB": "El proceso Pi sustituye su código y datos por los del programa cuyo nombre se indica como argumento a la llamada. A continuación, Pi comienza la ejecución del nuevo código desde el principio.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En relación con el estado de un proceso:",
+    "opcionA": "Un proceso pasa directamente de estado “en ejecución” a “listo” cuando lo decide el planificador, independientemente del código que esté ejecutando dicho proceso.",
+    "opcionB": "Un proceso pasa directamente de estado “bloqueado” a estado “en ejecución” cuando el evento externo que está esperando ya ha finalizado exitosamente, con lo que dicho proceso puede continuar su ejecución.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El Planificador a Medio Plazo (PMP) se encarga de decidir:",
+    "opcionA": "Si un proceso en estado “bloqueado suspendido” pasa directamente a estado “listo suspendido”.",
+    "opcionB": "Si un proceso en estado “bloqueado suspendido” pasa directamente a estado “bloqueado”.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "El Bloque de Control de Procesos (BCP) de un proceso de usuario:",
+    "opcionA": "Contiene todo aquello que está relacionado con dicho proceso: su código, sus datos, su pila,...",
+    "opcionB": "No puede ser modificado directamente por dicho proceso, sino únicamente por el sistema operativo.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En Unix, cuando un proceso de usuario realiza una llamada al sistema:",
+    "opcionA": "Dicho proceso pasa de modo usuario a modo núcleo y ejecuta el código oportuno.",
+    "opcionB": "Se produce un cambio de proceso en CPU: el proceso de usuario pasa a estado bloqueado mientras que el proceso del sistema operativo toma el control en modo núcleo para atender dicha llamada.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Tenemos un proceso Pi que tiene 2 hilos Hi1 y Hi2. Entonces:",
+    "opcionA": "Hi1 y Hi2 son exactamente iguales, por lo que ejecutan las mismas instrucciones con los mismos datos.",
+    "opcionB": "Hi1 y Hi2 comparten los datos del proceso pero pueden ejecutar instrucciones diferentes.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En una implementación de hilos a nivel de usuario, si el hilo de un proceso realiza una llamada al sistema bloqueante:",
+    "opcionA": "Se bloqueará completamente el proceso y todos sus hilos.",
+    "opcionB": "Se bloquearán solamente el hilo que hizo la llamada y aquellos otros hilos del proceso que dependan de la resolución de dicha llamada.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En relación a la planificación de procesos, el tiempo de espera de un proceso es:",
+    "opcionA": "El tiempo que hay que esperar desde que empieza el proceso hasta que se obtienen sus resultados.",
+    "opcionB": "El tiempo que pasa el proceso en la cola de procesos listos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "La necesidad de planificación de trabajos en CPU:",
+    "opcionA": "surge desde el momento en que se tienen varios trabajos en CPU que se encuentren bloqueados a la espera de poder utilizar la E/S.",
+    "opcionB": "surge desde el momento en que se tienen varios trabajos en memoria que pueden ejecutarse.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "La planificación round robin:",
+    "opcionA": "Es no apropiativa, pues hasta que el proceso que está en ejecución no consuma su quantum, el sistema operativo no se puede apropiar de la CPU.",
+    "opcionB": "Es apropiativa, pues el proceso que está en ejecución puede ser desalojado de la CPU sin haberse bloqueado ni haber finalizado.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Una invención de la información es:",
+    "opcionA": "Una amenaza a la integridad de la información.",
+    "opcionB": "Una amenaza a la confidencialidad de la información.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "El dominio de protección...",
+    "opcionA": "donde se ejecuta un proceso define los objetos a los que puede acceder dicho proceso y con qué permisos.",
+    "opcionB": "de un objeto define los procesos que pueden acceder a dicho objeto y con qué permisos.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En Unix, por defecto, la ACL de cada fichero es restringida porque:",
+    "opcionA": "se limita a tres permisos: lectura, escritura y ejecución.",
+    "opcionB": "se limita a tres conjuntos de usuarios: propietario, grupo y otros.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En Unix, si un fichero ejecutable tiene el bit SETUID activo, entonces si un usuario lo ejecuta:",
+    "opcionA": "el proceso que se crea no tendrá el EUID de dicho usuario sino del propietario del fichero.",
+    "opcionB": "el proceso que se crea no tendrá el EUID del propietario del fichero sino del usuario que lo ejecuta.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Existen 2 tipos de ficheros regulares:",
+    "opcionA": "Ficheros especiales de bloques y ficheros especiales de caracteres.",
+    "opcionB": "Ficheros de texto y ficheros binarios.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Para un fichero (o un directorio):",
+    "opcionA": "Existen innumerables rutas relativas.",
+    "opcionB": "Existen dos rutas absolutas: una partiendo del directorio raíz y otra partiendo desde el directorio actual.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Para realizar una lectura de un directorio:",
+    "opcionA": "Se utiliza la operación read (como en los ficheros) pues los directorios son simplemente un tipo de ficheros.",
+    "opcionB": "Se utiliza la operación readdir debido a que el sistema operativo es el que determina el formato de los directorios.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En una implementación de ficheros mediante lista ligada sin índice, para la lectura del byte Z, perteneciente al bloque X de un fichero F cuyo primer bloque está en la dirección D:",
+    "opcionA": "se tendrá que leer únicamente el bloque D+X del disco.",
+    "opcionB": "se tendrán que leer X+1 bloques del disco.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Si suponemos que cualquier directorio tiene sólo un bloque de datos, raíz y su bloque en memoria, y cada nodo-i en bloque diferente, para leer el primer byte de /home/alumno/apuntes/tema1.pdf:",
+    "opcionA": "Habrá que leer 8 bloques de disco.",
+    "opcionB": "Habrá que leer 7 bloques de disco.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Una caché de disco:",
+    "opcionA": "es una colección de bloques que pertenecen al disco, pero que se mantienen temporalmente en la memoria principal.",
+    "opcionB": "es una colección de bloques que pertenecen a la memoria principal, pero que se mantienen temporalmente en disco.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En una implementación de ficheros mediante lista ligada e índice, el tamaño de la tabla o índice:",
+    "opcionA": "Depende del tamaño del dispositivo de almacenamiento y del tamaño de los bloques.",
+    "opcionB": "Depende del tamaño de los ficheros y del tamaño de los bloques.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En una implementación de ficheros mediante nodos-i:",
+    "opcionA": "Existe un única tabla para todo el sistema de ficheros que contiene un conjunto de punteros para acceder a todos los bloques.",
+    "opcionB": "La cantidad de memoria RAM utilizada para nodos-i depende del número de ficheros abiertos en un momento dado.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En Unix, si tenemos el fichero fic1 y creamos un enlace físico llamado lin1 y, tras ello, borramos fic1:",
+    "opcionA": "El enlace lin1 se quedará inconsistente, pues apuntará a un fichero que ya no existe.",
+    "opcionB": "Se sigue pudiendo acceder mediante el enlace lin1 al contenido del fichero eliminado fic1.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Tenemos un disco con gestión de bloques libres mediante mapa de bits. Si L bloques están libres y M bloques están ocupados:",
+    "opcionA": "El mapa de bits estará formado al menos por (L+M)/8 bytes.",
+    "opcionB": "El mapa de bits estará formado por L bits.",
+    "correcta": "a"
+  }
+]

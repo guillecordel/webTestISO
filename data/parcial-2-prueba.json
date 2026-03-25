@@ -1,0 +1,122 @@
+[
+  {
+    "enunciado": "En un esquema de administración de memoria con particiones fijas:",
+    "opcionA": "El número de procesos que podemos tener compartiendo la CPU se ve siempre limitado por el número de colas de entrada de dichos procesos a memoria.",
+    "opcionB": "Los procesos pequeños pueden producir mucha fragmentación interna cuando se utiliza una única cola de entrada.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un esquema de administración de memoria con particiones variables, el algoritmo “Mejor en ajustarse”:",
+    "opcionA": "Tiende a producir huecos en la memoria demasiado pequeños para poder utilizarlos posteriormente.",
+    "opcionB": "Busca para cada hueco de memoria un proceso que sea del tamaño exacto de dicho hueco.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "La técnica de compactación de memoria:",
+    "opcionA": "Se puede utilizar en el esquema de particiones fijas para compactar los huecos producidos por la fragmentación interna.",
+    "opcionB": "Se lleva a cabo moviendo algunos procesos en memoria.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un esquema de administración de memoria con particiones variables, si se utiliza un mapa de bits para la gestión de la memoria libre:",
+    "opcionA": "A cada partición de la memoria le corresponde un bit en el mapa de bits, con valor 0 si está libre y 1 si está ocupada.",
+    "opcionB": "La cantidad de memoria utilizada para el mapa de bits será fija, independientemente del número de procesos que estén en memoria en cada momento.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un esquema de administración de memoria con particiones variables, el mecanismo que consiste en tener un registro base y un registro límite:",
+    "opcionA": "Permite reubicar un proceso en cualquier partición de la memoria, incluso en aquellas de tamaño menor al precisado por el proceso.",
+    "opcionB": "Permite proteger la memoria de un proceso del resto de los procesos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un sistema de paginación, si el tamaño de las direcciones virtuales es de 32 bits, el de las direcciones físicas de 20 bits y el de las páginas de 4 KiB, ¿cuál será el tamaño del espacio de direcciones virtuales de un proceso?",
+    "opcionA": "4 GiB.",
+    "opcionB": "1 MiB.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En un sistema de paginación con páginas de 4 KiB el proceso P tiene cargado en el marco 1 la página virtual 5 y en el marco 5 la página virtual 7. Si P genera la dirección virtual 0x05A4B, ¿cuál sería la dirección física a la qué se accedería?",
+    "opcionA": "0x01A4B",
+    "opcionB": "0x07A4B",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En un sistema de paginación, si la MMU no encuentra en el TLB el número de página virtual solicitado:",
+    "opcionA": "La MMU utiliza la tabla de páginas para saber en qué marco está cargada la página virtual solicitada.",
+    "opcionB": "Se produce un fallo de TLB, que será resuelto por el sistema operativo trayendo la página solicitada de disco a memoria.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En un sistema de segmentación paginada, cuando un proceso quiere acceder a una posición de memoria:",
+    "opcionA": "Debe indicar explícitamente dicha posición como (P,D), siendo P el número de página virtual y D el desplazamiento dentro de la página. El segmento lo obtiene la MMU a partir de D.",
+    "opcionB": "Debe indicar explícitamente dicha posición como (S,D), siendo S el segmento y D el desplazamiento dentro del segmento. El número de página virtual lo obtiene la MMU a partir de D.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un sistema de paginación con una TTP invertida, si el tamaño de las direcciones virtuales es 30 bits, el de las direcciones físicas de 20 bits y el tamaño de página de 1 KiB, ¿cuántas entradas debe tener la TTP invertida?",
+    "opcionA": "2^10 entradas.",
+    "opcionB": "2^20 entradas.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En relación al diseño del sistema de paginación, una política de asignación de marcos fija:",
+    "opcionA": "Conllevará siempre una política de reemplazo local.",
+    "opcionB": "Puede combinarse con una política de reemplazo global cambiando cuando sea oportuno el número de marcos asignados a cada proceso.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "La técnica de dividir la tabla de páginas en varios varios niveles:",
+    "opcionA": "Se utiliza para reducir el espacio necesario para dicha tabla en memoria principal.",
+    "opcionB": "Se utiliza para reducir el número de accesos a memoria en cada traducción de dirección virtual a dirección física.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En relación a los algoritmos de reemplazo de páginas, el algoritmo de maduración:",
+    "opcionA": "Es una aproximación por software al algoritmo LRU.",
+    "opcionB": "Es una modificación del algoritmo FIFO que evita deshacerse de una página de uso frecuente.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En relación a las políticas de lectura y escritura de páginas:",
+    "opcionA": "La prepaginación consiste en escribir en disco algunas de las páginas que ya han sido modificadas antes de que deban ser sustituidas.",
+    "opcionB": "La prepaginación consiste en que, cuando se produce un fallo de página, se lee de disco la página solicitada y algunas páginas más.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Unos de los objetivos del software de E/S es convertir las transferencias asíncronas en síncronas de cara a que:",
+    "opcionA": "Las operaciones de E/S solicitadas en cualquier momento (asíncronamente) por el usuario parezcan síncronas para el dispositivo de E/S.",
+    "opcionB": "Las operaciones de E/S controladas por interrupciones actúen de manera bloqueante para los programas de usuario.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "El manejador de interrupciones:",
+    "opcionA": "Cuando se produce una interrupción, la atiende y, después, avisa al manejador de dispositivo correspondiente.",
+    "opcionB": "Cuando se quiere realizar una operación de E/S, envía las órdenes oportunas, mediante señales de interrupción, al dispositivo correspondiente.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "En relación a los discos, el tiempo de búsqueda:",
+    "opcionA": "Es el tiempo necesario para que el disco gire en busca de los sectores a leer/escribir.",
+    "opcionB": "Es el tiempo necesario para mover el soporte de los brazos hasta colocar las cabezas en el cilindro adecuado.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "Una de las funciones del manejador de un reloj programable es:",
+    "opcionA": "Controlar las alarmas que se creen para avisar a los procesos de usuario que las solicitan.",
+    "opcionB": "Aumentar/disminuir, cuando sea necesario, la frecuencia de funcionamiento del oscilador de cristal de cuarzo interno al reloj.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "Entre las funciones del manejador de un reloj programable está la de controlar el tiempo de ejecución de los procesos. Para ello, este manejador debe:",
+    "opcionA": "Decidir cuál es el siguiente proceso que va a usar la CPU si llega a 0 el contador del quantum del proceso que se está ejecutando.",
+    "opcionB": "Decrementar en 1 en cada interrupción de reloj el contador del quantum del proceso que tiene la CPU.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "En un reloj programable, si cada M milisegundos se produce un tic de reloj y la frecuencia del oscilador de cristal de cuarzo es F MHz., entonces el valor del registro de carga será:",
+    "opcionA": "F × M × 10^3",
+    "opcionB": "F / M × 10^6",
+    "correcta": "a"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "enunciado": "El sistema operativo entra en ejecución únicamente cuando un programa de usuario así lo solicita mediante una llamada al sistema.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El sistema operativo debe entrar en ejecución también periódicamente (por ejemplo, mediante interrupciones de reloj) para realizar tareas de planificación y control."
+  },
+  {
+    "enunciado": "El mecanismo de spoolers permite incrementar la utilización de la CPU solapando el tiempo de cómputo de un programa con su tiempo de E/S.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El mecanismo de spoolers permite solapar el tiempo de E/S de un proceso con el tiempo de CPU de OTRO proceso diferente."
+  },
+  {
+    "enunciado": "Para garantizar un funcionamiento correcto, el sistema operativo ha de poder ejecutarse al menos en dos modos, el modo núcleo y el modo usuario.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Es el PROCESADOR el que debe disponer de esos modos. El sistema operativo se ejecuta siempre en el modo núcleo del procesador."
+  },
+  {
+    "enunciado": "La multitarea permite que varios usuarios puedan interactuar con la máquina a la vez, con la sensación de que su programa se ejecuta en exclusiva.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "A diferencia de la multiprogramación, la multitarea se basa en realizar cambios rápidos entre tareas para permitir la interacción del usuario."
+  },
+  {
+    "enunciado": "El concepto transparencia de la localización en un sistema operativo distribuido significa que el sistema operativo se puede ejecutar en cualquiera de las máquinas que componen el sistema, sin que el usuario sepa dónde.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El sistema operativo se ejecuta en todas las máquinas. La transparencia de localización significa que el usuario no sabe dónde residen físicamente sus recursos o procesos."
+  },
+  {
+    "enunciado": "La unidad de trabajo del sistema operativo es el proceso, que en general no es más que una entidad pasiva: un programa almacenado en disco.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El proceso es una entidad activa y dinámica (un programa en ejecución), con estado, registros y contador de programa. La entidad pasiva es el programa en disco."
+  },
+  {
+    "enunciado": "Los programas del sistema que acompañan al sistema operativo (por ejemplo bash) se ejecutan en modo núcleo del procesador puesto que forman parte del sistema operativo.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Los programas del sistema se ejecutan en modo usuario. Para el núcleo, no hay diferencia de privilegios entre un programa de sistema y uno de usuario."
+  },
+  {
+    "enunciado": "En un sistema operativo con estructura interna del tipo cliente-servidor, los distintos procesos servidores que implementan la administración de procesos, memoria, sistema de ficheros, ... se ejecutan en modo usuario del procesador.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "En microkernels, los servicios corren en modo usuario y solo el micronúcleo mínimo corre en modo núcleo."
+  },
+  {
+    "enunciado": "El componente del sistema operativo que habilita directamente el concepto de multitarea es el módulo de administración de procesos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "El planificador (parte de la administración de procesos) es el encargado de realizar los cambios rápidos entre procesos necesarios para la multitarea."
+  },
+  {
+    "enunciado": "Cuando un programa de usuario realiza una llamada al sistema, la instrucción que sigue a dicha llamada en ese mismo programa se ejecutará en modo núcleo para recoger los resultados.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Una vez finalizada la llamada al sistema, el control vuelve al programa en modo usuario. Por tanto, la siguiente instrucción se ejecuta ya en modo usuario."
+  }
+]

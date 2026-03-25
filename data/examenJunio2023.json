@@ -1,0 +1,242 @@
+[
+  {
+    "enunciado": "1. La característica del hardware en la que se apoya directamente el sistema operativo para impedir que un proceso pueda acceder a los registros de la controladora de un dispositivo de E/S es:",
+    "opcionA": "La disponibilidad de dos modos de funcionamiento (modo núcleo y modo usuario) en la CPU.",
+    "opcionB": "Las interrupciones periódicas generadas por alguno de los relojes hardware con que debe contar el sistema.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "2. Dado un lote de trabajos L y un sistema operativo S, es cierto que:",
+    "opcionA": "Para reducir el tiempo total de uso de la CPU por parte S durante la ejecución de L, es preferible que S implemente multiprogramación.",
+    "opcionB": "Para reducir el tiempo total necesario para completar la ejecución de L, es preferible que S implemente multitarea.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "3. Un sistema operativo distribuido habilita el concepto de transparencia de la localización, que significa que:",
+    "opcionA": "Que el sistema operativo se puede ejecutar en cualquiera de las máquinas que configuran el sistema, sin que el usuario tenga que saber en cuál de ellas.",
+    "opcionB": "Que un programa de usuario se puede ejecutar en cualquiera de las máquinas que configuran el sistema, sin que el usuario tenga que saber en cuál de ellas.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "4. En un sistema operativo UNIX, si un proceso de usuario con PID=10 realiza una llamada al sistema...",
+    "opcionA": "Se pasará la CPU de modo usuario a modo núcleo, y a continuación, se transferirá el control al proceso con PID=0, correspondiente al kernel del sistema operativo, y que será el encargado de ejecutar el código de la llamada al sistema.",
+    "opcionB": "Se hará un cambio de contexto, pero la llamada al sistema será ejecutada por el mismo proceso que la realizó, esto es, el que tiene PID=10.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "5. En UNIX, cuando un proceso realiza, en este orden, las llamadas al sistema fork() y exec():",
+    "opcionA": "Mediante la llamada fork() se crea un nuevo proceso hijo con un PID diferente al del padre, mientras que mediante la llamada exec() se construye la nueva imagen del proceso a partir del ejecutable dado como parámetro, sin alterar su PID.",
+    "opcionB": "Mediante la llamada fork() se crea un nuevo proceso hijo con el mismo PID que el del padre, mientras que mediante la llamada exec() se construye la nueva imagen del proceso a partir del ejecutable dado como parámetro, asignando un nuevo PID a la nueva imagen.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "6. En relación con los estados de los procesos vistos en clase:",
+    "opcionA": "Un proceso puede pasar directamente del estado «Listo suspendido» al estado «En ejecución».",
+    "opcionB": "Un proceso puede pasar directamente del estado «En ejecución» al estado «Listo suspendido».",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "7. Con respecto al mecanismo de hilos visto en clase, es cierto que . . .",
+    "opcionA": "Todos los hilos de un mismo proceso comparten la misma pila.",
+    "opcionB": "Todos los hilos de un mismo proceso pueden compartir cualquier fichero que hayan abierto.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "8. Comparando las implementaciones de los hilos a nivel de usuario y a nivel del núcleo del sistema operativo, es cierto que:",
+    "opcionA": "Con la implementación a nivel de usuario, se podría acelerar la ejecución de un proceso con varios hilos, haciendo que estos se ejecutasen a la misma vez usando diferentes núcleos (cores) de la CPU.",
+    "opcionB": "Con la implementación a nivel del núcleo del sistema operativo, se podrían ejecutar a la misma vez, utilizando distintos núcleos (cores) de la CPU, varios hilos pertenecientes a procesos diferentes.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "9. En cuanto a los algoritmos de planificación de procesos vistos en clase, es cierto que . . .",
+    "opcionA": "Con el algoritmo de planificación «Primero el que tenga el menor tiempo restante (SRTF)», podría darse el caso de que un proceso se quedase de forma indefinida en la cola de listos, sin poder hacer uso de la CPU.",
+    "opcionB": "Con el algoritmo de planificación «round-robin o circular», podría producirse el denominado «efecto convoy» que conllevara un desaprovechamiento de los recursos (CPU y dispositivos de E/S).",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "10. Supón un esquema de planificación «apropiativo con prioridades dinámicas» (a menor número, mayor prioridad) en el que cada proceso toma como prioridad inicial su PID y en el que, para evitar inanición, la prioridad de un proceso se reduce en 2 cada tic que este se encuentra en la cola de listos. Si al comienzo del tic «t» el proceso con PID=20 empieza a ejecutar una ráfaga de CPU de duración 4 tics, al comienzo del tic «t+1» llega a la cola de listos el proceso con PID=17 para realizar una ráfaga de CPU de 3 tics, y al comienzo del tic «t+2» hace lo propio el proceso con PID=12 para ejecutar una ráfaga de CPU de 2 tics, teniendo en cuenta que estos son los únicos procesos en el sistema, el instante en el que el proceso con PID=17 completará su ráfaga de CPU será:",
+    "opcionA": "Al final del tic «t+5».",
+    "opcionB": "Al final del tic «t+6».",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "11. Considera una planificación de procesos apropiativa con 2 colas (cola 0 de mayor prioridad, cola 1 de menor prioridad) sin posibilidad de que los procesos cambien de cola. La cola 0 se planifica internamente con el algoritmo «Round Robin» con quantum de 2 tics, mientras que la cola 1 se planifica internamente con el algoritmo «Primero en llegar, primero en ser servido (FIFO)». Si al comienzo del tic «t» llega a la cola 1 un proceso X con una ráfaga de CPU de 4 tics, y al comienzo del tic «t+1» llega a la cola 0 un proceso Y con una ráfaga de CPU de 3 tics, y teniendo en cuenta que estos son los únicos procesos en el sistema, es cierto que . . .",
+    "opcionA": "El proceso X completará la ejecución de su ráfaga de CPU al final del tic «t+6», mientras que Y hará lo propio al final del tic «t+3».",
+    "opcionB": "El proceso X completará la ejecución de su ráfaga de CPU al final del tic «t+5», mientras que Y hará lo propio al final del tic «t+6».",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "12. Tras la intervención del planificador a medio plazo (PMP) puede suceder que:",
+    "opcionA": "Un proceso pase de estado «Bloqueado suspendido» a estado «Listo suspendido».",
+    "opcionB": "Un proceso pase de estado «Bloqueado suspendido» a estado «Bloqueado».",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "13. En UNIX, cuando un proceso abre un fichero para realizar una operación de lectura:",
+    "opcionA": "Tiene que estar habilitado el permiso de lectura para el proceso en la lista de control de acceso (ACL) del fichero para que este pueda completar la operación de abrir el fichero.",
+    "opcionB": "Tiene que existir una entrada en la lista de posibilidades del proceso con el permiso de lectura para que este pueda completar la operación de abrir el fichero.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "14. En UNIX, para un fichero ejecutable que tiene activo el bit SETUID:",
+    "opcionA": "El proceso resultante de su ejecución tendrá siempre los permisos del usuario propietario del fichero.",
+    "opcionB": "Dependiendo de sus permisos, el proceso resultante de su ejecución puede tener los permisos del usuario propietario del fichero o los del grupo propietario del fichero.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "15. En UNIX, cuando un usuario introduce su ID y contraseña para intentar autenticarse en el sistema:",
+    "opcionA": "Se extrae la contraseña cifrada del usuario del fichero /etc/shadow, se descifra y se compara con la contraseña introducida por el usuario.",
+    "opcionB": "Se cifra la contraseña introducida por el usuario para poder compararla con la que se encuentra en /etc/shadow.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "16. Según se ha visto en clase, no podría considerarse como fichero regular . . .",
+    "opcionA": "Un enlace simbólico.",
+    "opcionB": "Un fichero binario.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "17. Para el manejo de directorios, la llamada al sistema Readdir:",
+    "opcionA": "No existe porque los directorios se implementan como ficheros y, por lo tanto, se tiene que utilizar la llamada al sistema Read para leer su contenido.",
+    "opcionB": "Devuelve la siguiente entrada (es decir, nombre de fichero o directorio) de un directorio abierto.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "18. En una implementación de ficheros mediante lista ligada con índice que emplea bloques de tamaño 1 KiB, y dado un fichero de tamaño total 1 MiB, el número de operaciones de escritura sobre bloques de disco dedicados a datos que se requerirían para añadir un byte al final de dicho fichero será . . .",
+    "opcionA": "Una única operación de escritura.",
+    "opcionB": "Dos operaciones de escritura.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "19. En cuanto a la fragmentación externa:",
+    "opcionA": "Puede aparecer en la estrategia de implementación de ficheros de asignación contigua pero no en la basada en nodos-i.",
+    "opcionB": "Puede aparecer tanto en la estrategia de implementación de ficheros basada en nodos-i como en las basadas en lista ligada.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "20. Dado un sistema de ficheros tipo UNIX, suponiendo la estructura de nodos-i vista en clase con un total de 13 punteros, que el tamaño de bloque lógico es de 512 bytes y que cada puntero necesita 4 bytes, el tamaño máximo de fichero que podría crearse sería:",
+    "opcionA": "Algo más de 1 GiB.",
+    "opcionB": "Algo más de 4 GiB.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "21. Supongamos que cualquier directorio tiene solo un bloque de datos, que tanto el nodo-i del directorio raíz como su bloque de datos se encuentran ya en memoria, y que cada nodo-i se encuentra en un bloque diferente. Para leer el primer byte del fichero /tema1.pdf se requerirá:",
+    "opcionA": "La lectura de 1 bloque de disco.",
+    "opcionB": "La lectura de 2 bloques de disco.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "22. En UNIX, dado un fichero cuyo contador de enlaces en el nodo-i tiene un valor C, si sabemos que, después de crear el fichero, se ha usado la orden ln para habilitar N enlaces adicionales a dicho fichero, todos del mismo tipo, . . .",
+    "opcionA": "Dichos enlaces serán simbólicos si C=1.",
+    "opcionB": "Dichos enlaces serán físicos si C=N.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "23. En cuanto a la caché de disco, es cierto que:",
+    "opcionA": "Puede almacenar los bloques de datos de ficheros y directorios, pero no los bloques indirectos ni los que contienen los nodos-i.",
+    "opcionB": "Puede almacenar tanto los bloques de datos de ficheros y directorios, como los de metadatos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "24. Dado un sistema de fichero UNIX que no se encuentra montado en este momento, la información acerca de qué bloques lógicos del sistema fichero están libres y cuáles están siendo usados se almacena en . . .",
+    "opcionA": "Una estructura que mantiene en memoria el sistema operativo, que identifica, para todos los sistemas de ficheros que pueden montarse, qué bloques lógicos están libres.",
+    "opcionB": "Una estructura que se almacena en disco, que indica, para ese sistema de ficheros, qué bloques lógicos están libres.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "25. En relación a los esquemas de administración de memoria con particionamiento de la memoria física, puede surgir el problema de la fragmentación externa:",
+    "opcionA": "Tanto en esquemas con particiones fijas como en aquellos que usan particiones variables.",
+    "opcionB": "Solamente si se usan esquemas con particiones fijas.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "26. En el esquema de administración de memoria con particiones variables visto en clase:",
+    "opcionA": "Las particiones pueden tener distinto tamaño, pero este no varía mientras el sistema está en marcha, y ha de esperarse a un reinicio del sistema para hacer modificaciones en el número y tamaño de las particiones.",
+    "opcionB": "El número y tamaño de las particiones puede variar durante el tiempo que el sistema está en marcha, en función de las necesidades de los procesos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "27. Según se ha visto en clase, en la traducción de direcciones virtuales a físicas en un sistema de memoria virtual, cuando se produce fallo de TLB y acierto de página interviene . . .",
+    "opcionA": "Únicamente el hardware de la unidad de administración de memoria (MMU).",
+    "opcionB": "Tanto la MMU como el sistema operativo.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "28. En cuanto al número de entradas en la tabla de traducción de una tabla de páginas invertida, es cierto que:",
+    "opcionA": "Tiene que ser igual al número de marcos físicos de la memoria RAM, ya que tener más entradas que marcos físicos no tiene ningún sentido.",
+    "opcionB": "Podría ser mayor que el número de marcos físicos de la memoria RAM, de forma que un mismo marco físico pueda tener asociadas traducciones de distintos procesos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "29. En un acierto de página y dado que hemos realizado la traducción de dirección virtual a física usando una tabla de páginas de 5 niveles (sin TLB), el número de accesos a memoria principal que se habrán realizado para completar la traducción será:",
+    "opcionA": "Siempre 5.",
+    "opcionB": "Entre 1 y 5, dependiendo del nivel de la tabla en el que se encuentre la traducción.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "30. El bit de referencia (R) que puede tener cada entrada de la tabla de páginas en un sistema de memoria virtual:",
+    "opcionA": "No es estrictamente necesario para el algoritmo de reemplazo NRU.",
+    "opcionB": "No es estrictamente necesario para el algoritmo de reemplazo LRU.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "31. El mapa de memoria de un proceso . . .",
+    "opcionA": "Puede definir regiones de memoria virtual mapeadas al contenido de ficheros de disco.",
+    "opcionB": "Define rangos de direcciones físicas contiguas para cada tipo de contenido (código, datos y pila).",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "32. Para un sistema con memoria virtual paginada, el implementar la política de escritura anticipada . . .",
+    "opcionA": "Puede hacer que se acelere solamente la resolución de los fallos de página producidos por operaciones de escritura.",
+    "opcionB": "Puede hacer que se acelere la resolución de los fallos de página producidos por operaciones tanto de lectura como de escritura.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "33. De entre las combinaciones de políticas de asignación y de reemplazo en sistemas de paginación vistas en clase:",
+    "opcionA": "La que emplea asignación fija y reemplazo global suele ser la que mejor resultado da.",
+    "opcionB": "La que emplea asignación dinámica y reemplazo local puede hacer que el número de marcos de página de un proceso cambie.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "34. En un sistema que utiliza un esquema de memoria virtual con segmentación paginada:",
+    "opcionA": "Cada proceso necesitará tantas tablas de segmentos como segmentos se tenga definidos.",
+    "opcionB": "Cada proceso necesitará tantas tablas de páginas como segmentos se tenga definidos.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "35. En relación con las operaciones de E/S:",
+    "opcionA": "Son habitualmente síncronas, es decir tras iniciar una operación, la CPU se bloquea hasta que llega una interrupción que la despierta, indicándole que la operación ya ha finalizado.",
+    "opcionB": "Son habitualmente asíncronas y es responsabilidad del sistema operativo el hacer que las operaciones que son controladas por interrupciones parezcan síncronas para el programador.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "36. El tiempo de búsqueda para una operación de lectura en un disco de cabezas móviles como los vistos en clase . . .",
+    "opcionA": "Es el tiempo necesario para mover el brazo con la cabeza lectora hasta el cilindro correspondiente.",
+    "opcionB": "Es el tiempo necesario para completar el paso de la cabeza correspondiente por el sector donde están los datos a leer.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "37. Para llevar el control de la hora del día, el sistema operativo . . .",
+    "opcionA": "Emplea un cronómetro guardián para contar los tics ocurridos desde que se inició la máquina.",
+    "opcionB": "Utiliza el manejador del reloj, que como parte de su trabajo irá acumulando los tics ocurridos desde una cierta referencia temporal, según la técnica usada.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "38. Dado un ordenador con una CPU capaz de operar a 1 000 MIPS. Si sabemos que el manejador de reloj se ejecuta 5 veces por segundo, y que, cada segundo, la ejecución de este ocupa a la CPU durante el 20 % de su tiempo, el número de instrucciones que en total tiene el manejador es:",
+    "opcionA": "40.",
+    "opcionB": "200.",
+    "correcta": "a"
+  },
+  {
+    "enunciado": "39. Dado un sistema operativo que utiliza un reloj programable funcionando en modo onda cuadrada cuyo oscilador de cuarzo opera a 100 MHz, si el valor de su registro de carga (C) es 1 000, entonces se generan un total de . . .",
+    "opcionA": "1 000 tics/segundo.",
+    "opcionB": "100 000 tics/segundo.",
+    "correcta": "b"
+  },
+  {
+    "enunciado": "40. En cuanto al mecanismo de alarmas visto en clase . . .",
+    "opcionA": "Es empleado por el sistema operativo para controlar cuándo se ha completado una operación de E/S.",
+    "opcionB": "Es empleado por los procesos de usuario para solicitar al sistema operativo el envío de una señal una vez que pase cierta cantidad de tiempo.",
+    "correcta": "b"
+  }
+]

@@ -1,0 +1,261 @@
+/*
+  Variables de diseño global:
+  - Centralizan colores base, cristal, estados y foco.
+  - Facilitan ajustes temáticos sin tocar reglas dispersas.
+*/
+:root {
+  --bg-1: #0f172a;
+  --bg-2: #164e63;
+  --bg-3: #0b1120;
+  --glass: rgba(15, 23, 42, 0.58);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --good: #34d399;
+  --bad: #f87171;
+  --focus: #67e8f9;
+}
+
+/* Regla base para incluir borde y padding dentro del ancho total. */
+* {
+  box-sizing: border-box;
+}
+
+/*
+  Estilo global del body:
+  - Elimina margen por defecto del navegador.
+  - Define la tipografía principal para toda la app.
+  - Crea fondo multicapa con gradientes para profundidad visual.
+*/
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background: radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.2), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(132, 204, 22, 0.2), transparent 35%),
+    linear-gradient(140deg, var(--bg-1), var(--bg-2) 42%, var(--bg-3));
+}
+
+/* Tipografía de títulos para reforzar jerarquía visual. */
+h1,
+.section-title {
+  font-family: "Fraunces", serif;
+}
+
+/*
+  Capa decorativa fija sobre el fondo:
+  - Sin eventos de puntero para no interferir con la UI.
+  - Animada para dar sensación de ambiente vivo.
+*/
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 85% 75%, rgba(56, 189, 248, 0.16), transparent 40%),
+    radial-gradient(circle at 20% 70%, rgba(251, 191, 36, 0.13), transparent 35%);
+  animation: drift 13s ease-in-out infinite alternate;
+}
+
+/*
+  Animación de deriva suave:
+  - Desplaza y escala levemente la capa decorativa.
+  - Mantiene movimiento no intrusivo.
+*/
+@keyframes drift {
+  from {
+    transform: translate3d(-2%, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2%, -1%, 0) scale(1.04);
+  }
+}
+
+/* Tarjeta translúcida reutilizable para las 3 pantallas principales. */
+.glass-panel {
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 44px rgba(2, 6, 23, 0.35);
+}
+
+/*
+  Tarjetas de selección de modo:
+  - Layout vertical de texto principal + subtítulo.
+  - Estados hover para mejorar affordance.
+*/
+.mode-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(2, 6, 23, 0.4);
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 1.2rem;
+  text-align: left;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+/* Subtexto de apoyo en cada tarjeta de modo. */
+.mode-card span {
+  color: #bae6fd;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Feedback hover de las tarjetas de modo. */
+.mode-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(103, 232, 249, 0.7);
+}
+
+/* Estado activo del modo seleccionado. */
+.mode-card.active {
+  border-color: rgba(134, 239, 172, 0.9);
+  background: rgba(6, 78, 59, 0.45);
+}
+
+/* Contenedor visual del enunciado y opciones de respuesta. */
+.question-card {
+  border-radius: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(2, 6, 23, 0.35);
+  padding: 1.25rem;
+}
+
+/*
+  Botones de respuesta:
+  - Botones grandes y legibles.
+  - Preparados para estados correct/wrong y focus visible.
+*/
+.answer-btn {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.9rem;
+  background: rgba(15, 23, 42, 0.8);
+  color: #f8fafc;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  min-height: 3.35rem;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+/* Hover para respuesta disponible (no deshabilitada). */
+.answer-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: rgba(103, 232, 249, 0.8);
+}
+
+/* Estándar de accesibilidad de foco para controles interactivos. */
+.answer-btn:focus-visible,
+.btn-primary:focus-visible,
+.btn-ghost:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Estado visual cuando una opción es correcta. */
+.answer-btn.correct {
+  border-color: rgba(110, 231, 183, 0.95);
+  background: rgba(5, 150, 105, 0.3);
+}
+
+/* Estado visual cuando una opción marcada por usuario es incorrecta. */
+.answer-btn.wrong {
+  border-color: rgba(252, 165, 165, 0.95);
+  background: rgba(185, 28, 28, 0.28);
+}
+
+/* Base compartida de botones primario/ghost para consistencia. */
+.btn-primary,
+.btn-ghost {
+  border-radius: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+  min-height: 3rem;
+  padding: 0.7rem 1.2rem;
+  transition: filter 140ms ease, transform 140ms ease;
+}
+
+/* CTA principal con gradiente llamativo. */
+.btn-primary {
+  border: none;
+  background: linear-gradient(120deg, #22d3ee, #bef264 80%);
+  color: #0f172a;
+}
+
+/* Variante secundaria para acciones no destructivas/alternas. */
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(2, 6, 23, 0.35);
+  color: #e2e8f0;
+}
+
+/* Microinteracción de elevación en hover para ambos botones. */
+.btn-primary:hover,
+.btn-ghost:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* Tarjetas de resultados (aciertos, fallos, nota). */
+.stat-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(2, 6, 23, 0.4);
+  padding: 1rem;
+}
+
+/* Etiqueta de cada métrica en resumen. */
+.stat-card p {
+  margin: 0;
+  color: #bae6fd;
+}
+
+/* Valor numérico destacado de cada métrica. */
+.stat-card strong {
+  color: #f8fafc;
+  display: inline-block;
+  font-size: 2rem;
+  margin-top: 0.35rem;
+}
+
+/* Color semántico para feedback positivo en respuesta. */
+.feedback-ok {
+  color: var(--good);
+}
+
+/* Color semántico para feedback negativo en respuesta. */
+.feedback-fail {
+  color: var(--bad);
+}
+
+/* Animacion suave para la aparicion del comentario de la pregunta. */
+.comment-fade-in {
+  animation: commentFadeIn 280ms ease-out;
+}
+
+@keyframes commentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustes responsive para móvil: compacta tarjeta y texto de respuestas. */
+@media (max-width: 640px) {
+  .question-card {
+    padding: 1rem;
+  }
+
+  .answer-btn {
+    font-size: 1rem;
+  }
+}

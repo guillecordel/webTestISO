@@ -1,0 +1,72 @@
+[
+  {
+    "enunciado": "En una implementación de ficheros con asignación mediante lista ligada sin índice, para modificar un byte perteneciente al bloque X de un fichero serán siempre necesarias únicamente dos operaciones de disco, una para leer el bloque X y otra posterior para sobreescribir dicho bloque.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Para modificar cualquier bloque distinto del primero, se necesitan múltiples operaciones de disco adicionales para recorrer la cadena de punteros de la lista ligada hasta alcanzar la posición del bloque X."
+  },
+  {
+    "enunciado": "En relación a la ruta de acceso a un fichero, si el directorio actual es /home/alumno/apuntes/iso y queremos acceder al fichero /home/alumno/apuntes/poo/tema1.pdf, podemos utilizar la ruta: ./../../apuntes/poo/tema1.pdf.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "La ruta es correcta: '.' es el directorio actual (iso), '..' sube a 'apuntes', el segundo '..' sube a 'alumno', y desde ahí entra en 'apuntes/poo/tema1.pdf'."
+  },
+  {
+    "enunciado": "La operación truncate en un fichero elimina el contenido de un fichero completamente, pero sin llegar a eliminar el fichero en sí.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "La llamada al sistema truncate reduce el tamaño del fichero a una longitud específica; elimina el contenido a partir de una posición dada, no necesariamente todo el contenido."
+  },
+  {
+    "enunciado": "En cuanto a los bloques indirectos (BSI, BDI y BTI) que un fichero podría utilizar en sistemas de ficheros Unix, se almacenan en la zona de nodos-i del sistema de ficheros.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Los bloques indirectos no están en la zona de nodos-i; se almacenan en la zona de datos del sistema de ficheros, al igual que el contenido normal de los archivos."
+  },
+  {
+    "enunciado": "En Unix, suponiendo que cada directorio ocupa un bloque y solo el nodo-i raíz está en memoria, para obtener el tamaño del fichero /usr/lib/libm.so.2 se requerirían 7 accesos a disco.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Se requieren 6 accesos: 1) Datos raíz, 2) Nodo-i de 'usr', 3) Datos de 'usr', 4) Nodo-i de 'lib', 5) Datos de 'lib', y 6) Nodo-i de 'libm.so.2' (donde ya reside el atributo de tamaño)."
+  },
+  {
+    "enunciado": "En UNIX, la ejecución de la llamada al sistema 'Open' para abrir un fichero requiere acceder a la lista de control de acceso del fichero para comprobar los permisos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Es en la apertura cuando el SO verifica permisos. Si son correctos, se crea un descriptor de fichero que se usará en adelante sin repetir la comprobación de la ACL."
+  },
+  {
+    "enunciado": "Dado un sistema UNIX con nodo-i (10 directos, BSI, BDI, BTI), bloque de 1 KiB y direcciones de 4 bytes, un fichero de 267 KiB necesitará 268 bloques en la zona de datos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Necesitará 270 bloques: 267 para datos, más 1 bloque BSI para el direccionamiento indirecto simple, más 1 bloque BDI y otro BSI adicional para alcanzar los punteros necesarios."
+  },
+  {
+    "enunciado": "En un sistema Unix con N nodos-i y B bloques de datos (B>N), el número máximo de ficheros que podría albergar sería B, suponiendo que cada fichero ocupe 1 bloque.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "El límite de ficheros está determinado por el número de nodos-i disponibles. Si N < B, solo se podrán crear N ficheros aunque sobre espacio en la zona de datos."
+  },
+  {
+    "enunciado": "En un sistema de ficheros MS-DOS, los atributos de un fichero se almacenan en la FAT.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "En MS-DOS, los atributos (tamaño, fecha, permisos) se guardan en la entrada de directorio. La FAT solo se utiliza para gestionar la cadena de bloques que componen el fichero."
+  },
+  {
+    "enunciado": "En el método de implantación de ficheros mediante listas ligadas con índice nunca aparecerá fragmentación externa.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "Al poder utilizar cualquier bloque libre del disco mediante punteros (como en la FAT), no se requiere espacio contiguo, eliminando así la fragmentación externa."
+  }
+]

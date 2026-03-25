@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metadatos básicos: codificación y viewport responsive -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título mostrado en pestaña -->
+    <title>Study Sprint SPA ISO</title>
+    <!-- Tailwind CDN para utilidades rápidas de layout y spacing -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Optimización de carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Tipografías de la identidad visual -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos propios complementarios de Tailwind -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="min-h-screen text-slate-100">
+    <!-- Capa decorativa de fondo (sin interacción) -->
+    <div class="aurora-bg" aria-hidden="true"></div>
+
+    <!-- Contenedor principal de toda la SPA -->
+    <main class="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-4 py-8 sm:px-8">
+      <!-- Cabecera: branding y contexto del tipo de app -->
+      <header class="mb-8 rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-md">
+        <p class="text-sm uppercase tracking-[0.2em] text-cyan-200">SPA de estudio</p>
+        <h1 class="mt-2 text-4xl font-bold leading-tight sm:text-5xl">Study Sprint ISO</h1>
+        <p class="mt-3 max-w-2xl text-slate-200/90">
+          Practica por bloques o lánzate a un simulacro aleatorio de 50 preguntas.
+        <p class="mt-3 max-w-2xl text-cyan-200/90">
+            Nota: Todas las preguntas y respuestas vienen de los tests subidos al aula virtual.
+        </p>
+        <p class="mt-3 max-w-2xl text-cyan-200/90">
+           Además, solo los examenes específicos por tema son los que tienen un comentario explicativo, realizado por el profesor.
+        </p>
+        </p>
+      </header>
+
+      <!-- Pantalla 1: configuración inicial de examen -->
+      <section id="screen-start" class="glass-panel rounded-3xl p-6 sm:p-8">
+        <h2 class="section-title">Configura tu examen</h2>
+
+        <!-- Selector visual del modo de juego -->
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <button id="mode-specific" class="mode-card active" type="button">
+            Examen específico
+            <span>Elige un banco fijo de preguntas</span>
+          </button>
+          <button id="mode-random" class="mode-card" type="button">
+            Examen aleatorio
+            <span>Mezcla todos los bancos y saca 50 al azar</span>
+          </button>
+        </div>
+
+        <!-- Controles del modo específico (selector de banco) -->
+        <div id="specific-controls" class="mt-6">
+          <label for="exam-select" class="mb-2 block text-sm font-medium text-cyan-100">Selecciona un examen</label>
+          <select id="exam-select" class="w-full rounded-2xl border border-white/20 bg-slate-900/70 p-4 text-lg text-white outline-none transition focus:border-cyan-300"></select>
+        </div>
+
+        <!-- Acciones principales del menú inicial -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <button id="start-exam" class="btn-primary" type="button">Comenzar examen</button>
+          <button id="resume-saved-exam" class="btn-ghost hidden" type="button">Reanudar examen guardado</button>
+          <button id="reset-storage" class="btn-ghost" type="button">Borrar progreso guardado</button>
+        </div>
+      </section>
+
+      <!-- Pantalla 2: ejecución del examen (una pregunta por vista) -->
+      <section id="screen-quiz" class="glass-panel mt-6 hidden rounded-3xl p-6 sm:p-8" aria-live="polite">
+        <!-- Cabecera del cuestionario: modo, contador y marcador -->
+        <div class="mb-5 flex items-end justify-between gap-3">
+          <div>
+            <p id="quiz-mode" class="text-xs uppercase tracking-[0.16em] text-cyan-200"></p>
+            <h2 id="question-counter" class="section-title text-2xl">Pregunta 0 de 0</h2>
+          </div>
+          <p id="score-preview" class="rounded-xl bg-black/20 px-3 py-2 text-sm font-medium text-cyan-100"></p>
+        </div>
+
+        <!-- Barra de progreso del avance actual -->
+        <div class="h-3 w-full overflow-hidden rounded-full bg-black/30">
+          <div id="progress-bar" class="h-full rounded-full bg-gradient-to-r from-cyan-300 via-lime-300 to-amber-300 transition-all duration-500" style="width: 0%"></div>
+        </div>
+
+        <!-- Bloque de pregunta + opciones de respuesta -->
+        <article class="question-card mt-6">
+          <p id="question-text" class="text-xl font-medium leading-relaxed text-slate-100 sm:text-2xl"></p>
+          <div class="mt-6 grid gap-3">
+            <button id="option-a" class="answer-btn" type="button"></button>
+            <button id="option-b" class="answer-btn" type="button"></button>
+          </div>
+          <p id="answer-feedback" class="mt-4 min-h-[1.5rem] text-base font-medium"></p>
+          <p id="question-comment" class="mt-3 hidden rounded-xl border border-cyan-200/30 bg-cyan-900/20 p-3 text-sm leading-relaxed text-cyan-100"></p>
+        </article>
+
+        <!-- Acciones durante examen: salir o avanzar -->
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
+          <button id="exit-exam" class="btn-ghost" type="button">Salir al menu</button>
+          <button id="next-question" class="btn-primary hidden" type="button">Siguiente</button>
+        </div>
+      </section>
+
+      <!-- Pantalla 3: resumen final del intento -->
+      <section id="screen-summary" class="glass-panel mt-6 hidden rounded-3xl p-6 sm:p-8">
+        <h2 class="section-title">Resultado final</h2>
+        <!-- Tarjetas de métricas finales -->
+        <div class="mt-6 grid gap-4 sm:grid-cols-3">
+          <div class="stat-card">
+            <p>Aciertos</p>
+            <strong id="summary-correct">0</strong>
+          </div>
+          <div class="stat-card">
+            <p>Fallos</p>
+            <strong id="summary-wrong">0</strong>
+          </div>
+          <div class="stat-card">
+            <p>Nota final</p>
+            <strong id="summary-grade">0.00</strong>
+          </div>
+        </div>
+
+        <p class="mt-5 text-sm text-slate-200/90">
+          Fórmula: (Aciertos - Fallos) / TotalPreguntas * 10, con mínimo 0.
+        </p>
+
+        <!-- Acciones post-examen -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <button id="new-exam" class="btn-primary" type="button">Hacer otro examen</button>
+          <button id="repeat-same" class="btn-ghost" type="button">Repetir configuración</button>
+        </div>
+      </section>
+
+      <!-- Diálogo modal: decisión al salir del examen en curso -->
+      <dialog id="exit-modal" class="w-full max-w-lg rounded-3xl border border-white/20 bg-slate-900/95 p-6 text-slate-100 shadow-2xl backdrop:bg-slate-950/70" aria-labelledby="exit-modal-title">
+        <div>
+          <h3 id="exit-modal-title" class="section-title text-2xl">Salir del examen</h3>
+          <p class="mt-3 text-slate-200/90">
+            Quieres guardar tu progreso actual antes de volver al menu principal?
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <button id="save-and-exit" class="btn-primary" type="button">Guardar y salir</button>
+            <button id="discard-and-exit" class="btn-ghost" type="button">Salir sin guardar</button>
+            <button id="cancel-exit" class="btn-ghost" type="button">Cancelar</button>
+          </div>
+        </div>
+      </dialog>
+    </main>
+
+    <!-- Lógica principal de la SPA (defer para ejecutar tras parsear HTML) -->
+    <script src="script.js" defer></script>
+  </body>
+</html>
