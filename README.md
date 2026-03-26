@@ -1,13 +1,14 @@
-# Study Sprint ISO - SPA de Test de Estudio
+# Study Sprint - SPA de Test de Estudio (Multi-asignatura)
 
 ## Pruebame:
 https://web-test-iso.vercel.app/
 ## 1. Descripcion del proyecto
 
-Study Sprint ISO es una aplicacion web tipo SPA (Single Page Application) orientada a practicar preguntas tipo test.
+Study Sprint es una aplicacion web tipo SPA (Single Page Application) orientada a practicar preguntas tipo test para multiples asignaturas.
 La aplicacion permite:
 
-- Elegir un examen especifico desde varios archivos JSON.
+- Elegir una asignatura (ISO, SSTT, etc.).
+- Elegir un examen especifico desde varios archivos JSON dentro de la asignatura seleccionada.
 - Generar un examen aleatorio mezclando todas las preguntas disponibles y seleccionando hasta 50.
 - Responder pregunta a pregunta con feedback inmediato.
 - Mostrar resultados finales (aciertos, fallos y nota).
@@ -32,10 +33,10 @@ El proyecto se construyo de forma incremental, priorizando:
 
 ### 2.2 Estructura final
 
-- index.html: estructura de la SPA (pantalla inicial, quiz, resumen y modal de salida).
+- index.html: estructura de la SPA (pantalla inicial con selector de asignatura, quiz, resumen y modal de salida).
 - style.css: estilos visuales, componentes, estados de respuesta y animaciones.
-- script.js: logica de negocio (carga de datos, evaluacion, persistencia, renderizado).
-- data/*.json: bancos de preguntas independientes.
+- script.js: logica de negocio (carga de datos, evaluacion, persistencia, renderizado, seleccion de asignatura).
+- data/*.json: bancos de preguntas independientes organizados por asignatura.
 
 ---
 
@@ -298,30 +299,75 @@ Ctrl + C en la terminal.
 
 ---
 
-## 8. Escalabilidad: anadir nuevos examenes
+## 8. Escalabilidad: anadir nuevas asignaturas y examenes
 
-Para agregar un nuevo banco:
+### Para agregar una nueva asignatura:
 
-1. Crear archivo JSON en data/ con el formato de pregunta.
-2. Anadir entrada en EXAM_FILES dentro de script.js:
-   - id unico
-   - nombre visible
-   - ruta del archivo
-3. Guardar y recargar.
+1. Crear archivos JSON en data/ con el formato de pregunta para cada tema/examen de la asignatura.
+2. Anadir entrada en el array SUBJECTS dentro de script.js con id y nombre de la asignatura.
+3. Anadir propiedad en EXAM_FILES (que ahora es un objeto) con clave = id de la asignatura y valor = array de examenes.
+4. Guardar y recargar.
 
-El nuevo banco aparecera en modo especifico y tambien participara en el modo aleatorio automaticamente.
+Ejemplo: Para agregar la asignatura "Bases de Datos" con dos temas:
+
+```javascript
+// En SUBJECTS
+{ id: "bd", nombre: "Bases de Datos" }
+
+// En EXAM_FILES
+bd: [
+  { id: "tema1", nombre: "Examen tema-1", archivo: "data/bd-tema-1.json" },
+  { id: "tema2", nombre: "Examen tema-2", archivo: "data/bd-tema-2.json" },
+]
+```
+
+Asignaturas actuales:
+
+- **ISO**: Sistemas Operativos (14 examenes)
+- **SSTT**: Servicios y Sistemas de Telecomunicaciones (2 temas de ejemplo)
 
 ---
 
-## 9. Estado actual del proyecto
+## 9. Cambios recientes (Versión Multi-asignatura)
+
+### Nuevas funcionalidades:
+
+1. **Selector de asignatura**: Se agregó un dropdown en la pantalla inicial que permite elegir entre ISO, SSTT y futuras asignaturas.
+
+2. **Estructura de datos reorganizada**:
+   - EXAM_FILES cambio de array a objeto indexado por ID de asignatura.
+   - Se agregó array SUBJECTS con la lista de asignaturas disponibles.
+   - Se agregó constante DEFAULT_SUBJECT para inicializar la app.
+
+3. **Nuevas funciones**:
+   - `renderSubjectOptions()`: Pinta el selector de asignaturas.
+   - `setSubject(subjectId)`: Maneja el cambio de asignatura y actualiza exámenes disponibles.
+
+4. **Logica actualizada**:
+   - `renderExamOptions()` ahora recibe la asignatura como parámetro y filtra exámenes según ella.
+   - `init()` ahora inicializa el selector de asignatura primero.
+   - `restoreState()` valida que la asignatura seleccionada sea válida.
+   - `loadSpecificExamQuestions()` usa la asignatura seleccionada del estado.
+
+5. **Persistencia mejorada**:
+   - El estado ahora persiste la asignatura seleccionada en localStorage.
+   - Al recuperar estado, se valida que la asignatura siga siendo válida.
+
+### Archivos SSTT de ejemplo:
+
+- `data/sstt-tema-1.json`: 5 preguntas sobre conceptos básicos de telecomunicaciones.
+- `data/sstt-tema-2.json`: 5 preguntas sobre modelos OSI, IPv6 y protocolos de red.
+
+## 10. Estado actual del proyecto
 
 Incluye:
 
-- SPA responsive completa.
-- Banco de examenes por archivos JSON.
+- SPA responsive completa con soporte multi-asignatura.
+- Selector de asignatura en la pantalla inicial.
+- Banco de examenes organizados por asignatura con archivos JSON.
 - Evaluacion inmediata por pregunta.
 - Comentarios opcionales por pregunta con animacion.
-- Persistencia local y reanudacion.
+- Persistencia local de asignatura y examen seleccionado, con reanudacion.
 - Modal de salida con decision de guardado.
 
-Este diseno permite seguir ampliando contenido sin tocar la logica principal, solo agregando nuevos JSON y su registro en EXAM_FILES.
+Este diseno permite seguir ampliando contenido simplemente agregando nuevas asignaturas en SUBJECTS, registrando los examenes en EXAM_FILES, y creando los archivos JSON correspondientes, sin necesidad de modificar la logica principal de la aplicacion.

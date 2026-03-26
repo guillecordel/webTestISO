@@ -1,21 +1,32 @@
-const EXAM_FILES = [
- { id: "tema1", nombre: "Examen tema-1", archivo: "data/preguntas-tema-1.json" },
- { id: "tema2", nombre: "Examen tema-2", archivo: "data/preguntas-tema-2.json" },
- { id: "tema3", nombre: "Examen tema-3", archivo: "data/preguntas-tema-3.json" },
- { id: "tema4", nombre: "Examen tema-4", archivo: "data/preguntas-tema-4.json" },
- { id: "tema5", nombre: "Examen tema-5", archivo: "data/preguntas-tema-5.json" },
- { id: "tema6", nombre: "Examen tema-6", archivo: "data/preguntas-tema-6.json" },
- { id: "prueba", nombre: "Examen parcial-1 Prueba", archivo: "data/parcial-1-prueba.json" },
- { id: "noviembre2023", nombre: "Examen parcial-1 Noviembre 2023", archivo: "data/parcial-1-2023.json" },
- { id: "noviembre2022", nombre: "Examen parcial-1 Noviembre 2022", archivo: "data/parcial-1-2022.json" },
- { id: "prueba1", nombre: "Examen parcial-2 Prueba", archivo: "data/parcial-2-prueba.json" },
- { id: "diciembre2023", nombre: "Examen parcial-2 Diciembre 2023", archivo: "data/parcial-2-2023.json" },
- { id: "diciembre2022", nombre: "Examen parcial-2 Diciembre 2022", archivo: "data/parcial-2-2022.json" },
- { id: "mayo2023", nombre: "Examen Mayo 2023", archivo: "data/examenMayo2023.json" },
- { id: "junio2023", nombre: "Examen Junio 2023", archivo: "data/examenJunio2023.json" },
- 
-
+const SUBJECTS = [
+  { id: "iso", nombre: "Sistemas Operativos" },
+  { id: "sstt", nombre: "Servicios y Sistemas de Telecomunicaciones" },
 ];
+
+const EXAM_FILES = {
+  iso: [
+    { id: "tema1", nombre: "Examen tema-1", archivo: "data/preguntas-tema-1.json" },
+    { id: "tema2", nombre: "Examen tema-2", archivo: "data/preguntas-tema-2.json" },
+    { id: "tema3", nombre: "Examen tema-3", archivo: "data/preguntas-tema-3.json" },
+    { id: "tema4", nombre: "Examen tema-4", archivo: "data/preguntas-tema-4.json" },
+    { id: "tema5", nombre: "Examen tema-5", archivo: "data/preguntas-tema-5.json" },
+    { id: "tema6", nombre: "Examen tema-6", archivo: "data/preguntas-tema-6.json" },
+    { id: "prueba", nombre: "Examen parcial-1 Prueba", archivo: "data/parcial-1-prueba.json" },
+    { id: "noviembre2023", nombre: "Examen parcial-1 Noviembre 2023", archivo: "data/parcial-1-2023.json" },
+    { id: "noviembre2022", nombre: "Examen parcial-1 Noviembre 2022", archivo: "data/parcial-1-2022.json" },
+    { id: "prueba1", nombre: "Examen parcial-2 Prueba", archivo: "data/parcial-2-prueba.json" },
+    { id: "diciembre2023", nombre: "Examen parcial-2 Diciembre 2023", archivo: "data/parcial-2-2023.json" },
+    { id: "diciembre2022", nombre: "Examen parcial-2 Diciembre 2022", archivo: "data/parcial-2-2022.json" },
+    { id: "mayo2023", nombre: "Examen Mayo 2023", archivo: "data/examenMayo2023.json" },
+    { id: "junio2023", nombre: "Examen Junio 2023", archivo: "data/examenJunio2023.json" },
+  ],
+  sstt: [
+    { id: "tema1", nombre: "Examen tema-1", archivo: "data/sstt-tema-1.json" },
+    { id: "tema2", nombre: "Examen tema-2", archivo: "data/sstt-tema-2.json" },
+  ],
+};
+
+const DEFAULT_SUBJECT = "iso";
 
 const STORAGE_KEY = "study_sprint_state_v1";
 const RANDOM_LIMIT = 50;
@@ -28,6 +39,7 @@ const ui = {
   modeSpecific: document.getElementById("mode-specific"),
   modeRandom: document.getElementById("mode-random"),
   specificControls: document.getElementById("specific-controls"),
+  subjectSelect: document.getElementById("subject-select"),
   examSelect: document.getElementById("exam-select"),
   startExam: document.getElementById("start-exam"),
   resumeSavedExam: document.getElementById("resume-saved-exam"),
@@ -57,7 +69,8 @@ const ui = {
 let appState = {
   stage: "start",
   mode: "specific",
-  selectedExamId: EXAM_FILES[0].id,
+  selectedSubject: DEFAULT_SUBJECT,
+  selectedExamId: EXAM_FILES[DEFAULT_SUBJECT][0].id,
   questions: [],
   currentIndex: 0,
   answers: [],
@@ -66,31 +79,43 @@ let appState = {
   savedExam: null,
 };
 
+// setSubject:
+// Objetivo general: cambiar la asignatura seleccionada y actualizar los exámenes disponibles.
+// Flujo específico: actualiza estado -> re-renderiza opciones de examen -> persiste.
+function setSubject(subjectId) {
+  appState.selectedSubject = subjectId;
+  appState.selectedExamId = EXAM_FILES[subjectId][0].id;
+  renderExamOptions(subjectId);
+  persistState();
+}
+
 // init:
 // Objetivo general: arrancar la aplicación y dejarla lista para interacción.
 // Flujo específico: pinta selector -> conecta eventos -> restaura localStorage -> renderiza pantalla actual.
 init();
 
 function init() {
-  // 1) Renderiza el combo de exámenes disponibles.
-  renderExamOptions();
-  // 2) Registra listeners de todos los controles UI.
+  // 1) Renderiza el combo de asignaturas disponibles.
+  renderSubjectOptions();
+  // 2) Renderiza el combo de exámenes disponibles.
+  renderExamOptions(DEFAULT_SUBJECT);
+  // 3) Registra listeners de todos los controles UI.
   bindEvents();
-  // 3) Recupera estado persistido si existe.
+  // 4) Recupera estado persistido si existe.
   restoreState();
-  // 4) Dibuja la pantalla adecuada según stage.
+  // 5) Dibuja la pantalla adecuada según stage.
   render();
 }
 
 // renderExamOptions:
 // Objetivo general: cargar en el select todos los bancos definidos en EXAM_FILES.
 // Flujo específico: limpia opciones previas -> crea option por examen -> sincroniza valor actual.
-function renderExamOptions() {
+function renderExamOptions(subject) {
   // Limpia cualquier opción previa para evitar duplicados.
   ui.examSelect.innerHTML = "";
 
   // Recorre la lista de bancos y crea una opción por cada banco.
-  EXAM_FILES.forEach((exam) => {
+  EXAM_FILES[subject].forEach((exam) => {
     // Crea nodo option.
     const option = document.createElement("option");
     // Guarda el id como value para identificar el banco.
@@ -105,6 +130,20 @@ function renderExamOptions() {
   ui.examSelect.value = appState.selectedExamId;
 }
 
+// renderSubjectOptions:
+// Objetivo general: cargar en el select todos los subject disponibles.
+// Flujo específico: limpia opciones previas -> crea option por subject -> sincroniza valor actual.
+function renderSubjectOptions() {
+  ui.subjectSelect.innerHTML = "";
+  SUBJECTS.forEach((subject) => {
+    const option = document.createElement("option");
+    option.value = subject.id;
+    option.textContent = subject.nombre;
+    ui.subjectSelect.appendChild(option);
+  });
+  ui.subjectSelect.value = appState.selectedSubject;
+}
+
 // bindEvents:
 // Objetivo general: conectar acciones de usuario con funciones de negocio.
 // Flujo específico: asigna listeners a botones, select, respuestas, navegación y modal.
@@ -113,6 +152,11 @@ function bindEvents() {
   ui.modeSpecific.addEventListener("click", () => setMode("specific"));
   // Cambiar modo a aleatorio.
   ui.modeRandom.addEventListener("click", () => setMode("random"));
+
+  // Al cambiar asignatura en el select.
+  ui.subjectSelect.addEventListener("change", (event) => {
+    setSubject(event.target.value);
+  });
 
   // Al cambiar banco en el select, persiste nueva selección.
   ui.examSelect.addEventListener("change", (event) => {
@@ -209,7 +253,7 @@ async function startExam() {
 // Flujo específico: localiza metadata -> valida existencia -> fetch JSON -> shuffle.
 async function loadSpecificExamQuestions(examId) {
   // Busca definición del examen por id.
-  const exam = EXAM_FILES.find((item) => item.id === examId);
+  const exam = EXAM_FILES[appState.selectedSubject].find((item) => item.id === examId);
 
   // Si no existe el banco, retorna vacío para que el llamador lo gestione.
   if (!exam) {
@@ -440,7 +484,8 @@ function clearProgress() {
   appState = {
     stage: "start",
     mode: "specific",
-    selectedExamId: EXAM_FILES[0].id,
+    selectedSubject: DEFAULT_SUBJECT,
+    selectedExamId: EXAM_FILES[DEFAULT_SUBJECT][0].id,
     questions: [],
     currentIndex: 0,
     answers: [],
@@ -449,7 +494,8 @@ function clearProgress() {
     savedExam: null,
   };
   // Regenera opciones del selector.
-  renderExamOptions();
+  renderSubjectOptions();
+  renderExamOptions(appState.selectedSubject);
   // Asegura modo visual por defecto.
   setMode("specific");
   // Refresca pantalla inicial.
@@ -501,12 +547,18 @@ function restoreState() {
       appState.savedExam = null;
     }
 
+    // Valida que la asignatura seleccionada exista
+    if (!SUBJECTS.some((subject) => subject.id === appState.selectedSubject)) {
+      appState.selectedSubject = DEFAULT_SUBJECT;
+    }
+
     // Si el examen seleccionado ya no existe, usa el primero disponible.
-    if (!EXAM_FILES.some((exam) => exam.id === appState.selectedExamId)) {
-      appState.selectedExamId = EXAM_FILES[0].id;
+    if (!EXAM_FILES[appState.selectedSubject].some((exam) => exam.id === appState.selectedExamId)) {
+      appState.selectedExamId = EXAM_FILES[appState.selectedSubject][0].id;
     }
 
     // Sincroniza select visible con estado restaurado.
+    ui.subjectSelect.value = appState.selectedSubject;
     ui.examSelect.value = appState.selectedExamId;
     // Sincroniza modo visual restaurado.
     setMode(appState.mode === "random" ? "random" : "specific");

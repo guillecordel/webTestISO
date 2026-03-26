@@ -1,0 +1,37 @@
+[
+  {
+    "enunciado": "SSTT se refiere a Servicios y Sistemas de Telecomunicaciones.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "SSTT es el acrónimo para Servicios y Sistemas de Telecomunicaciones, una asignatura enfocada en tecnologías de comunicación."
+  },
+  {
+    "enunciado": "El ancho de banda es la capacidad máxima de transferencia de datos en un medio de transmisión.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "El ancho de banda se define como la cantidad máxima de datos que pueden transmitirse a través de un canal en una unidad de tiempo."
+  },
+  {
+    "enunciado": "En una red Ethernet, la velocidad de transferencia es siempre de 10 Mbps.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "Las redes Ethernet pueden operar a diferentes velocidades: 10 Mbps (10BASE-T), 100 Mbps (Fast Ethernet), 1 Gbps (Gigabit Ethernet), etc."
+  },
+  {
+    "enunciado": "El protocolo TCP es responsable de garantizar la entrega de datos.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "A",
+    "comentarios": "TCP (Transmission Control Protocol) es un protocolo orientado a conexión que garantiza la entrega ordenada y confiable de datos."
+  },
+  {
+    "enunciado": "UDP es más fiable que TCP pero más lento en la transmisión.",
+    "opcionA": "Verdadero",
+    "opcionB": "Falso",
+    "correcta": "B",
+    "comentarios": "UDP es más rápido que TCP pero no garantiza la entrega de datos. TCP es más fiable pero con mayor latencia."
+  }
+]

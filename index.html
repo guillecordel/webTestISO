@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Título mostrado en pestaña -->
-    <title>Study Sprint SPA ISO</title>
+    <title>Study Sprint SPA</title>
     <!-- Tailwind CDN para utilidades rápidas de layout y spacing -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Optimización de carga de fuentes -->
@@ -28,7 +28,7 @@
       <!-- Cabecera: branding y contexto del tipo de app -->
       <header class="mb-8 rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-md">
         <p class="text-sm uppercase tracking-[0.2em] text-cyan-200">SPA de estudio</p>
-        <h1 class="mt-2 text-4xl font-bold leading-tight sm:text-5xl">Study Sprint ISO</h1>
+        <h1 class="mt-2 text-4xl font-bold leading-tight sm:text-5xl">Study Sprint</h1>
         <p class="mt-3 max-w-2xl text-slate-200/90">
           Practica por bloques o lánzate a un simulacro aleatorio de 50 preguntas.
         <p class="mt-3 max-w-2xl text-cyan-200/90">
@@ -43,6 +43,12 @@
       <!-- Pantalla 1: configuración inicial de examen -->
       <section id="screen-start" class="glass-panel rounded-3xl p-6 sm:p-8">
         <h2 class="section-title">Configura tu examen</h2>
+
+        <!-- Selector de asignatura -->
+        <div class="mt-6">
+          <label for="subject-select" class="mb-2 block text-sm font-medium text-cyan-100">Selecciona una asignatura</label>
+          <select id="subject-select" class="w-full rounded-2xl border border-white/20 bg-slate-900/70 p-4 text-lg text-white outline-none transition focus:border-cyan-300"></select>
+        </div>
 
         <!-- Selector visual del modo de juego -->
         <div class="mt-6 grid gap-4 sm:grid-cols-2">
