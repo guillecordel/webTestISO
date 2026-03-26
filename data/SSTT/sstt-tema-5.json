@@ -1,0 +1,47 @@
+[
+  {
+    "id": 51,
+    "enunciado": "1. ¿Qué información NO ofrece un servidor DHCP?",
+    "opcionA": "La máscara de red.",
+    "opcionB": "La puerta de enlace.",
+    "opcionC": "La dirección IP del DHCP Relay presente en su misma red.",
+    "correcta": "C",
+    "comentarios": "El servidor DHCP entrega configuración IP al cliente (IP, máscara, gateway, DNS), pero el cliente no necesita conocer la IP del agente Relay para funcionar."
+  },
+  {
+    "id": 52,
+    "enunciado": "2. ¿Qué mensaje DHCP no se envía por broadcast?",
+    "opcionA": "Discover",
+    "opcionB": "Offer",
+    "opcionC": "Request",
+    "correcta": "B",
+    "comentarios": "Aunque depende de la implementación, el mensaje 'Offer' suele enviarse por unicapast a la MAC del cliente (si ya es conocida), mientras que el Discover y el Request son necesariamente broadcast para que toda la red los vea."
+  },
+  {
+    "id": 53,
+    "enunciado": "3. Una transacción de solicitud de IP por DHCP está compuesto de 4 mensajes cuando... (MARCA LA VERDADERA):",
+    "opcionA": "Un cliente accede por primera vez a la red.",
+    "opcionB": "Después de que un cliente intente renovar su IP y se le deniegue con un NAK.",
+    "opcionC": "Ambas son correctas.",
+    "correcta": "C",
+    "comentarios": "Se refiere al proceso completo DORA (Discover, Offer, Request, ACK), que se inicia siempre que el cliente no tiene una IP válida o la que tenía ha sido rechazada."
+  },
+  {
+    "id": 54,
+    "enunciado": "4. ¿Cuál es el cometido del mensaje DHCP Inform?",
+    "opcionA": "Es enviado por el servidor DHCP para enviar información extra al cliente.",
+    "opcionB": "Es enviado por el cliente DHCP para solicitar información extra a la enviada inicialmente por el servidor.",
+    "opcionC": "Es enviado por el servidor DHCP para informar al cliente de que la dirección IP asignada ha caducado.",
+    "correcta": "B",
+    "comentarios": "El mensaje DHCPINFORM lo usa un cliente que ya tiene una IP configurada (quizás manualmente) pero necesita otros parámetros como la dirección del servidor DNS o del servidor WPAD."
+  },
+  {
+    "id": 55,
+    "enunciado": "5. ¿Cómo puede un servidor DHCP ofrecer siempre que sea posible la misma IP a un mismo cliente?",
+    "opcionA": "Lo hace en base a la MAC del cliente, y es posible incluso cuando DHCP Server y cliente no están en la misma LAN.",
+    "opcionB": "Lo hace en base a la MAC del cliente, por lo que solo es posible cuando el DHCP Server y el cliente están en la misma LAN.",
+    "opcionC": "Lo hace en base al puerto origen del cliente.",
+    "correcta": "A",
+    "comentarios": "El servidor utiliza el identificador del cliente (basado en la MAC) para las reservas. Si hay un Relay Agent, este encapsula la petición original manteniendo la identidad del cliente, permitiendo la asignación estática desde otra red."
+  }
+]

@@ -120,8 +120,18 @@ h1,
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(2, 6, 23, 0.35);
   padding: 1.25rem;
+/*para evitar que textos largos rompan el diseño, se permite el salto de línea dentro de las palabras si es necesario.*/
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
 }
-
+/* Estilo específico para el texto del enunciado */
+#question-text {
+ 
+  white-space: pre-wrap;   /* Respeta los saltos de línea del JSON */
+  word-break: break-word;  /* Rompe palabras larguísimas como URLs o rutas */
+  line-height: 1.6;        /* Mejora la lectura de bloques de texto */
+  display: block;
+}
 /*
   Botones de respuesta:
   - Botones grandes y legibles.
@@ -258,4 +268,6 @@ select:focus-visible {
   .answer-btn {
     font-size: 1rem;
   }
+
+
 }

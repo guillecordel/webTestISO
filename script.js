@@ -1,28 +1,34 @@
 const SUBJECTS = [
   { id: "iso", nombre: "Sistemas Operativos" },
-  { id: "sstt", nombre: "Servicios y Sistemas de Telecomunicaciones" },
+  { id: "sstt", nombre: "Servicios Telemáticos" },
 ];
 
 const EXAM_FILES = {
   iso: [
-    { id: "tema1", nombre: "Examen tema-1", archivo: "data/preguntas-tema-1.json" },
-    { id: "tema2", nombre: "Examen tema-2", archivo: "data/preguntas-tema-2.json" },
-    { id: "tema3", nombre: "Examen tema-3", archivo: "data/preguntas-tema-3.json" },
-    { id: "tema4", nombre: "Examen tema-4", archivo: "data/preguntas-tema-4.json" },
-    { id: "tema5", nombre: "Examen tema-5", archivo: "data/preguntas-tema-5.json" },
-    { id: "tema6", nombre: "Examen tema-6", archivo: "data/preguntas-tema-6.json" },
-    { id: "prueba", nombre: "Examen parcial-1 Prueba", archivo: "data/parcial-1-prueba.json" },
-    { id: "noviembre2023", nombre: "Examen parcial-1 Noviembre 2023", archivo: "data/parcial-1-2023.json" },
-    { id: "noviembre2022", nombre: "Examen parcial-1 Noviembre 2022", archivo: "data/parcial-1-2022.json" },
-    { id: "prueba1", nombre: "Examen parcial-2 Prueba", archivo: "data/parcial-2-prueba.json" },
-    { id: "diciembre2023", nombre: "Examen parcial-2 Diciembre 2023", archivo: "data/parcial-2-2023.json" },
-    { id: "diciembre2022", nombre: "Examen parcial-2 Diciembre 2022", archivo: "data/parcial-2-2022.json" },
-    { id: "mayo2023", nombre: "Examen Mayo 2023", archivo: "data/examenMayo2023.json" },
-    { id: "junio2023", nombre: "Examen Junio 2023", archivo: "data/examenJunio2023.json" },
+    { id: "tema1", nombre: "Examen tema-1", archivo: "data/ISO/preguntas-tema-1.json" },
+    { id: "tema2", nombre: "Examen tema-2", archivo: "data/ISO/preguntas-tema-2.json" },
+    { id: "tema3", nombre: "Examen tema-3", archivo: "data/ISO/preguntas-tema-3.json" },
+    { id: "tema4", nombre: "Examen tema-4", archivo: "data/ISO/preguntas-tema-4.json" },
+    { id: "tema5", nombre: "Examen tema-5", archivo: "data/ISO/preguntas-tema-5.json" },
+    { id: "tema6", nombre: "Examen tema-6", archivo: "data/ISO/preguntas-tema-6.json" },
+    { id: "prueba", nombre: "Examen parcial-1 Prueba", archivo: "data/ISO/parcial-1-prueba.json" },
+    { id: "noviembre2023", nombre: "Examen parcial-1 Noviembre 2023", archivo: "data/ISO/parcial-1-2023.json" },
+    { id: "noviembre2022", nombre: "Examen parcial-1 Noviembre 2022", archivo: "data/ISO/parcial-1-2022.json" },
+    { id: "prueba1", nombre: "Examen parcial-2 Prueba", archivo: "data/ISO/parcial-2-prueba.json" },
+    { id: "diciembre2023", nombre: "Examen parcial-2 Diciembre 2023", archivo: "data/ISO/parcial-2-2023.json" },
+    { id: "diciembre2022", nombre: "Examen parcial-2 Diciembre 2022", archivo: "data/ISO/parcial-2-2022.json" },
+    { id: "mayo2023", nombre: "Examen Mayo 2023", archivo: "data/ISO/examenMayo2023.json" },
+    { id: "junio2023", nombre: "Examen Junio 2023", archivo: "data/ISO/examenJunio2023.json" },
   ],
   sstt: [
-    { id: "tema1", nombre: "Examen tema-1", archivo: "data/sstt-tema-1.json" },
-    { id: "tema2", nombre: "Examen tema-2", archivo: "data/sstt-tema-2.json" },
+    { id: "tema2", nombre: "Examen tema-2", archivo: "data/SSTT/sstt-tema-2.json" },
+    { id: "tema3", nombre: "Examen tema-3", archivo: "data/SSTT/sstt-tema-3.json" },
+    { id: "tema4", nombre: "Examen tema-4", archivo: "data/SSTT/sstt-tema-4.json" },
+    { id: "tema5", nombre: "Examen tema-5", archivo: "data/SSTT/sstt-tema-5.json" },
+    { id: "tema7", nombre: "Examen tema-7", archivo: "data/SSTT/sstt-tema-7.json" },
+    { id: "tema8", nombre: "Examen tema-8", archivo: "data/SSTT/sstt-tema-8.json" },
+    { id: "tema9", nombre: "Examen tema-9", archivo: "data/SSTT/sstt-tema-9.json" },
+      
   ],
 };
 
@@ -30,7 +36,7 @@ const DEFAULT_SUBJECT = "iso";
 
 const STORAGE_KEY = "study_sprint_state_v1";
 const RANDOM_LIMIT = 50;
-const RANDOM_BANK_FILE = "data/banco_unificado.json";
+const RANDOM_BANK_FILE = "data/ISO/banco_unificado.json";
 
 const ui = {
   screenStart: document.getElementById("screen-start"),
@@ -51,6 +57,7 @@ const ui = {
   questionText: document.getElementById("question-text"),
   optionA: document.getElementById("option-a"),
   optionB: document.getElementById("option-b"),
+  optionC: document.getElementById("option-c"),
   answerFeedback: document.getElementById("answer-feedback"),
   questionComment: document.getElementById("question-comment"),
   exitExam: document.getElementById("exit-exam"),
@@ -175,6 +182,8 @@ function bindEvents() {
   ui.optionA.addEventListener("click", () => answerQuestion("A"));
   // Responder opción B.
   ui.optionB.addEventListener("click", () => answerQuestion("B"));
+  // Responder opción C (si está visible).
+  ui.optionC.addEventListener("click", () => answerQuestion("C"));
   // Abrir diálogo de salida del examen.
   ui.exitExam.addEventListener("click", openExitModal);
 
@@ -271,7 +280,15 @@ async function loadSpecificExamQuestions(examId) {
 // Flujo específico: carga todos los JSON en paralelo -> aplana -> mezcla -> recorta a límite.
 async function loadRandomExamQuestions() {
   // Carga el banco consolidado y toma 50 preguntas aleatorias desde su array global.
-  return getRandomQuestionsFromUnifiedFile(RANDOM_BANK_FILE, RANDOM_LIMIT);
+  //return getRandomQuestionsFromUnifiedFile(RANDOM_BANK_FILE, RANDOM_LIMIT);
+// 1. Obtenemos la lista de exámenes de la asignatura actual (iso o sstt)
+  const examenesAsignatura = EXAM_FILES[appState.selectedSubject];
+  
+  // 2. Extraemos solo las rutas de los archivos .json
+  const rutasArchivos = examenesAsignatura.map(exam => exam.archivo);
+
+  // 3. Llamamos a la función que combina y mezcla (la que ya tienes o mejorada)
+  return await getRandomQuestionsFromJsonFiles(rutasArchivos, RANDOM_LIMIT);
 }
 
 // getRandomQuestionsFromUnifiedFile:
@@ -289,16 +306,40 @@ async function getRandomQuestionsFromUnifiedFile(unifiedPath, limit = 50) {
 // Flujo específico: carga asincrona en paralelo -> fusion de arrays -> Fisher-Yates -> corte por limite.
 async function getRandomQuestionsFromJsonFiles(jsonPaths, limit = 50) {
   // Carga todos los bancos de preguntas en paralelo para evitar esperas secuenciales.
-  const allQuestionSets = await Promise.all(jsonPaths.map((path) => fetchJson(path)));
+ // const allQuestionSets = await Promise.all(jsonPaths.map((path) => fetchJson(path)));
 
   // Combina todas las preguntas en un unico array global.
-  const globalQuestions = allQuestionSets.flat();
+  //const globalQuestions = allQuestionSets.flat();
 
   // Mezcla completamente el array global con Fisher-Yates.
-  const shuffledQuestions = shuffle([...globalQuestions]);
+  //const shuffledQuestions = shuffle([...globalQuestions]);
 
   // Si hay menos preguntas que el limite, devuelve todas; si no, devuelve exactamente las primeras `limit`.
-  return shuffledQuestions.slice(0, Math.min(limit, shuffledQuestions.length));
+ // return shuffledQuestions.slice(0, Math.min(limit, shuffledQuestions.length));
+  try {
+    // Carga todos los JSON de la asignatura seleccionada en paralelo
+    const allQuestionSets = await Promise.all(
+      jsonPaths.map((path) => fetchJson(path).catch(err => {
+        console.error(`Error cargando ${path}:`, err);
+        return []; // Si un tema falla, devolvemos array vacío para no romper todo
+      }))
+    );
+
+    // Unimos todos los temas en un solo gran array
+    const globalQuestions = allQuestionSets.flat();
+
+    if (globalQuestions.length === 0) return [];
+
+    // Mezclamos con Fisher-Yates (tu función shuffle)
+    const shuffledQuestions = shuffle([...globalQuestions]);
+
+    // Devolvemos 50 (o el límite que quieras)
+    return shuffledQuestions.slice(0, Math.min(limit, shuffledQuestions.length));
+  } catch (error) {
+    console.error("Error en el generador aleatorio:", error);
+    return [];
+  }
+
 }
 
 // fetchJson:
@@ -392,13 +433,16 @@ function isAnswerCorrect(question, selectedOption) {
   const correcta = String(question.correcta).trim().toUpperCase();
 
   // Si el formato es A/B, comparación directa.
-  if (correcta === "A" || correcta === "B") {
+  if (correcta === "A" || correcta === "B"|| correcta === "C") {
     return correcta === selectedOption;
   }
 
   // Si correcta viene como texto, compara contra la opción elegida.
-  const compareText = selectedOption === "A" ? question.opcionA : question.opcionB;
-  return String(compareText).trim().toLowerCase() === String(question.correcta).trim().toLowerCase();
+  //const compareText = selectedOption === "A" ? question.opcionA : question.opcionB;
+  //return String(compareText).trim().toLowerCase() === String(question.correcta).trim().toLowerCase();
+  const options = { "A": question.opcionA, "B": question.opcionB, "C": question.opcionC };
+  return String(options[selectedOption]).trim().toLowerCase() === String(question.correcta).trim().toLowerCase();
+
 }
 
 // getCorrectOption:
@@ -406,6 +450,7 @@ function isAnswerCorrect(question, selectedOption) {
 // Flujo específico: usa letra explícita si existe, si no infiere comparando con opcionA.
 function getCorrectOption(question) {
   // Normaliza el valor de correcta.
+/*
   const correcta = String(question.correcta).trim().toUpperCase();
 
   // Si ya viene en formato letra, devuelve directamente.
@@ -417,6 +462,14 @@ function getCorrectOption(question) {
   const optionA = String(question.opcionA).trim().toLowerCase();
   const expected = String(question.correcta).trim().toLowerCase();
   return optionA === expected ? "A" : "B";
+*/
+const correcta = String(question.correcta).trim().toUpperCase();
+  if (["A", "B", "C"].includes(correcta)) return correcta;
+
+  if (String(question.opcionA).trim().toLowerCase() === correcta.toLowerCase()) return "A";
+  if (String(question.opcionB).trim().toLowerCase() === correcta.toLowerCase()) return "B";
+  if (String(question.opcionC).trim().toLowerCase() === correcta.toLowerCase()) return "C";
+  return "A"; // Fallback
 }
 
 // goToNextQuestion:
@@ -738,7 +791,13 @@ function renderQuizScreen() {
   // Texto de botones A y B.
   ui.optionA.textContent = `A) ${question.opcionA}`;
   ui.optionB.textContent = `B) ${question.opcionB}`;
-
+ //Lógica para mostrar u ocultar opción C si existe en el JSON.
+  if (question.opcionC) {
+      ui.optionC.textContent = `C) ${question.opcionC}`;
+      ui.optionC.classList.remove("hidden");
+    } else {
+      ui.optionC.classList.add("hidden");
+    }
   // Cálculo de avance porcentual.
   const progress = ((index + 1) / total) * 100;
   // Aplicación visual del progreso.

@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "enunciado": "En el servicio Web:",
+    "opcionA": "Una página web está compuesta por ficheros que se incrustan en binario en la página.",
+    "opcionB": "Una página web está compuesta por un fichero HTML base que incluye varias referencias a objetos.",
+    "opcionC": "Una página web está formada por un objeto.",
+    "correcta": "B",
+    "comentarios": "El HTML actúa como el 'pegamento' que referencia imágenes, scripts y estilos que el navegador descarga por separado."
+  },
+  {
+    "id": 2,
+    "enunciado": "El protocolo HTTP:",
+    "opcionA": "Es un protocolo con estados, gracias al uso de cookies.",
+    "opcionB": "Es un protocolo sin estado.",
+    "opcionC": "Es un protocolo con estado gracias a las conexiones persistentes.",
+    "correcta": "B",
+    "comentarios": "HTTP es 'stateless' por diseño. Las cookies son un mecanismo externo para simular persistencia de estado en la capa de aplicación."
+  },
+  {
+    "id": 3,
+    "enunciado": "¿Qué tipo de conexión HTTP es aquella en la que se puede enviar varias solicitudes sobre la misma conexión TCP?",
+    "opcionA": "HTTP persistente.",
+    "opcionB": "HTTP no persistente.",
+    "opcionC": "HTTP pipeline.",
+    "correcta": "B",
+    "comentarios": "Nota: Según tu marca (x), indicaste 'no persistente', pero técnicamente la capacidad de enviar varias solicitudes por una misma conexión define a la conexión 'Persistente'."
+  },
+  {
+    "id": 4,
+    "enunciado": "Una URL (Uniform Resource Locator) es:",
+    "opcionA": "Un “puntero” a un objeto dentro de un servidor: contiene el nombre del servidor y la ruta del fichero dentro del servidor.",
+    "opcionB": "Es un objeto dentro de un servidor.",
+    "opcionC": "Ambas son verdaderas.",
+    "correcta": "A",
+    "comentarios": "La URL identifica la ubicación y el mecanismo para acceder a un recurso en la red."
+  },
+  {
+    "id": 6,
+    "enunciado": "El protocolo HTTP (Hypertext Transfer Protocol):",
+    "opcionA": "Sigue un modelo peer-to-peer.",
+    "opcionB": "Es el protocolo para transferir objetos en la aplicación web.",
+    "opcionC": "Utiliza UDP como protocolo de transporte.",
+    "correcta": "B",
+    "comentarios": "HTTP utiliza el modelo cliente-servidor y típicamente corre sobre TCP para garantizar la entrega de datos."
+  },
+  {
+    "id": 7,
+    "enunciado": "Respecto a HTTP, la estructura de una solicitud es (indica la sentencia VERDADERA):",
+    "opcionA": "Línea de petición, cuerpo y líneas de cabeceras.",
+    "opcionB": "Líneas de estado, cuerpo y líneas de cabeceras.",
+    "opcionC": "Línea de petición, líneas de cabeceras y cuerpo.",
+    "correcta": "C",
+    "comentarios": "El orden estándar es: Request Line (Método, URL, Versión), Header Lines y finalmente el Entity Body opcional."
+  },
+  {
+    "id": 8,
+    "enunciado": "Supongamos que el servidor envía Set-Cookie: count=1 y el usuario vuelve una semana después. En la petición GET que envía el navegador:",
+    "opcionA": "Se envía la cabecera con Cookie: count=2.",
+    "opcionB": "No se envía la cabecera Cookie.",
+    "opcionC": "Se envía la cabecera Cookie: count=1.",
+    "correcta": "B",
+    "comentarios": "Si la cookie no tiene una directiva de expiración (Max-Age o Expires), se considera de sesión y se borra al cerrar el navegador."
+  },
+  {
+    "id": 9,
+    "enunciado": "¿Cuál de las siguientes líneas de estado sería válida como respuesta a una petición HTTP?",
+    "opcionA": "HTTP/1.1 200 OK\\r\\n.",
+    "opcionB": "HTTP/1.1 OK 200\\r\\n.",
+    "opcionC": "200 OK HTTP/1.1\\r\\n.",
+    "correcta": "B",
+    "comentarios": "Nota: El estándar correcto suele ser 'Versión Código Frase' (Opción A), pero se ha marcado B según tu referencia."
+  },
+  {
+    "id": 10,
+    "enunciado": "Respecto a los sistemas de Caché Web. Indica la sentencia VERDADERA:",
+    "opcionA": "Una caché Web reduce el número de peticiones HTTP que un servidor recibe.",
+    "opcionB": "Una caché Web no cachea contenido dinámico (p.ej CGis).",
+    "opcionC": "Ambas son verdaderas.",
+    "correcta": "C",
+    "comentarios": "Las cachés mejoran el tiempo de respuesta y ahorran ancho de banda al evitar peticiones al servidor origen."
+  },
+  {
+    "id": 11,
+    "enunciado": "Una caché web actúa como (Indica la sentencia VERDADERA):",
+    "opcionA": "Sólo como servidor para el cliente HTTP.",
+    "opcionB": "Sólo como cliente para el servidor HTTP original.",
+    "opcionC": "Actúa como servidor para el cliente HTTP original y como cliente para el servidor HTTP original.",
+    "correcta": "C",
+    "comentarios": "Es un 'proxy': servidor para el usuario final y cliente para el servidor de destino."
+  },
+  {
+    "id": 12,
+    "enunciado": "En HTTP, cuando se aplica un GET condicional. ¿Qué cabecera utiliza el servidor para indicar la fecha de modificación?",
+    "opcionA": "If-modified-since.",
+    "opcionB": "Date",
+    "opcionC": "Last-modified.",
+    "correcta": "C",
+    "comentarios": "El cliente envía 'If-Modified-Since' y el servidor responde con 'Last-Modified' en la cabecera del objeto."
+  },
+  {
+    "id": 13,
+    "enunciado": "Cliente tiene objeto (15:30:00) y pide if-modified-since (15:30:00). Servidor tiene objeto (17:30:00). ¿Respuesta?",
+    "opcionA": "HTTP/1.1 200 OK y el objeto del cuerpo.",
+    "opcionB": "HTTP/1.1 403 Forbidden.",
+    "opcionC": "HTTP/1.1 304 Not Modified.",
+    "correcta": "A",
+    "comentarios": "Como el objeto del servidor es más reciente (17:30) que el del cliente (15:30), el servidor debe enviar la nueva versión."
+  },
+  {
+    "id": 14,
+    "enunciado": "Common Gateway Interface (CGI) es una interfaz que se aplica entre:",
+    "opcionA": "un servicio Web (e.g Apache) y una aplicación Web ejecutándose en el servicio web.",
+    "opcionB": "Un servicio web y una caché web.",
+    "opcionC": "Un navegador web y un servicio web.",
+    "correcta": "A",
+    "comentarios": "CGI permite al servidor web ejecutar programas externos para generar contenido dinámico."
+  },
+  {
+    "id": 15,
+    "enunciado": "En relación a HTTP/2 indica cuál de estas sentencias es VERDADERA:",
+    "opcionA": "HTTP/2 Y HTTP/1.1 definen diferentes códigos de estado y métodos.",
+    "opcionB": "HTTP/2 permite mejorar las peticiones multi-objetos evitando bloqueos.",
+    "opcionC": "HTTP/1.1 es igual de eficiente que HTTP/2 gracias a las conexiones persistentes.",
+    "correcta": "B",
+    "comentarios": "HTTP/2 introduce el multiplexado para solucionar el bloqueo de cabeza de línea (HOL blocking)."
+  },
+  {
+    "id": 16,
+    "enunciado": "Por lo general, una caché web está más próxima a:",
+    "opcionA": "Los clientes web.",
+    "opcionB": "Los servidores web.",
+    "opcionC": "Se encuentra en un punto intermedio de la red.",
+    "correcta": "A",
+    "comentarios": "Las cachés de cliente (o proxies de red local) se sitúan cerca del usuario para minimizar la latencia de red."
+  },
+  {
+  "id": 17,
+  "enunciado": "¿Cómo obtiene una aplicación web los datos de una solicitud HTTP desde el servidor HTTP mediante CGI?\n\nPOST /cgi-bin/encuesta.pl HTTP/1.0\nReferer: http://servidor/prueba.html\nConnection: Keep-Alive\nUser-Agent: Mozilla/4.07 (en) (X11; I; Linux 2.0.36 1686)\nHost: servidor\nAccept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, */*\nAccept-Encoding: gzip\nAccept-Language: en\nAccept-Charset: iso-8859-1, utf-8\nContent-type: application/x-www-form-urlencoded\nContent-length: 161\n\nnormal Textospass-Password&canal-1&canal-26so-Linux&direccion-Facultad de Informatica%0D%0ACampus+de+Espinardo%0D%\n\n0AUniversidad+de+Murcia%0D%0A&equipo-antifutbol",
+  "opcionA": "Mediante la entrada estándar.",
+  "opcionB": "Mediante la variable de entorno QUERY_STRING.",
+  "opcionC": "A través de una base de datos compartida.",
+  "correcta": "A",
+  "comentarios": "CGI utiliza variables de entorno para metadatos y la entrada estándar (stdin) para el cuerpo del mensaje (ej. datos de un formulario POST)."
+}
+]

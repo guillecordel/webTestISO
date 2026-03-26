@@ -1,0 +1,84 @@
+[
+  {
+    "id": 25,
+    "enunciado": "Sobre el protocolo SMTP, marca la respuesta VERDADERA:",
+    "opcionA": "Se emplea exclusivamente entre servidores de correo.",
+    "opcionB": "Lo puede emplear un cliente de correo (UA) para enviar un e-mail hacia su servidor de correo.",
+    "opcionC": "Ambas respuestas son correctas.",
+    "correcta": "C",
+    "comentarios": "SMTP se usa tanto para el envío desde el cliente (Push) como para la transferencia entre MTAs (servidores)."
+  },
+  {
+    "id": 26,
+    "enunciado": "La secuencia típica de comandos SMTP que un cliente manda al servidor para el envío de mensajes sería:",
+    "opcionA": "HELO - DATA - RCPT TO - MAIL FROM - QUIT.",
+    "opcionB": "HELO - MAIL FROM - RCPT TO - DATA - QUIT.",
+    "opcionC": "HELO - MAIL FROM - DATA - RCPT TO.",
+    "correcta": "B",
+    "comentarios": "El orden lógico es: Identificación (HELO), Remitente (MAIL FROM), Destinatario (RCPT TO) y finalmente el cuerpo del mensaje (DATA)."
+  },
+  {
+    "id": 27,
+    "enunciado": "En SMTP, ¿cómo se indica el final de un mensaje? Indica la sentencia VERDADERA:",
+    "opcionA": "Mediante la secuencia 'CRLF.CRLF' (un punto en una línea sola).",
+    "opcionB": "Con el comando '250 Message accepted for delivery'.",
+    "opcionC": "Con el comando 'DATA'.",
+    "correcta": "A",
+    "comentarios": "Tras el comando DATA, el servidor espera el flujo de texto hasta encontrar una línea que contenga únicamente un punto."
+  },
+  {
+    "id": 28,
+    "enunciado": "¿Qué protocolos son necesarios para que un mensaje de la organización A llegue al servidor de la organización B?",
+    "opcionA": "SMTP y DNS.",
+    "opcionB": "Sólo SMTP.",
+    "opcionC": "SMTP y POP/IMAP.",
+    "correcta": "B",
+    "comentarios": "Para la transferencia entre servidores (MTA a MTA) solo se requiere SMTP. DNS es auxiliar para resolver el registro MX, y POP/IMAP solo actúan en la descarga final."
+  },
+  {
+    "id": 29,
+    "enunciado": "Comparando POP3 (modo 'descargar y mantener') con IMAP, indica la afirmación FALSA:",
+    "opcionA": "En ambos podemos releer el correo si cambiamos de equipo.",
+    "opcionB": "En ambos tenemos almacenado nuestro correo en el servidor.",
+    "opcionC": "En ambos casos, si se borra un correo en el cliente desaparece de todos los dispositivos.",
+    "correcta": "C",
+    "comentarios": "POP3 no sincroniza estados de borrado o carpetas con el servidor de la misma forma que IMAP; los cambios locales en POP3 no suelen afectar a otros dispositivos."
+  },
+  {
+    "id": 30,
+    "enunciado": "Con respecto a MIME, indica la respuesta VERDADERA:",
+    "opcionA": "Surge porque es necesario guardar el estado de los mensajes en el servidor.",
+    "opcionB": "El cliente genera dos mensajes SMTP separados: uno para texto y otro para multimedia.",
+    "opcionC": "MIME permite el envío de elementos multimedia, adjuntos y archivos de otro tipo.",
+    "correcta": "C",
+    "comentarios": "MIME extiende las capacidades del correo electrónico original (que solo permitía ASCII de 7 bits) para soportar cualquier tipo de archivo binario."
+  },
+  {
+    "id": 31,
+    "enunciado": "El protocolo IMAP (marca la respuesta VERDADERA):",
+    "opcionA": "Al igual que POP3, permite gestionar el correo con carpetas.",
+    "opcionB": "Por simplicidad, no requiere de autenticación.",
+    "opcionC": "Permite que múltiples dispositivos accedan y sincronicen el servidor de correo.",
+    "correcta": "C",
+    "comentarios": "IMAP está diseñado para mantener el correo en el servidor y permitir la sincronización multidispositivo (carpetas, leídos, etc.)."
+  },
+  {
+    "id": 32,
+    "enunciado": "Sobre el formato MIME, indica la respuesta VERDADERA:",
+    "opcionA": "El formato Base64 permite codificar mensajes binarios como mensajes de texto.",
+    "opcionB": "La etiqueta boundary solo se utiliza con multipart/mixed.",
+    "opcionC": "Para el envío de información MIME se han definido nuevos tipos de mensajes SMTP.",
+    "correcta": "A",
+    "comentarios": "Base64 convierte datos binarios en caracteres ASCII seguros para ser transmitidos por protocolos de correo antiguos."
+  },
+  {
+    
+  "id": 33,
+  "enunciado": "En un mensaje de correo con la cabecera Content-Type: multipart/alternative, analiza el siguiente fragmento:\n\nFrom: Nathaniel Borenstein <nab@bellcore.com>\nTo: Ned Freed <ned@innosoft.com>\nSubject: Formatted text mail\nMIME-Version: 1.0\nContent-Type: multipart/alternative; boundary=boundary42\n\n--boundary42\nContent-Type: text/plain; charset=us-ascii\n\nplain text version of message goes here....\n\n--boundary42\nContent-Type: text/enriched\n\nRFC 1896 text/enriched version of same message goes here..\n\n--boundary42--\n\nIndica la respuesta VERDADERA:",
+  "opcionA": "Al abrir el correo, se muestra todo el texto que hay en el cuerpo del mensaje (ambas versiones).",
+  "opcionB": "Ofrece varias versiones del mismo contenido y el UA elegirá la de mayor prioridad (la última que pueda ser representada).",
+  "opcionC": "Ofrece varias versiones del mismo contenido y el UA elegirá la de mayor prioridad (la primera que pueda ser representada).",
+  "correcta": "B",
+  "comentarios": "El tipo 'multipart/alternative' indica que las partes son versiones diferentes del mismo contenido. El estándar dicta que deben ordenarse de la más simple a la más compleja, y el cliente (UA) mostrará la última que sea capaz de interpretar."
+}
+]

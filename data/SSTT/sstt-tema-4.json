@@ -1,0 +1,137 @@
+[
+  {
+    "id": 36,
+    "enunciado": "1. ¿Cuál es el protocolo utilizado por el DNS?",
+    "opcionA": "El DNS utiliza el protocolo UDP en el puerto 53.",
+    "opcionB": "El DNS utiliza el protocolo HTTP en el puerto 80.",
+    "opcionC": "El DNS utiliza el protocolo TCP en el puerto 53.",
+    "correcta": "A",
+    "comentarios": "Respuesta correcta: A pues pone consultas, que trabaja por defecto en udp, para resolver una dirección ip pues así evita la sobrecarga en la red ya q TCP tiene q enviar más mensajes por la confirmación y esas cosas. La c sería correcta si la consulta se hace por TCP."
+  },
+  {
+    "id": 37,
+    "enunciado": "2. El servidor DNS encargado de resolver aquellos nombres de dominio bajo el \".org\" es un DNS de tipo:",
+    "opcionA": "Servidor DNS raíz",
+    "opcionB": "Servidor Top-Level Domain (TLD)",
+    "opcionC": "Servidor Authoritative/Autoritario",
+    "correcta": "B",
+    "comentarios": "Los TLD gestionan los dominios de nivel superior como .org, .com, .es, etc."
+  },
+  {
+    "id": 38,
+    "enunciado": "3. Supongamos que el servidor DNS de la Universidad de Murcia atiende las resoluciones de nombres bajo el dominio \"um.es\". Indica la sentencia VERDADERA:",
+    "opcionA": "Es el servidor DNS Autoritario (authoritative) para el dominio \"um.es\"",
+    "opcionB": "Es el servidor DNS Local para los usuarios del dominio \"um.es\"",
+    "opcionC": "Ambas son ciertas",
+    "correcta": "C",
+    "comentarios": "Los TLDs se encargan de los .es, para luego ver el Um.es se encarga el DNS autoritativo, que es el que traduce el nombre UM.es a su IP correspondiente."
+  },
+  {
+    "id": 39,
+    "enunciado": "4. Respecto a los tipos de resolución DNS, indica la sentencia FALSA:",
+    "opcionA": "El cliente DNS (resolver) actúa de la misma forma sea la consulta iterativa o recursiva.",
+    "opcionB": "Tanto si la consulta es iterativa como recursiva, el servidor DNS autoritativo/autorizado para esa resolución siempre recibe el mismo número de solicitudes.",
+    "opcionC": "Las consultas de tipo recursivo producen menos sobrecarga en los niveles superiores de la jerarquía DNS.",
+    "correcta": "C",
+    "comentarios": "Las consultas recursivas en realidad pueden sobrecargar más a los servidores superiores si estos aceptan resolver la recursión por completo."
+  },
+  {
+    "id": 40,
+    "enunciado": "5. En una consulta DNS de tipo iterativo ¿Cuántos mensajes (suponiendo que no hay caché) se intercambian en total para que un cliente pueda resolver un nombre de máquina de otro dominio, por ejemplo, a www.um.es.?",
+    "opcionA": "8",
+    "opcionB": "2",
+    "opcionC": "10",
+    "correcta": "A",
+    "comentarios": "Se estima un intercambio de 8 mensajes para completar toda la cadena jerárquica sin caché."
+  },
+  {
+    "id": 41,
+    "enunciado": "6. En una consulta DNS de tipo recursivo ¿Cuántos mensajes (suponiendo que no hay caché) se intercambian en total para que un cliente pueda resolver un nombre de máquina de otro dominio, por ejemplo, a www.um.es.?",
+    "opcionA": "8",
+    "opcionB": "2",
+    "opcionC": "10",
+    "correcta": "A",
+    "comentarios": "En el escenario recursivo el cliente pregunta al DNS local, el DNS al raíz y así sucesivamente hasta que devuelvan la dirección o un error. El total de mensajes en la cadena completa sigue sumando 8."
+  },
+  {
+    "id": 42,
+    "enunciado": "7. Si analizando trazas de Wireshark vieras que un DNS local del dominio domain.org realiza solamente una consulta DNS para resolver con éxito el nombre www.um.es a una IP, ¿de qué tipo de consulta se puede tratar?",
+    "opcionA": "Puede ser una consulta iterativa al servidor DNS autorizado de um.es, donde la IP del DNS del TLD .es y la del um.es están cacheadas.",
+    "opcionB": "Puede ser una consulta recursiva desde el DNS local a los servidores raíces",
+    "opcionC": "Ambas son correctas",
+    "correcta": "C",
+    "comentarios": "Si hay caché previa, una sola consulta basta. Si es recursiva, el local solo lanza una y espera la respuesta final."
+  },
+  {
+    "id": 43,
+    "enunciado": "8. ¿Qué sucede si cambia la IP de un host en el DNS?",
+    "opcionA": "Si cambia la IP, el nuevo mapeo se actualiza automáticamente en todos los servidores DNS.",
+    "opcionB": "Si cambia la IP, el nuevo mapeo podría no actualizarse hasta que expire el TTL de la entrada en la caché.",
+    "opcionC": "Es necesario reiniciar todos los servidores DNS para que se actualice el mapeo.",
+    "correcta": "B",
+    "comentarios": "El TTL (Time To Live) determina cuánto tiempo los servidores guardan la información antigua en caché antes de volver a preguntar."
+  },
+  {
+    "id": 44,
+    "enunciado": "9. Desde el punto de vista de las cachés DNS, en qué escenario el DNS Local hará un mejor uso de la caché.",
+    "opcionA": "Consulta iterativa",
+    "opcionB": "Consulta recursiva",
+    "opcionC": "En ambos casos el uso de caché es igual de efectivo",
+    "correcta": "A",
+    "comentarios": "En iterativa el local va guardando las respuestas parciales de cada nivel jerárquico."
+  },
+  {
+    "id": 45,
+    "enunciado": "1 (Parte 2). En DNS, siguiendo el formato de RR (name, type, value, ttl), ¿cuál es el formato correcto para un registro del servidor de correo de example.com?",
+    "opcionA": "(.example.com., MX, 192.168.56.102, 64)",
+    "opcionB": "(.example.com., MX, smtp.example.com., 64)",
+    "opcionC": "(smtp.example.com., MX, pop.example.com, 64)",
+    "correcta": "B",
+    "comentarios": "El registro MX siempre debe apuntar a un nombre de dominio (hostname), no directamente a una IP."
+  },
+  {
+    "id": 46,
+    "enunciado": "2 (Parte 2). Sobre el registro MX en DNS para el dominio \"um.es\". Indica la sentencia VERDADERA:",
+    "opcionA": "Debe indicar el nombre de máquina donde se aloja el servicio SMTP de la organización.",
+    "opcionB": "Solo los servidores SMTP externos que quieren enviar correos a \"um.es\" consultan este registro.",
+    "opcionC": "Ambas son ciertas.",
+    "correcta": "C",
+    "comentarios": "El registro MX es fundamental para que el correo externo sepa a qué servidor SMTP de la organización debe dirigirse."
+  },
+  {
+    "id": 47,
+    "enunciado": "3 (Parte 2). Ante un intercambio DNS, ¿cuál de las siguientes sentencias es VERDADERA?",
+    "opcionA": "La solicitud (DNS query) contiene registros en la sección questions de la consulta.",
+    "opcionB": "La solicitud contiene registros en la sección questions y answers.",
+    "opcionC": "La respuesta (DNS reply) contiene registros en la sección answers pero no en la sección questions.",
+    "correcta": "A",
+    "comentarios": "El query solo pregunta (questions). El reply repite la pregunta y añade la respuesta (answers)."
+  },
+  {
+    "id": 48,
+    "enunciado": "4 (Parte 2). Ante un intercambio DNS, ¿qué mensaje contiene MÁS información durante un intercambio?",
+    "opcionA": "El DNS query.",
+    "opcionB": "El DNS reply.",
+    "opcionC": "Ambos mensajes tienen el mismo tamaño.",
+    "correcta": "B",
+    "comentarios": "El reply es más grande porque incluye los registros de recursos (RR) de respuesta, adicionales a la pregunta original."
+  },
+  {
+    "id": 49,
+    "enunciado": "5 (Parte 2). Sobre el transporte de mensajes DNS, indica la sentencia VERDADERA:",
+    "opcionA": "Todos los mensajes DNS se transportan sobre UDP/53.",
+    "opcionB": "Todos se transportan sobre UDP/53, salvo entre DNS Primario y Secundario (Transferencia de zona), que usan TCP/53.",
+    "opcionC": "Los mensajes DNS pueden ser transportados sobre UDP/53 o TCP/53, según decida el cliente.",
+    "correcta": "B",
+    "comentarios": "Las transferencias de zona requieren la fiabilidad de TCP debido al volumen de datos."
+  },
+  {
+    "id": 50,
+    "enunciado": "6 (Parte 2). En relación a los servidores DNS primario y secundario. Indica la sentencia VERDADERA:",
+    "opcionA": "Solo el primario está activo, el secundario solo si cae el primario.",
+    "opcionB": "El primero escucha en UDP/53, el secundario en TCP/53.",
+    "opcionC": "Solo es necesario configurar el primario; el secundario obtiene la información automáticamente.",
+    "correcta": "C",
+    "comentarios": "El administrador configura el primario y el secundario realiza una transferencia de zona para replicar los datos automáticamente."
+  }
+]

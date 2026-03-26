@@ -1,0 +1,157 @@
+[
+  {
+    "id": 56,
+    "enunciado": "1. ¿A qué nos referimos con confidencialidad de una comunicación?",
+    "opcionA": "Solamente el emisor y el receptor designado deberían poder leer el contenido del mensaje.",
+    "opcionB": "El emisor cifra el mensaje y el receptor lo descifra.",
+    "opcionC": "Ambas son correctas.",
+    "correcta": "C",
+    "comentarios": "La confidencialidad garantiza que la información no sea divulgada a personas o procesos no autorizados. El cifrado es la herramienta principal para lograrlo."
+  },
+  {
+    "id": 57,
+    "enunciado": "2. ¿A qué nos referimos con integridad de los mensajes intercambiados en una comunicación?",
+    "opcionA": "Se trata de una propiedad de seguridad que evita que un atacante conozca la información intercambiada entre dos entidades.",
+    "opcionB": "Se trata de una propiedad de seguridad que permite al receptor de un mensaje saber si éste ha sido modificado y, por tanto es diferente, al mensaje que envió el emisor.",
+    "opcionC": "Se trata de una propiedad que asegura la identidad de emisor y receptor.",
+    "correcta": "B",
+    "comentarios": "La integridad asegura que el mensaje no ha sido alterado (borrado, modificado o reordenado) durante la transmisión."
+  },
+  {
+    "id": 58,
+    "enunciado": "3. ¿A qué nos referimos con autenticación de una comunicación?",
+    "opcionA": "Se trata de una propiedad de seguridad que permite verificar la identidad del emisor y del receptor.",
+    "opcionB": "Se trata de una propiedad que permite cifrar las comunicaciones en curso.",
+    "opcionC": "Se trata de una propiedad que permite tener disponible y accesible la información.",
+    "correcta": "A",
+    "comentarios": "La autenticación confirma que alguien es quien dice ser. Es el paso previo a la autorización."
+  },
+  {
+    "id": 59,
+    "enunciado": "4. En la criptografía simétrica Alice tiene una clave Ka y Bob tiene una clave Kb, ¿qué opción es cierta?",
+    "opcionA": "El valor de la clave Ka es igual al valor de la clave Kb.",
+    "opcionB": "El valor de la clave Ka es diferente al valor de la clave Kb.",
+    "opcionC": "Alice le envía Ka a Bob y Bob le envía Kb a Alice.",
+    "correcta": "A",
+    "comentarios": "En la criptografía simétrica (o de clave compartida), ambos extremos utilizan exactamente la misma clave secreta para cifrar y descifrar."
+  },
+  {
+    "id": 60,
+    "enunciado": "5. En un cifrador de flujo es CIERTO que:",
+    "opcionA": "Utiliza una clave compartida tan grande como el texto a cifrar.",
+    "opcionB": "Utiliza una secuencia cifrante tan larga como el texto a cifrar, que obtiene de un generador determinista que tiene como entrada una clave compartida.",
+    "opcionC": "La secuencia cifrante es distinta para emisor y receptor.",
+    "correcta": "B",
+    "comentarios": "A diferencia del 'One-Time Pad', los cifradores de flujo modernos usan una clave corta para generar una secuencia pseudoaleatoria (keystream) del tamaño del mensaje."
+  },
+  {
+    "id": 61,
+    "enunciado": "6. Sobre el cifrado de bloques aplicado a un mensaje M, indica la sentencia VERDADERA:",
+    "opcionA": "Es necesaria una clave de cifrado de la misma longitud que el mensaje M.",
+    "opcionB": "La longitud de los bloques de datos que forman M (M1, M2, etc..), y que se pasan al cifrador de bloque, pueden variar en cada iteración.",
+    "opcionC": "Un bloque Mi ya cifrado, esto es Ci, puede usarse como parte de la información para proteger el siguiente bloque (Mi+1), por ejemplo, aplicando un XOR.",
+    "correcta": "C",
+    "comentarios": "Esto se conoce como encadenamiento de bloques (Modo CBC). Evita que bloques de texto idénticos produzcan bloques cifrados idénticos."
+  },
+  {
+    "id": 62,
+    "enunciado": "7. En criptografía asimétrica es CIERTO que:",
+    "opcionA": "Es más eficiente que la criptografía simétrica.",
+    "opcionB": "Tanto la clave Ka como la Kb son iguales pero son asimétricas.",
+    "opcionC": "Ninguna de las opciones son ciertas.",
+    "correcta": "C",
+    "comentarios": "Aclaración: La criptografía asimétrica es mucho más lenta (menos eficiente) que la simétrica, y las claves de Alice y Bob son necesariamente distintas."
+  },
+  {
+    "id": 63,
+    "enunciado": "8. Supongamos que Alice envía un mensaje m a Bob cifrado. $K^+_a$ y $K^-_a$ representan las claves pública y privada de Alice, y $K^+_b$ y $K^-_b$ representan las de Bob. Indica la sentencia VERDADERA:",
+    "opcionA": "c = m^{e_b} \\pmod{n_b}",
+    "opcionB": "c = m^{d_b} \\pmod{n_b}",
+    "opcionC": "c = m^{e_a} \\pmod{n_a}",
+    "correcta": "A",
+    "comentarios": "Aclaración: Para que solo Bob pueda leer el mensaje, Alice debe cifrarlo usando la clave pública de Bob ($K^+_b$, donde $e_b$ es el exponente público). El mensaje cifrado se calcula como $m^{e} \\pmod{n}$."
+  },
+  {
+    "id": 64,
+    "enunciado": "9. Supongamos un mensaje m, donde $K^+_b$ y $K^-_b$ representan las claves pública y privada de Bob. Indica la sentencia FALSA:",
+    "opcionA": "K^-_b(K^+_b(m)) = m",
+    "opcionB": "K^+_b(K^-_b(m)) = m",
+    "opcionC": "K^+_b(K^+_b(m)) = m",
+    "correcta": "C",
+    "comentarios": "Aclaración: Las claves pública ($K^+$) y privada ($K^-$) son inversas. Lo que una cifra, la otra lo descifra. Cifrar dos veces con la misma clave pública no devuelve el mensaje original."
+  },
+  [
+  {
+    "id": 65,
+    "enunciado": "1. Si Bob recibe un mensaje m cifrado con la clave privada de Alice ($K^-_{a}$), Bob puede asegurar:",
+    "opcionA": "Que el mensaje realmente lo ha enviado Alice.",
+    "opcionB": "Que sólo él podrá ver el mensaje que le ha enviado Alice.",
+    "opcionC": "Que sólo él podrá ver el mensaje que le ha enviado Alice y que realmente viene de Alice.",
+    "correcta": "A",
+    "comentarios": "Aclaración: Cifrar con la clave privada ($K^-$) proporciona AUTENTICACIÓN (firma), ya que solo el dueño de la privada pudo hacerlo. No proporciona confidencialidad, porque cualquiera con la clave pública de Alice puede descifrarlo."
+  },
+  {
+    "id": 66,
+    "enunciado": "2. Con respecto a Diffie-Hellman es CIERTO que:",
+    "opcionA": "Se trata de un algoritmo de distribución de claves simétricas basado en criptografía asimétrica que autentica al emisor y el receptor.",
+    "opcionB": "Se trata de un algoritmo de distribución de claves simétricas basado en criptografía asimétrica que no autentica al emisor y el receptor, y por tanto es vulnerable al ataque man-in-the-middle.",
+    "opcionC": "Se trata de un algoritmo de distribución de claves basado en criptografía simétrica que autentica al emisor y el receptor.",
+    "correcta": "B",
+    "comentarios": "Diffie-Hellman permite acordar una clave secreta sobre un canal inseguro, pero por sí solo no identifica a las partes, permitiendo que un atacante se sitúe en medio (MITM)."
+  },
+  {
+    "id": 67,
+    "enunciado": "3. Si $h$ es el resultado de aplicar una función de resumen digital $H$ a un mensaje $M$. ¿Puede un atacante que conozca $h$ y $H$ obtener $M$?",
+    "opcionA": "SÍ, porque conoce el detalle de la función hash.",
+    "opcionB": "NO, siempre que la función $H$ sea robusta.",
+    "opcionC": "SÍ, aplicando $H$ de modo inverso.",
+    "correcta": "B",
+    "comentarios": "Una función hash robusta es unidireccional: es computacionalmente imposible obtener el mensaje original (M) a partir de su resumen (h)."
+  },
+  {
+    "id": 68,
+    "enunciado": "4. En cuanto a dotar de integridad a los mensajes con un Message Authentication Code (MAC) de un mensaje M:",
+    "opcionA": "$H(M+k)$ es un MAC donde $k$ es una clave pública del que genera el MAC.",
+    "opcionB": "$H(M+k)$ es un MAC donde $k$ es una clave privada del que genera el MAC.",
+    "opcionC": "$H(M+k)$ es un MAC donde $k$ es la clave simétrica del que genera el MAC y que comparte con el receptor.",
+    "correcta": "C",
+    "comentarios": "Un MAC utiliza una clave simétrica compartida para asegurar que el mensaje no ha sido alterado y que proviene de alguien que posee dicha clave."
+  },
+  {
+    "id": 69,
+    "enunciado": "5. Si Bob recibe un mensaje $m$ de Alice, y una firma digital (FD) asimétrica, ¿Cómo Bob comprobaría que es CORRECTA?",
+    "opcionA": "Bob hace un hash de $m$, $H(m) = h$. Se obtiene la clave pública de Bob $K^+_{b}$ y se descifra $K^+_{b}(FD)=h'$. Si $h' = h$ está verificada.",
+    "opcionB": "Bob hace un hash de $m$, $H(m) = h$. Se obtiene la clave pública de Alice $K^+_{a}$ y se descifra $K^+_{a}(FD)=h'$. Si $h' = h$ está verificada.",
+    "opcionC": "Bob hace un hash de $m$, $H(m) = h$. Bob usa su clave privada $K^-_{b}$ y descifra $K^-_{b}(FD)=h'$. Si $h' = h$ está verificada.",
+    "correcta": "B",
+    "comentarios": "Aclaración: Para verificar una firma de Alice, se usa siempre la CLAVE PÚBLICA de Alice ($K^+_a$). Si el resultado coincide con el hash del mensaje, la firma es auténtica."
+  },
+  {
+    "id": 70,
+    "enunciado": "1 (Bloque 2). Supongamos que Bob envía un mensaje M cifrado digitalmente a Alice usando el certificado X.509 de Alice. Selecciona la respuesta VERDADERA:",
+    "opcionA": "Alice puede descifrar el mensaje usando la clave pública contenida en el certificado X.509 de Bob.",
+    "opcionB": "Para cifrar el mensaje, Bob usó la clave privada de Alice incluida en su certificado X.509.",
+    "opcionC": "Alice descifrará el mensaje usando su clave privada asociada a la pública que va incluida en su certificado X.509.",
+    "correcta": "C",
+    "comentarios": "Aclaración: Un certificado X.509 contiene la clave pública ($K^+$). Bob cifra con esa pública y solo Alice, poseedora de la clave privada ($K^-$) vinculada, puede descifrarlo."
+  },
+  {
+    "id": 71,
+    "enunciado": "2 (Bloque 2). En relación con el certificado digital X.509, ¿qué información NO va contenida en un certificado digital de CLIENTE?",
+    "opcionA": "Nombre común (CN ej: www.google.com) correspondiente a un servicio web.",
+    "opcionB": "Clave pública perteneciente al usuario.",
+    "opcionC": "Nombre de la CA (Autoridad de Certificación) que lo emite.",
+    "correcta": "A",
+    "comentarios": "El CN de un servicio web (como www.google.com) va en los certificados de SERVIDOR. Los de cliente contienen la identidad del usuario personal."
+  },
+  {
+    "id": 72,
+    "enunciado": "3 (Bloque 2). Supongamos que la CA1 (x509ca) ha emitido los certificados para Alice (x509a) y Bob (x509b). Selecciona la respuesta VERDADERA:",
+    "opcionA": "x509ca ha sido firmado por la clave privada asociada a x509a.",
+    "opcionB": "x509a ha sido firmado por la clave privada asociada a x509ca.",
+    "opcionC": "x509a y x509b comparten la misma clave pública, al ser ambos firmados por x509ca.",
+    "correcta": "B",
+    "comentarios": "Aclaración: Una CA firma los certificados de los usuarios con su propia clave privada ($K^-_{ca}$). Los usuarios tienen claves públicas distintas entre sí."
+  }
+]
+]

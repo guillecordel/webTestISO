@@ -1,0 +1,146 @@
+[
+  {
+    "id": 84,
+    "enunciado": "1. La arquitectura general de IPsec incluye:",
+    "opcionA": "Protocolo IKE, implementación en el kernel con SPD (políticas) y SAD (material criptográfico).",
+    "opcionB": "Protocolo IKE, implementación en el kernel con SPD (material criptográfico) y SAD (políticas).",
+    "opcionC": "Implementación de IKE e IPsec en el kernel con SPD (material criptográfico) y SAD (políticas).",
+    "correcta": "A",
+    "comentarios": "SPD (Security Policy Database) decide QUÉ hacer con el tráfico. SAD (Security Association Database) contiene el CÓMO (claves y algoritmos) para los paquetes que deben protegerse."
+  },
+  {
+    "id": 85,
+    "enunciado": "2. ¿Cuál de estos servicios no implementa IPsec y por ello necesita la asistencia de IKE?",
+    "opcionA": "Confidencialidad e integridad de los paquetes.",
+    "opcionB": "Negociación de claves simétricas.",
+    "opcionC": "Rechazo de paquetes reenviados (Anti-replay).",
+    "correcta": "B",
+    "comentarios": "IPsec se encarga del plano de datos (cifrar/autenticar), mientras que IKE se encarga del plano de control (negociar claves y parámetros)."
+  },
+  {
+    "id": 86,
+    "enunciado": "3. ¿Qué elementos de IPsec se encuentran en el kernel del Sistema Operativo? Indica la sentencia VERDADERA:",
+    "opcionA": "El servicio IKE, la SPD y la SAD.",
+    "opcionB": "La SPD y la SAD.",
+    "opcionC": "Ninguna de las anteriores.",
+    "correcta": "B",
+    "comentarios": "IKE suele ejecutarse como un proceso de usuario (daemon), mientras que las bases de datos y el motor de cifrado están en el kernel para mayor eficiencia en el procesado de paquetes."
+  },
+  {
+    "id": 87,
+    "enunciado": "4. Según la SPD descrita, ¿qué pasaría con un paquete TCP (src: 1.2.3.4, dst: 2.1.3.5) al puerto destino 443?",
+    "opcionA": "El paquete se deja pasar pero no se protege (BYPASS).",
+    "opcionB": "El paquete se protege con ESP en modo transporte.",
+    "opcionC": "El paquete se descarta (DISCARD).",
+    "correcta": "C",
+    "comentarios": "El paquete no encaja en la regla UDP ni en la regla TCP del puerto 500. Al llegar a la regla por defecto 'Cualquier protocolo -> DISCARD', el paquete es eliminado."
+  },
+  {
+    "id": 88,
+    "enunciado": "5. ¿Qué información NO se incluye en la SAD?",
+    "opcionA": "Claves de autenticación (RSA o PSK) usados por IKE.",
+    "opcionB": "Modo IPsec Túnel o Transporte.",
+    "opcionC": "Contador de número de secuencia de la SA.",
+    "correcta": "A",
+    "comentarios": "Las credenciales maestras (RSA/PSK) las usa IKE para autenticar la sesión. La SAD solo guarda las claves de sesión ya derivadas para proteger el tráfico IP."
+  },
+  {
+    "id": 89,
+    "enunciado": "6. Un router A tiene configurado IPsec con los routers B y C. ¿Cuántas SAs hay en la SAD del router A?",
+    "opcionA": "2",
+    "opcionB": "4",
+    "opcionC": "6",
+    "correcta": "B",
+    "comentarios": "Las SAs son unidireccionales. Para cada par de comunicación se necesitan 2 (una de entrada y otra de salida). Con dos routers (B y C), A necesita 2x2 = 4 SAs."
+  },
+  {
+    "id": 90,
+    "enunciado": "7. Si un paquete inbound (entrante) está protegido por IPsec pero no hay entrada en la SAD, ¿qué ocurre?",
+    "opcionA": "Se deja pasar a niveles superiores.",
+    "opcionB": "Se descarta.",
+    "opcionC": "Se lanza IKE para negociar una entrada.",
+    "correcta": "B",
+    "comentarios": "Si no hay una SA activa (identificada por el SPI) para descifrar un paquete entrante, el receptor no tiene forma de procesarlo y lo descarta por seguridad."
+  },
+  {
+    "id": 91,
+    "enunciado": "8. Si un paquete outbound requiere PROTECT pero no hay claves en la SAD, ¿qué ocurre?",
+    "opcionA": "Se bloquea e invoca a IKE para establecer las SAs; una vez generadas, se protege.",
+    "opcionB": "Se descarta.",
+    "opcionC": "Se deja pasar sin proteger.",
+    "correcta": "A",
+    "comentarios": "Este es el proceso típico: la SPD dispara la necesidad de protección y, si no existe la SA, IKE entra en acción para crearla 'on-demand'."
+  },
+  {
+    "id": 92,
+    "enunciado": "9. En relación a los modos Túnel y Transporte en IPsec, indica la sentencia VERDADERA:",
+    "opcionA": "El modo transporte se utiliza entre dos gateways.",
+    "opcionB": "En el modo túnel la cabecera IP original no va encriptada.",
+    "opcionC": "En el modo transporte no se puede ocultar la cabecera IP original.",
+    "correcta": "C",
+    "comentarios": "En modo transporte se inserta la cabecera IPsec tras la IP original. En modo túnel, todo el paquete original (incluida su IP) se cifra y se mete dentro de un nuevo paquete IP."
+  },
+  {
+    "id": 93,
+    "enunciado": "10. Cuando dos equipos tienen configurado IPsec correctamente, ¿cuántas claves simétricas tienen en la SAD cada equipo?",
+    "opcionA": "1",
+    "opcionB": "2",
+    "opcionC": "4",
+    "correcta": "C",
+    "comentarios": "Para cada SA (entrada y salida) se suele usar una clave para cifrado y otra para integridad. 2 SAs x 2 funciones = 4 claves."
+  },
+  {
+    "id": 94,
+    "enunciado": "1 (IKEv2). Considera un nuevo flujo de paquetes de A a B usando IPsec. Entonces ocurre:",
+    "opcionA": "IKEv2 negocia una SA por cada paquete del flujo.",
+    "opcionB": "IKEv2 negocia una SA para el primer paquete del flujo únicamente.",
+    "opcionC": "No es necesaria la intervención de IKE.",
+    "correcta": "B",
+    "comentarios": "IKE establece la 'tubería' segura una vez; el resto de paquetes del flujo usan esa misma asociación hasta que expire el tiempo de vida."
+  },
+  {
+    "id": 95,
+    "enunciado": "2 (IKEv2). Indica cuál opción es CIERTA respecto a IKEv2:",
+    "opcionA": "Utiliza certificados RSA para compartir una clave simétrica directamente.",
+    "opcionB": "Utiliza Diffie-Hellman para construir una IPsec SA directamente.",
+    "opcionC": "Utiliza DH para construir una IKE SA primero y luego una IPsec SA.",
+    "correcta": "C",
+    "comentarios": "IKEv2 funciona en fases: primero crea un canal seguro de gestión (IKE SA) y sobre ese canal negocia la seguridad del tráfico real (IPsec SA)."
+  },
+  {
+    "id": 96,
+    "enunciado": "3 (IKEv2). Durante el intercambio IKE_SA_INIT se negocia una suite criptográfica para:",
+    "opcionA": "Los algoritmos para proteger el intercambio IKE_AUTH.",
+    "opcionB": "Los algoritmos para proteger las IPsec SAs a nivel de red.",
+    "opcionC": "Ambos niveles.",
+    "correcta": "A",
+    "comentarios": "IKE_SA_INIT sirve para establecer el canal seguro inicial donde se autenticarán las partes (IKE_AUTH)."
+  },
+  {
+    "id": 97,
+    "enunciado": "4 (ESP). Cuando se usa ESP en modo túnel:",
+    "opcionA": "Se cifra solo la cabecera TCP/UDP y los Datos.",
+    "opcionB": "Se cifra la cabecera IP original, la TCP/UDP y los Datos.",
+    "opcionC": "Se cifra la nueva cabecera IP y la original.",
+    "correcta": "B",
+    "comentarios": "En modo túnel, el paquete IP original se convierte en el 'payload' del nuevo paquete y se cifra por completo."
+  },
+  {
+    "id": 98,
+    "enunciado": "5 (ESP). ¿Qué información NO va contenida en un mensaje ESP?",
+    "opcionA": "El SPI (Security Parameter Index).",
+    "opcionB": "Algoritmo de cifrado usado.",
+    "opcionC": "Un número de secuencia.",
+    "correcta": "B",
+    "comentarios": "El algoritmo no se envía en el paquete (sería inseguro y redundante); se identifica mediante el SPI, que apunta a la entrada correspondiente en la SAD donde ya está guardado ese dato."
+  },
+  {
+    "id": 99,
+    "enunciado": "6 (Escenario). En un escenario IPsec gateway-to-gateway, indica la sentencia VERDADERA:",
+    "opcionA": "Los hosts finales pueden ver el contenido protegido en las redes locales.",
+    "opcionB": "IKEv2 se ejecuta entre gateways, pero las SAs se aplican entre hosts finales.",
+    "opcionC": "Las SPDs y las SADs se rellenan sólo en los gateways.",
+    "correcta": "C",
+    "comentarios": "En este modo (típico de VPN entre sedes), los hosts finales no saben nada de IPsec; son los routers de frontera (gateways) quienes cifran y descifran todo el tráfico."
+  }
+]
