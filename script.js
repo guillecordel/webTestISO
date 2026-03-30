@@ -71,6 +71,10 @@ const ui = {
   saveAndExit: document.getElementById("save-and-exit"),
   discardAndExit: document.getElementById("discard-and-exit"),
   cancelExit: document.getElementById("cancel-exit"),
+
+  skipQuestion: document.getElementById("skip-question"), // Botón de saltar
+  reviewFailed: document.getElementById("review-failed"), // Botón de repasar fallos
+
 };
 
 let appState = {
@@ -84,6 +88,9 @@ let appState = {
   aciertos: 0,
   fallos: 0,
   savedExam: null,
+  failedQueue: [], // Aquí guardaremos los IDs de las preguntas falladas
+  isRecoveryMode: false // Para saber si estamos en el examen normal o repitiendo fallos
+
 };
 
 // setSubject:
@@ -199,6 +206,11 @@ function bindEvents() {
   ui.discardAndExit.addEventListener("click", discardAndExitExam);
   // Cerrar modal sin salir.
   ui.cancelExit.addEventListener("click", closeExitModal);
+
+  ui.skipQuestion.addEventListener("click", skipQuestion);
+  if (ui.reviewFailed) {
+      ui.reviewFailed.addEventListener("click", startRecoveryMode);
+  }
 }
 
 // setMode:
@@ -417,6 +429,10 @@ function answerQuestion(selectedOption) {
     appState.aciertos += 1;
   } else {
     appState.fallos += 1;
+    // Si falla, al saco de "para repetir"
+    if (!appState.failedQueue.includes(current)) {
+      appState.failedQueue.push(current);
+    }
   }
 
   // Persiste cambio de estado.
@@ -651,6 +667,11 @@ function render() {
   if (appState.stage === "summary") {
     renderSummaryScreen();
   }
+
+  // Mostrar botón de repasar fallos solo si estamos en el resumen y hay fallos guardados
+  if (ui.reviewFailed) {
+      ui.reviewFailed.classList.toggle("hidden", appState.stage !== "summary" || appState.failedQueue.length === 0);
+  }
 }
 
 // openExitModal:
@@ -819,6 +840,7 @@ function paintAnswerState(question, answer) {
   // Bloquea interacción cuando ya respondió.
   ui.optionA.disabled = isAnswered;
   ui.optionB.disabled = isAnswered;
+  ui.optionC.disabled = isAnswered;
   // Muestra botón siguiente solo tras responder.
   ui.nextQuestion.classList.toggle("hidden", !isAnswered);
 
@@ -838,8 +860,10 @@ function paintAnswerState(question, answer) {
   // Marca la opción correcta.
   if (correctOption === "A") {
     ui.optionA.classList.add("correct");
-  } else {
+  } else if (correctOption === "B") {
     ui.optionB.classList.add("correct");
+  } else if (correctOption === "C") {
+    ui.optionC.classList.add("correct");
   }
 
   // Si falló, marca explícitamente la opción elegida como incorrecta.
@@ -850,6 +874,9 @@ function paintAnswerState(question, answer) {
 
     if (answer.selected === "B") {
       ui.optionB.classList.add("wrong");
+    }
+    if (answer.selected === "C") {
+      ui.optionC.classList.add("wrong");
     }
   }
 
@@ -896,6 +923,7 @@ function getQuestionComment(question) {
 function resetAnswerButtons() {
   ui.optionA.classList.remove("correct", "wrong");
   ui.optionB.classList.remove("correct", "wrong");
+  ui.optionC.classList.remove("correct", "wrong");
 }
 
 // renderSummaryScreen:
@@ -926,4 +954,25 @@ function shuffle(array) {
 
   // Devuelve referencia del array ya mezclado.
   return array;
+}
+function skipQuestion() {
+  const current = appState.questions[appState.currentIndex];
+  
+  // Si no estaba ya en la cola, la añadimos para que aparezca al final
+  if (!appState.failedQueue.includes(current)) {
+    appState.failedQueue.push(current);
+  }
+  
+  goToNextQuestion();
+}
+function startRecoveryMode() {
+  appState.isRecoveryMode = true;
+  appState.questions = [...appState.failedQueue]; // El examen ahora son solo los fallos
+  appState.failedQueue = []; // Vaciamos para la nueva ronda
+  appState.currentIndex = 0;
+  appState.aciertos = 0;
+  appState.fallos = 0;
+  appState.answers = new Array(appState.questions.length).fill(null);
+  appState.stage = "quiz";
+  render();
 }

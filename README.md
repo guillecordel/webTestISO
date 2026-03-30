@@ -14,6 +14,8 @@ La aplicacion permite:
 - Mostrar resultados finales (aciertos, fallos y nota).
 - Guardar y reanudar progreso mediante localStorage.
 - Mostrar comentario explicativo por pregunta cuando el JSON incluye el campo comentarios o comentario.
+- Modo Recuperación (Repaso de errores): Al finalizar, permite     repetir exclusivamente las preguntas falladas o saltadas hasta acertarlas todas.
+- Soporte dinámico de opciones: La interfaz detecta si la pregunta tiene 2 o 3 opciones (A, B o C) y ajusta los botones automáticamente.
 
 La app funciona completamente en frontend (cliente), sin backend ni base de datos.
 
@@ -86,13 +88,15 @@ Cada pregunta del JSON sigue este esquema base:
 Ejemplo:
 
 {
-  "enunciado": "La ejecucion de una instruccion privilegiada en modo usuario genera:",
-  "opcionA": "Una interrupcion.",
-  "opcionB": "Una excepcion o trap.",
-  "correcta": "b",
-  "comentarios": "En modo usuario, una instruccion privilegiada dispara trap al kernel."
+  "id": 17,
+  "enunciado": "¿Cómo obtiene una aplicación web los datos... \nPOST /cgi-bin/encuesta.pl...",
+  "opcionA": "Mediante la entrada estándar.",
+  "opcionB": "Mediante la variable de entorno QUERY_STRING.",
+  "opcionC": "A través de una base de datos compartida.",
+  "correcta": "A",
+  "comentarios": "CGI utiliza variables de entorno..."
 }
-
+-Nota: El sistema ahora soporta el carácter \n en los enunciados para representar bloques de código o trazas HTTP con formato.
 ---
 
 ## 5. Algoritmos y logica necesaria para su funcionamiento
@@ -263,6 +267,36 @@ Algoritmo:
 
 ---
 
+### 5.11 Gestión en la Cola de Fallos y Saltos
+
+Funciones clave: skipQuestion, answerQuestion, startRecoveryMode.
+
+Algoritmo:
+
+1. Captura: Si una pregunta se falla o se pulsa el botón Saltar, el objeto de la pregunta se añade a appState.failedQueue.
+
+2. Persistencia: La cola de fallos se guarda en localStorage junto con el resto del progreso.
+
+3. Activación: Al llegar al resumen, si failedQueue tiene elementos, se habilita el botón "Repasar Fallos".
+
+4. Bucle de aprendizaje: En el modo recuperación, las preguntas acertadas se eliminan de la cola, mientras que las falladas permanecen para la siguiente ronda, fomentando la memorización activa.
+
+---
+
+### 5.12 Renderizado Dinámico de Interfaz (A/B/C)
+
+Función clave: renderQuizScreen.
+
+Lógica:
+
+1. Al cargar una pregunta, la app comprueba la existencia de question.opcionC.
+
+2. Si existe, el botón se hace visible (classList.remove("hidden")) y se le asigna el texto.
+
+3. Si no existe (como en muchos tests de ISO), el botón se oculta automáticamente para mantener la estética limpia.
+
+---
+
 ## 6. Como funciona la aplicacion (de extremo a extremo)
 
 1. El usuario entra al menu principal.
@@ -353,6 +387,19 @@ Asignaturas actuales:
    - El estado ahora persiste la asignatura seleccionada en localStorage.
    - Al recuperar estado, se valida que la asignatura siga siendo válida.
 
+6. **Sistema de Repaso de Errores: - Implementación de un "buffer" temporal para preguntas erróneas.**
+   -Nuevo botón Saltar para posponer preguntas sin responderlas.
+
+   -Lógica de "Examen de recuperación" infinito hasta que el buffer esté vacío.
+
+7. **Mejoras de Visualización y UX:**
+   - Soporte para 3 opciones de respuesta.
+
+   - Soporte para multilínea (\n) en enunciados, ideal para protocolos de red y código.
+
+   - Ajuste de diseño: Los botones "Saltar" y "Siguiente" se agrupan a la derecha para mejorar la ergonomía, manteniendo "Salir" a la izquierda.
+
+   - Auto-scroll y rotura de palabras: El CSS ahora gestiona cadenas largas (URLs, rutas de archivos) mediante overflow-wrap: break-word para evitar que el texto se salga de los paneles.
 ### Archivos SSTT de ejemplo:
 
 - `data/sstt-tema-1.json`: 5 preguntas sobre conceptos básicos de telecomunicaciones.
@@ -369,5 +416,8 @@ Incluye:
 - Comentarios opcionales por pregunta con animacion.
 - Persistencia local de asignatura y examen seleccionado, con reanudacion.
 - Modal de salida con decision de guardado.
+- Base de datos expandida: ~100 preguntas integradas cubriendo HTTP, DNS, Correo (SMTP/IMAP), DHCP, Criptografía, Certificados X.509 y IPsec.
+
+- Robustez visual: Compatibilidad total con enunciados complejos de Servicios Telemáticos.
 
 Este diseno permite seguir ampliando contenido simplemente agregando nuevas asignaturas en SUBJECTS, registrando los examenes en EXAM_FILES, y creando los archivos JSON correspondientes, sin necesidad de modificar la logica principal de la aplicacion.
