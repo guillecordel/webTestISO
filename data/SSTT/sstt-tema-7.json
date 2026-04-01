@@ -80,7 +80,6 @@
     "correcta": "C",
     "comentarios": "Aclaración: Las claves pública ($K^+$) y privada ($K^-$) son inversas. Lo que una cifra, la otra lo descifra. Cifrar dos veces con la misma clave pública no devuelve el mensaje original."
   },
-  [
   {
     "id": 65,
     "enunciado": "1. Si Bob recibe un mensaje m cifrado con la clave privada de Alice ($K^-_{a}$), Bob puede asegurar:",
@@ -153,5 +152,4 @@
     "correcta": "B",
     "comentarios": "Aclaración: Una CA firma los certificados de los usuarios con su propia clave privada ($K^-_{ca}$). Los usuarios tienen claves públicas distintas entre sí."
   }
-]
 ]

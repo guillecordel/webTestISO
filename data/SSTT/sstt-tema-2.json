@@ -23,8 +23,8 @@
     "opcionA": "HTTP persistente.",
     "opcionB": "HTTP no persistente.",
     "opcionC": "HTTP pipeline.",
-    "correcta": "B",
-    "comentarios": "Nota: Según tu marca (x), indicaste 'no persistente', pero técnicamente la capacidad de enviar varias solicitudes por una misma conexión define a la conexión 'Persistente'."
+    "correcta": "A",
+    "comentarios": "La capacidad de enviar varias solicitudes por una misma conexión define a la conexión 'Persistente'."
   },
   {
     "id": 4,
@@ -68,8 +68,8 @@
     "opcionA": "HTTP/1.1 200 OK\\r\\n.",
     "opcionB": "HTTP/1.1 OK 200\\r\\n.",
     "opcionC": "200 OK HTTP/1.1\\r\\n.",
-    "correcta": "B",
-    "comentarios": "Nota: El estándar correcto suele ser 'Versión Código Frase' (Opción A), pero se ha marcado B según tu referencia."
+    "correcta": "A",
+    "comentarios": "El estándar correcto suele ser 'Versión Código Frase' (Opción A)"
   },
   {
     "id": 10,
