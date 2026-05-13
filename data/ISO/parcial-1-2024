@@ -1,0 +1,338 @@
+[
+  {
+    "id": 1,
+    "enunciado": "En UNIX, la ejecución de una llamada al sistema, necesita de, al menos:",
+    "opcionA": "Un cambio de proceso, para pasar a ejecutar el código del sistema operativo.",
+    "opcionB": "Un cambio de modo, para poder ejecutar determinadas instrucciones privilegiadas.",
+    "correcta": "B"
+  },
+  {
+    "id": 2,
+    "enunciado": "En cuanto a las llamadas al sistema fork() y exec() de UNIX, es cierto que:",
+    "opcionA": "La llamada al sistema fork() crea siempre un proceso idéntico al que la ejecuta, pero, entre otras cosas, con un PID diferente.",
+    "opcionB": "A la llamada al sistema exec() se le pasa como argumento un binario, a partir del cual se creará un nuevo proceso, que tendrá un PID diferente al del proceso que la ejecuta.",
+    "correcta": "A"
+  },
+  {
+    "id": 3,
+    "enunciado": "En cuanto a los estados en los que puede estar un proceso vistos en clase:",
+    "opcionA": "Un proceso entraría al estado Nuevo-Suspendido cuando, durante su creación, no se le pudiese asignar la memoria principal necesaria para que pudiese iniciar su ejecución.",
+    "opcionB": "Un proceso en estado Nuevo podría pasar al estado Saliente si, por ejemplo, es matado por otro proceso.",
+    "correcta": "B"
+  },
+  {
+    "id": 4,
+    "enunciado": "Un proceso que se encuentra en estado Listo, para poder llegar al estado Bloqueado-Suspendido, ha de pasar como mínimo:",
+    "opcionA": "Por dos estado distintos de los anteriores.",
+    "opcionB": "Por un estado distinto de los anteriores.",
+    "correcta": "A"
+  },
+  {
+    "id": 5,
+    "enunciado": "Un proceso que se encuentra en estado Saliente:",
+    "opcionA": "Podría volver a hacer uso de la CPU si el planificador a corto plazo así lo decidiera.",
+    "opcionB": "Mantiene su entrada en la tabla de procesos hasta que el proceso padre captura su código de salida usando la llamada al sistema wait().",
+    "correcta": "B"
+  },
+  {
+    "id": 6,
+    "enunciado": "En cuanto al bloque de control de proceso (BCP) es cierto que:",
+    "opcionA": "Es una tabla que tiene una entrada por cada uno de los procesos que hay en marcha en un instante determinado.",
+    "opcionB": "Almacena la información que el sistema operativo necesita de un único proceso.",
+    "correcta": "B"
+  },
+  {
+    "id": 7,
+    "enunciado": "Cuando dos procesos realizan dos llamadas al sistema exactamente al mismo tiempo:",
+    "opcionA": "Ambas llamadas al sistema se tienen que procesar en secuencia, una detrás de otra, al haber una única copia del sistema operativo en memoria.",
+    "opcionB": "Ambas llamadas al sistema se podrían procesar en paralelo si el computador dispone de un procesador con, al menos, dos CPUs (cores).",
+    "correcta": "B"
+  },
+  {
+    "id": 8,
+    "enunciado": "Cuando un proceso realiza una llamada al sistema:",
+    "opcionA": "La CPU obtiene de una tabla mantenida a nivel hardware la dirección a partir de la cual se encuentra el código del sistema operativo que trata dicha llamada al sistema.",
+    "opcionB": "Antes de guardar el contexto de la ejecución en modo usuario del proceso, el sistema operativo cambia la CPU de modo usuario a modo núcleo.",
+    "correcta": "A"
+  },
+  {
+    "id": 9,
+    "enunciado": "Una característica de la implementación de los hilos en modo usuario es que:",
+    "opcionA": "Permite solapar la E/S y el cómputo de un proceso si el programa usa dos hilos, uno encargado de cada cosa.",
+    "opcionB": "Si un proceso tiene varios hilos, consigue que estos puedan comunicar rápidamente (sin intervención del núcleo del sistema operativo) a través de la memoria que comparten.",
+    "correcta": "B"
+  },
+  {
+    "id": 10,
+    "enunciado": "Si se dispone de un procesador con varias CPUs (multicore) y queremos que, para un proceso concreto con múltiples hilos, se pueda simultanear la ejecución de varios de ellos:",
+    "opcionA": "Solamente podremos lograrlo si se dispone de una implementación de los hilos a nivel del núcleo del sistema operativo.",
+    "opcionB": "Será posible tanto si se dispone de una implementación de los hilos a nivel usuario como si los hilos están soportados directamente por el núcleo del sistema operativo.",
+    "correcta": "A"
+  },
+  {
+    "id": 11,
+    "enunciado": "Dado un proceso con dos hilos, si uno de ellos crea un proceso hijo haciendo uso de la llamada al sistema fork():",
+    "opcionA": "El nuevo proceso será hijo del proceso del hilo que ejecutó la llamada al sistema fork() y, por lo tanto, ambos hilos podrían eliminarlo.",
+    "opcionB": "El nuevo proceso será hijo del hilo que ejecutó la llamada al sistema fork() y, por lo tanto, solamente este hilo podría eliminarlo.",
+    "correcta": "A"
+  },
+  {
+    "id": 12,
+    "enunciado": "El planificador a corto plazo (PCP):",
+    "opcionA": "Es quien decide el orden en el que los procesos que se encuentran en estado Listo van a ir haciendo uso de la CPU.",
+    "opcionB": "Es quien decide el proceso en estado Listo que hay que suspender cuando no hay disponibles procesos en estado Bloqueado.",
+    "correcta": "A"
+  },
+  {
+    "id": 13,
+    "enunciado": "En relación a la planificación de procesos, el tiempo de espera de un proceso es:",
+    "opcionA": "El tiempo que hay que esperar desde que empieza el proceso hasta que se obtienen sus resultados.",
+    "opcionB": "El tiempo que pasa el proceso en la cola de procesos listos.",
+    "correcta": "B"
+  },
+  {
+    "id": 14,
+    "enunciado": "Con respecto a las metas vistas en clase para la planificación de procesos, y pensando en un sistema para dar soporte a procesos interactivos y que, por lo tanto, implemente multitarea:",
+    "opcionA": "Se buscará maximizar la eficiencia en el uso de la CPU en detrimento de la productividad.",
+    "opcionB": "Se buscará maximizar la productividad aún cuando ello conlleve una caída en la eficiencia en el uso de la CPU.",
+    "correcta": "B"
+  },
+  {
+    "id": 15,
+    "enunciado": "La planificación Round-Robin:",
+    "opcionA": "Es no apropiativa, pues hasta que el proceso que está en ejecución no consuma su quantum, el sistema operativo no se puede apropiar de la CPU para dársela a otro proceso.",
+    "opcionB": "Es apropiativa, pues el proceso que está en ejecución puede ser desalojado de la CPU sin haberse bloqueado ni haber finalizado.",
+    "correcta": "B"
+  },
+  {
+    "id": 16,
+    "enunciado": "En cuanto a los esquemas de planificación por prioridades vistos en clase:",
+    "opcionA": "Podrá producirse una situación de inanición si se emplean prioridades dinámicas, ya que estas pueden ir cambiando a lo largo del tiempo, pero no si se usan prioridades estáticas, ya que estas están fijas todo el tiempo.",
+    "opcionB": "Podrá producirse una situación de inanición tanto si se emplean prioridades estáticas como dinámicas.",
+    "correcta": "B"
+  },
+  {
+    "id": 17,
+    "enunciado": "En un esquema con dos colas con realimentación:",
+    "opcionA": "Un proceso que inicialmente comenzó su ejecución en la cola 0, podría pasar después de un tiempo a la cola 1 y no volver nunca a la cola 0 (y viceversa).",
+    "opcionB": "Los procesos de la cola 0 siempre van a tener mayor prioridad que los procesos de la cola 1 y, por lo tanto, solamente se van a ejecutar procesos de la cola 1 cuando la cola 0 esté vacía.",
+    "correcta": "A"
+  },
+  {
+    "id": 18,
+    "enunciado": "Supongamos un sistema que implementa un esquema de planificación Round-Robin con duración de quantum de 10 tics. En el instante t, el proceso P agota su quantum y hay un total de L procesos en Listo y S procesos en Listo-Suspendido. El tiempo máximo que puede transcurrir hasta que P vuelva a recibir la CPU sería:",
+    "opcionA": "L × 10 tics.",
+    "opcionB": "(L + S) × 10 tics.",
+    "correcta": "A"
+  },
+  {
+    "id": 19,
+    "enunciado": "Un fichero especial de caracteres:",
+    "opcionA": "Almacena la información en forma de texto plano, usando algún estándar de representación de caracteres como UTF-8.",
+    "opcionB": "Ha de ser leído y/o escrito utilizando el modo de acceso secuencial.",
+    "correcta": "B"
+  },
+  {
+    "id": 20,
+    "enunciado": "En cuanto a las llamadas al sistema relacionadas con los ficheros regulares y los directorios, la ejecución de una orden 'ls' sobre un directorio implica:",
+    "opcionA": "La realización de, al menos, una llamada al sistema Opendir y varias llamadas al sistema Readdir sobre el directorio.",
+    "opcionB": "La realización de, al menos, una llamada al sistema Readdir sobre el directorio y de varias llamadas al sistema Open y Opendir sobre los elementos del mismo.",
+    "correcta": "A"
+  },
+  {
+    "id": 21,
+    "enunciado": "En un sistema de ficheros, aumentar el tamaño del bloque lógico, con carácter general:",
+    "opcionA": "Aumenta la fragmentación externa.",
+    "opcionB": "Aumenta la tasa de transferencia desde/hacia disco.",
+    "correcta": "B"
+  },
+  {
+    "id": 22,
+    "enunciado": "Si tenemos un fichero regular de 128 KiB y bloques lógicos de 1 KiB, el número de bloques requeridos para almacenar el contenido del fichero:",
+    "opcionA": "Será mayor con la estrategia de lista ligada con índice que con la basada en nodos-i.",
+    "opcionB": "Será menor con la estrategia de asignación contigua que con la basada en lista ligada sin índice.",
+    "correcta": "B"
+  },
+  {
+    "id": 23,
+    "enunciado": "En una implementación basada en lista ligada con índice (FAT), asumiendo que el índice está en memoria, el acceso aleatorio al bloque lógico B (B > 0):",
+    "opcionA": "Requerirá siempre menos accesos a disco que si el sistema de ficheros hubiese empleado una estrategia basada en lista ligada sin índice.",
+    "opcionB": "Requerirá siempre menos accesos a disco que si el sistema de ficheros hubiese empleado una estrategia basada en nodos-i, incluso si el nodo-i ya estuviese en memoria.",
+    "correcta": "A"
+  },
+  {
+    "id": 24,
+    "enunciado": "En una implementación de ficheros mediante lista ligada con índice, si el bloque 0 se encuentra en la dirección D:",
+    "opcionA": "El bloque B de dicho fichero se encontrará en la dirección D+B del disco.",
+    "opcionB": "El bloque B de dicho fichero se puede encontrar en cualquier dirección de disco.",
+    "correcta": "B"
+  },
+  {
+    "id": 25,
+    "enunciado": "Dado un fichero con un tamaño T y bloques lógicos de tamaño B, el bloque lógico en el que se encuentra el byte Z puede calcularse como:",
+    "opcionA": "El cociente de la división (T - Z) / B.",
+    "opcionB": "El cociente de la división Z / B.",
+    "correcta": "B"
+  },
+  {
+    "id": 26,
+    "enunciado": "En una implementación mediante asignación contigua, para modificar un byte del bloque X cuyo bloque 0 está en D:",
+    "opcionA": "Se tendrán que realizar 2 operaciones con bloques de disco (1 lectura y 1 escritura) con el bloque que se encuentra en la dirección D+X.",
+    "opcionB": "Se tendrán que realizar X+2 operaciones con bloques de disco: X+1 lecturas y 1 escritura.",
+    "correcta": "A"
+  },
+  {
+    "id": 27,
+    "enunciado": "En un sistema VFAT (MS-DOS), la limitación del tamaño máximo de un fichero a 4 GiB viene impuesta por:",
+    "opcionA": "El número de bits de las direcciones de disco.",
+    "opcionB": "El número de bits del campo Tamaño de las entradas de directorio.",
+    "correcta": "B"
+  },
+  {
+    "id": 28,
+    "enunciado": "El valor almacenado en el campo Longitud del registro en una entrada de directorio UNIX:",
+    "opcionA": "Es siempre igual al número exacto de bytes requerido para almacenar todos los campos de la entrada.",
+    "opcionB": "Puede ser superior al número de bytes requerido para almacenar todos los campos de la entrada.",
+    "correcta": "B"
+  },
+  {
+    "id": 29,
+    "enunciado": "El número máximo de ficheros que se pueden crear en un sistema de ficheros UNIX estándar:",
+    "opcionA": "Depende del número de nodos-i que ofrezca el sistema de ficheros.",
+    "opcionB": "Depende del tamaño de los ficheros que se vayan creando.",
+    "correcta": "A"
+  },
+  {
+    "id": 30,
+    "enunciado": "Considera un sistema UNIX (10 directos, 1 BSI, 1 BDI, 1 BTI), bloques de 1 KiB y direcciones de 4 bytes. ¿Cuántos bloques de datos consumirá un fichero de 45 KiB?",
+    "opcionA": "45 bloques lógicos.",
+    "opcionB": "46 bloques lógicos.",
+    "correcta": "B"
+  },
+  {
+    "id": 31,
+    "enunciado": "Para resolver la ruta /home/alumno/ExamenISO/ejercicio1.sh con los parámetros de bloques dados, traer el nodo-i del fichero requiere:",
+    "opcionA": "Un mínimo de 7 accesos a disco.",
+    "opcionB": "Un máximo de 14 accesos a disco.",
+    "correcta": "B"
+  },
+  {
+    "id": 32,
+    "enunciado": "En UNIX, si creamos un enlace físico L al fichero F y luego borramos F:",
+    "opcionA": "El enlace L se quedará inconsistente, pues apunta a un fichero que ya no existe.",
+    "opcionB": "Se sigue pudiendo acceder al contenido del fichero F a través del enlace L.",
+    "correcta": "B"
+  },
+  {
+    "id": 33,
+    "enunciado": "En relación con los enlaces simbólicos, es cierto que:",
+    "opcionA": "No pueden usarse para apuntar a un directorio.",
+    "opcionB": "Suelen incrementar el tiempo necesario para acceder al fichero al que apuntan al tener que resolver varias rutas.",
+    "correcta": "B"
+  },
+  {
+    "id": 34,
+    "enunciado": "Sobre las estrategias para bloques libres:",
+    "opcionA": "Ninguno de los bloques del mapa de bits podrá ser empleado después para contenido de ficheros.",
+    "opcionB": "Ninguno de los bloques de la lista ligada podrá ser empleado después para contenido de ficheros.",
+    "correcta": "A"
+  },
+  {
+    "id": 35,
+    "enunciado": "En una caché de disco, no es conveniente utilizar un algoritmo LRU puro:",
+    "opcionA": "Para tratar de reducir el riesgo de que el sistema de ficheros se quede inconsistente tras un fallo de alimentación.",
+    "opcionB": "Porque llevar un registro exacto del orden de acceso es excesivamente costoso.",
+    "correcta": "A"
+  },
+  {
+    "id": 36,
+    "enunciado": "En una partición de 1 GiB con bloques de 1 KiB:",
+    "opcionA": "Se dispondrá de exactamente 2^20 bloques lógicos.",
+    "opcionB": "Se dispondrá de algo menos de 2^20 bloques lógicos, al tener que dedicar espacio para la tabla de particiones.",
+    "correcta": "A"
+  },
+  {
+    "id": 37,
+    "enunciado": "El sistema operativo es una capa software que:",
+    "opcionA": "Puede diseñarse con independencia de las características del hardware.",
+    "opcionB": "Para poder controlar los recursos de la máquina requiere de determinadas características a nivel hardware.",
+    "correcta": "B"
+  },
+  {
+    "id": 38,
+    "enunciado": "Cuando un programa de usuario intenta ejecutar una instrucción privilegiada:",
+    "opcionA": "Dicha situación sería detectada por la CPU, quien avisaría al sistema operativo.",
+    "opcionB": "Dicha situación sería detectada por el sistema operativo, quien avisaría a la CPU.",
+    "correcta": "A"
+  },
+  {
+    "id": 39,
+    "enunciado": "Sobre mecanismos de solapamiento de CPU y E/S:",
+    "opcionA": "El mecanismo de spoolers necesita que CPU y dispositivo trabajen a la misma velocidad.",
+    "opcionB": "El mecanismo de buffers precisa de una zona de memoria principal para el intercambio de información.",
+    "correcta": "B"
+  },
+  {
+    "id": 40,
+    "enunciado": "Comparando un sistema A (multiprogramación) y B (multitarea):",
+    "opcionA": "La cantidad total de tiempo dedicada al SO será generalmente mayor en A que en B.",
+    "opcionB": "La cantidad total de tiempo dedicada al SO será generalmente menor en A que en B.",
+    "correcta": "B"
+  },
+  {
+    "id": 41,
+    "enunciado": "Una llamada al sistema implica que:",
+    "opcionA": "La instrucción inmediatamente posterior se ejecutará en modo usuario.",
+    "opcionB": "La instrucción inmediatamente posterior se ejecutará en modo núcleo.",
+    "correcta": "A"
+  },
+  {
+    "id": 42,
+    "enunciado": "Comparando estructura monolítica vs microkernel:",
+    "opcionA": "El tiempo en modo núcleo será generalmente mayor en la implementación basada en microkernel.",
+    "opcionB": "El tiempo en modo núcleo será generalmente mayor en la implementación monolítica.",
+    "correcta": "B"
+  },
+  {
+    "id": 43,
+    "enunciado": "Sobre el dominio de protección:",
+    "opcionA": "Habitualmente se asocia a un proceso y define sus recursos y operaciones permitidas.",
+    "opcionB": "Es una matriz que tiene tantas columnas como recursos haya definidos.",
+    "correcta": "A"
+  },
+  {
+    "id": 44,
+    "enunciado": "En UNIX, si un proceso abre un fichero en solo lectura:",
+    "opcionA": "Podría usar el descriptor para escribir si el usuario tiene permisos.",
+    "opcionB": "Un intento de escritura daría error siempre, incluso si el usuario tiene permisos de escritura.",
+    "correcta": "B"
+  },
+  {
+    "id": 45,
+    "enunciado": "Sobre la revocación selectiva de permisos:",
+    "opcionA": "Podría realizarse de forma muy sencilla con listas de control de acceso (ACL).",
+    "opcionB": "Sería fácilmente implementable en listas de posibilidades (Capabilities) si se usase un objeto indirecto.",
+    "correcta": "A"
+  },
+  {
+    "id": 46,
+    "enunciado": "En UNIX, si se retiran permisos de lectura a un usuario mientras su proceso tiene el fichero abierto:",
+    "opcionA": "El proceso podrá seguir leyendo de manera indefinida mientras no lo cierre o finalice.",
+    "opcionB": "El fichero se cerrará automáticamente.",
+    "correcta": "A"
+  },
+  {
+    "id": 47,
+    "enunciado": "Durante el proceso de autenticación, el sistema operativo:",
+    "opcionA": "Accede a /etc/passwd, desencripta la contraseña y la compara.",
+    "opcionB": "Accede a /etc/shadow, encripta la contraseña introducida y la compara con la almacenada.",
+    "correcta": "B"
+  },
+  {
+    "id": 48,
+    "enunciado": "En UNIX, si un ejecutable tiene el bit SETUID activo:",
+    "opcionA": "El proceso tendrá como EUID y UID el del propietario del fichero.",
+    "opcionB": "El proceso tendrá como EUID el del propietario del fichero y como UID el del usuario que lo ejecuta.",
+    "correcta": "B"
+  }
+]

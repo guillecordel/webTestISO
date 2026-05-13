@@ -1,0 +1,247 @@
+[
+  {
+    "id": 1,
+    "enunciado": "¿Qué problema soluciona la compactación en la multiprogramación con particiones variables?",
+    "opcionA": "Reubicación.",
+    "opcionB": "Fragmentación externa.",
+    "correcta": "B"
+  },
+  {
+    "id": 2,
+    "enunciado": "La política de asignación de huecos \"peor en ajustarse\":",
+    "opcionA": "Es igual de lenta en las búsquedas que la política \"mejor en ajustarse\".",
+    "opcionB": "Tiende a producir huecos excesivamente pequeños y, por tanto, de difícil uso.",
+    "correcta": "A"
+  },
+  {
+    "id": 3,
+    "enunciado": "En la segmentación pura (es decir, sin paginación):",
+    "opcionA": "Ningún segmento de un programa puede tener un tamaño mayor que el de la memoria principal.",
+    "opcionB": "Se obliga al programador a decidir qué segmentos de un programa deben estar en memoria principal y qué segmentos en disco.",
+    "correcta": "A"
+  },
+  {
+    "id": 4,
+    "enunciado": "Una caché de páginas está constituida:",
+    "opcionA": "Por páginas que el demonio de paginación ha liberado recientemente.",
+    "opcionB": "Por páginas que el demonio de paginación ha escrito recientemente en disco.",
+    "correcta": "A"
+  },
+  {
+    "id": 5,
+    "enunciado": "Si se usa una tabla de páginas de N niveles y paginación por demanda, es cierto que, para un proceso:",
+    "opcionA": "Siempre habrá una tabla de páginas de primer nivel, pudiendo estar esta completamente vacía.",
+    "opcionB": "Siempre habrá, al menos, tantas tablas de páginas de último nivel como páginas haya presentes en memoria del proceso.",
+    "correcta": "A"
+  },
+  {
+    "id": 6,
+    "enunciado": "Los registros base y límite, vistos en clase para los sistemas de multiprogramación con particiones variables, permiten que:",
+    "opcionA": "Cada proceso pueda ocupar 2 o más particiones de memoria principal.",
+    "opcionB": "Los espacios de direcciones lógicas de todos los procesos comiencen en la dirección 0.",
+    "correcta": "B"
+  },
+  {
+    "id": 7,
+    "enunciado": "El campo \"nº de marco\" presente en las entradas de una tabla de páginas:",
+    "opcionA": "Es consultado y actualizado tanto por el sistema operativo como por la MMU.",
+    "opcionB": "Es consultado y actualizado por el sistema operativo, y solo consultado por la MMU.",
+    "correcta": "B"
+  },
+  {
+    "id": 8,
+    "enunciado": "Si se usa una tabla de páginas de 3 niveles, donde las tablas de primer, segundo y tercer nivel tienen 512, 1024 y 1024 entradas cada una, respectivamente, entonces, con páginas de 8 KiB, el tamaño máximo de la memoria virtual de un proceso será:",
+    "opcionA": "4 TiB.",
+    "opcionB": "2 TiB.",
+    "correcta": "A"
+  },
+  {
+    "id": 9,
+    "enunciado": "Teniendo en cuenta el mapa de memoria de un proceso, es cierto que:",
+    "opcionA": "Tiene que tener regiones tales que ocupen completamente el espacio de direcciones virtuales del proceso.",
+    "opcionB": "Cualquier acceso a una página que no pertenezca a ninguna región producirá una violación de acceso y, por tanto, la terminación del proceso.",
+    "correcta": "B"
+  },
+  {
+    "id": 10,
+    "enunciado": "Teniendo en cuenta una misma secuencia de referencias a memoria, de menor a mayor tasa de fallos de página producida habitualmente, tenemos los siguientes algoritmos:",
+    "opcionA": "LRU y óptimo.",
+    "opcionB": "Reloj y FIFO.",
+    "correcta": "B"
+  },
+  {
+    "id": 11,
+    "enunciado": "Los problemas de reubicación y protección vistos en clase se dan:",
+    "opcionA": "Solo en la multiprogramación con particiones variables.",
+    "opcionB": "Tanto en la multiprogramación con particiones variables como fijas.",
+    "correcta": "B"
+  },
+  {
+    "id": 12,
+    "enunciado": "¿Qué técnica de memoria virtual no es totalmente transparente al programador?",
+    "opcionA": "La paginación.",
+    "opcionB": "La segmentación paginada.",
+    "correcta": "B"
+  },
+  {
+    "id": 13,
+    "enunciado": "Si se etiquetan las entradas de un TLB para indicar a qué proceso pertenece cada una, entonces el cambio de proceso en la CPU:",
+    "opcionA": "Se puede realizar sin invalidar ninguna entrada del TLB.",
+    "opcionB": "Siempre supone que se invaliden en el TLB las entradas que pertenecen a dicho proceso.",
+    "correcta": "A"
+  },
+  {
+    "id": 14,
+    "enunciado": "Algoritmos de reemplazo de página que desactivan en algún momento el bit de referencia de una página en memoria son:",
+    "opcionA": "Todos los algoritmos vistos en clase.",
+    "opcionB": "NRU, segunda oportunidad, reloj y maduración.",
+    "correcta": "B"
+  },
+  {
+    "id": 15,
+    "enunciado": "En los sistemas de computación actuales, es habitual que el sistema operativo ocupe el principio de la memoria RAM y, además:",
+    "opcionA": "El final del espacio de direcciones virtuales de cada proceso.",
+    "opcionB": "El principio del espacio de direcciones virtuales de cada proceso.",
+    "correcta": "A"
+  },
+  {
+    "id": 16,
+    "enunciado": "Si se tarda un tiempo T en acceder tanto a una entrada de la tabla de dispersión como a una entrada de la tabla de traducción de una tabla de páginas invertida, y si la longitud media de las cadenas en la tabla de traducción es de L entradas, entonces, el tiempo mínimo necesario para resolver un fallo de TLB será:",
+    "opcionA": "2 × T.",
+    "opcionB": "L × T.",
+    "correcta": "A"
+  },
+  {
+    "id": 17,
+    "enunciado": "La copia en escritura es una técnica que permite:",
+    "opcionA": "Acelerar la escritura de páginas modificadas en disco.",
+    "opcionB": "Reducir el consumo total de memoria RAM por parte de los procesos.",
+    "correcta": "B"
+  },
+  {
+    "id": 18,
+    "enunciado": "Es más probable que un proceso entre en hiperpaginación si las políticas de reemplazo y asignación son, respectivamente:",
+    "opcionA": "Local y fija.",
+    "opcionB": "Local y dinámica.",
+    "correcta": "A"
+  },
+  {
+    "id": 19,
+    "enunciado": "Teniendo en cuenta la posible compartición de marcos, es cierto que, en una tabla de páginas invertida:",
+    "opcionA": "Existe una única entrada válida por cada página virtual presente en memoria de un proceso.",
+    "opcionB": "Existe una única entrada válida por cada marco de memoria ocupado por una página.",
+    "correcta": "A"
+  },
+  {
+    "id": 20,
+    "enunciado": "Suponiendo la existencia de una copia en escritura, si un proceso padre crea un proceso hijo, entonces, cuando uno de los dos procesos (padre o hijo) escriba en una región modificable, la copia en escritura provocará que:",
+    "opcionA": "Se haga una copia del marco de la página a modificar y se asigne la copia a dicha página en el proceso que hace la escritura.",
+    "opcionB": "Se haga una copia de todos los marcos de la región y se asignen las copias a las páginas correspondientes del proceso que hace la escritura.",
+    "correcta": "A"
+  },
+  {
+    "id": 21,
+    "enunciado": "El algoritmo de maduración para el reemplazo de páginas:",
+    "opcionA": "Es una implementación software eficiente y exacta del algoritmo LRU.",
+    "opcionB": "Puede ser incapaz de ordenar las páginas según el instante del último acceso de las mismas.",
+    "correcta": "B"
+  },
+  {
+    "id": 22,
+    "enunciado": "En la segmentación paginada:",
+    "opcionA": "No todos los segmento de un proceso deben estar en memoria, pero, los que están, deben encontrarse completamente en memoria.",
+    "opcionB": "Las direcciones virtuales son bidimensionales, como en la segmentación pura.",
+    "correcta": "B"
+  },
+  {
+    "id": 23,
+    "enunciado": "La tasa de fallos de página, producida por una determinada secuencia de referencias a memoria de un proceso cuando se usa cierto algoritmo de reemplazo, puede disminuir si:",
+    "opcionA": "Se asignan más marcos al proceso.",
+    "opcionB": "Se usa una tabla de páginas invertida o una tabla de páginas de varios niveles en lugar de una tabla de páginas de un único nivel.",
+    "correcta": "A"
+  },
+  {
+    "id": 24,
+    "enunciado": "Capas del software de E/S de un sistema que interactúan directamente con el hardware son:",
+    "opcionA": "Manejadores de dispositivos y manejadores de interrupciones.",
+    "opcionB": "Manejadores de dispositivos únicamente.",
+    "correcta": "A"
+  },
+  {
+    "id": 25,
+    "enunciado": "Un reloj programable que produce 50 marcas por segundo y tiene un registro de carga con valor 400,000, tiene un oscilador con una frecuencia de:",
+    "opcionA": "8 KHz.",
+    "opcionB": "20 MHz.",
+    "correcta": "B"
+  },
+  {
+    "id": 26,
+    "enunciado": "Un algoritmo de planificación de disco que trata no solo de reducir los movimientos de las cabezas, sino también de proporcionar tiempos de espera más uniformes es:",
+    "opcionA": "C-SCAN.",
+    "opcionB": "SSF.",
+    "correcta": "A"
+  },
+  {
+    "id": 27,
+    "enunciado": "La implementación de alarmas mediante una lista ligada es más eficiente que la implementación mediante una tabla porque:",
+    "opcionA": "Tiene las alarmas ordenadas cronológicamente, lo que acelera el proceso de búsqueda de la siguiente alarma a considerar.",
+    "opcionB": "Almacena las diferencias de tiempo entre alarmas y no tiempos absolutos, lo que facilita la inserción y eliminación de alarmas.",
+    "correcta": "A"
+  },
+  {
+    "id": 28,
+    "enunciado": "Los ficheros especiales de dispositivo de un sistema Unix proporcionan, para los dispositivos de bloques y de caracteres:",
+    "opcionA": "Un tamaño de bloque independiente del dispositivo para las operaciones tanto de lectura como de escritura.",
+    "opcionB": "Un mecanismo de protección que controla qué usuarios pueden acceder a un dispositivo y con qué operaciones.",
+    "correcta": "B"
+  },
+  {
+    "id": 29,
+    "enunciado": "Una diferencia entre los cronómetros guardianes y las alarmas es que:",
+    "opcionA": "Los cronómetros guardianes se notifican mediante la ejecución de una función o procedimiento, mientras que las alarmas se notifican habitualmente mediante el envío de señales.",
+    "opcionB": "Los cronómetros guardianes son un servicio proporcionado a los programas de usuario, mientras que las alarmas son un servicio proporcionado por el sistema operativo a otras partes del mismo.",
+    "correcta": "A"
+  },
+  {
+    "id": 30,
+    "enunciado": "Los discos duros actuales tienen un número variable de sectores por pista. Para ocultar este hecho, la controladora:",
+    "opcionA": "Presenta el disco como un array lineal de bloques, cada uno identificado por su propia dirección o LBA.",
+    "opcionB": "Presenta el disco como un disco tradicional, donde todas las pistas tienen el mismo número de sectores.",
+    "correcta": "A"
+  },
+  {
+    "id": 31,
+    "enunciado": "Tiempos de un disco duro que se reducen al incrementar exclusivamente el número de revoluciones por minuto son:",
+    "opcionA": "Tiempo de latencia y transmisión.",
+    "opcionB": "Tiempo de búsqueda y latencia.",
+    "correcta": "A"
+  },
+  {
+    "id": 32,
+    "enunciado": "En un disco RAM, es cierto que:",
+    "opcionA": "Los tiempos de búsqueda y latencia son 0.",
+    "opcionB": "Todos los tiempos que determinan el tiempo de acceso (búsqueda, latencia y transmisión) son 0.",
+    "correcta": "A"
+  },
+  {
+    "id": 33,
+    "enunciado": "En los sistemas operativos actuales, los manejadores de dispositivo:",
+    "opcionA": "Deben adaptarse a la interfaz definida por el sistema operativo para los mismos.",
+    "opcionB": "Condicionan la implementación del sistema operativo, que tiene que adaptarse a las peculiaridades de cada manejador de dispositivo.",
+    "correcta": "A"
+  },
+  {
+    "id": 34,
+    "enunciado": "Uno de los objetivos del software de E/S es:",
+    "opcionA": "Convertir las transferencias síncronas de E/S en asíncronas para los procesos de usuario.",
+    "opcionB": "Convertir las transferencias asíncronas de E/S en síncronas para los procesos de usuario.",
+    "correcta": "B"
+  },
+  {
+    "id": 35,
+    "enunciado": "La asignación y liberación de los dispositivos de uso exclusivo es una función que corresponde:",
+    "opcionA": "Al software de E/S independiente de dispositivo.",
+    "opcionB": "A los manejadores de dichos dispositivos.",
+    "correcta": "A"
+  }
+]
